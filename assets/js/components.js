@@ -466,6 +466,7 @@ body.announce-visible .folner-site-header {
      INJECT CSS
   ───────────────────────────────────────────────────────────────── */
   function injectCSS() {
+    if (document.getElementById('folner-global-components-css')) return;
     var style = document.createElement('style');
     style.id = 'folner-global-components-css';
     style.textContent = GLOBAL_CSS;
@@ -478,35 +479,39 @@ body.announce-visible .folner-site-header {
   function injectComponents() {
     var body = document.body;
 
-    // Inject announce bar at very top of body
-    var announceWrapper = document.createElement('div');
-    announceWrapper.innerHTML = ANNOUNCE_BAR_HTML.trim();
-    body.insertBefore(announceWrapper.firstElementChild, body.firstChild);
-
-    // Inject header after announce bar
-    var headerWrapper = document.createElement('div');
-    headerWrapper.innerHTML = HEADER_HTML.trim();
-    // Insert all header children (header + menu-overlay)
-    var announceEl = document.getElementById('announceBar');
-    var refNode = announceEl ? announceEl.nextSibling : body.firstChild;
-    while (headerWrapper.firstChild) {
-      body.insertBefore(headerWrapper.firstChild, refNode);
+    // ── Announce Bar ──
+    // Only inject if not already present on the page
+    if (!document.getElementById('announceBar')) {
+      var announceWrapper = document.createElement('div');
+      announceWrapper.innerHTML = ANNOUNCE_BAR_HTML.trim();
+      body.insertBefore(announceWrapper.firstElementChild, body.firstChild);
     }
 
-    // Remove any existing old-style footer + header to avoid duplicates
-    var oldFooter = document.getElementById('siteFooter');
-    if (oldFooter) oldFooter.remove();
-    var oldHeader = document.getElementById('siteHeader');
-    if (oldHeader) oldHeader.remove();
-    var oldMenu = document.getElementById('menuOverlay');
-    if (oldMenu) oldMenu.remove();
-    var oldAnnounce = document.getElementById('announceBar');
-    if (oldAnnounce) oldAnnounce.remove();
+    // ── Header + Menu Overlay ──
+    // Only inject if not already present
+    if (!document.getElementById('siteHeader')) {
+      var headerWrapper = document.createElement('div');
+      headerWrapper.innerHTML = HEADER_HTML.trim();
+      var announceEl = document.getElementById('announceBar');
+      var refNode = announceEl ? announceEl.nextSibling : body.firstChild;
+      while (headerWrapper.firstChild) {
+        body.insertBefore(headerWrapper.firstChild, refNode);
+      }
+    }
 
-    // Inject footer at end of body (before any closing scripts)
-    var footerWrapper = document.createElement('div');
-    footerWrapper.innerHTML = FOOTER_HTML.trim();
-    body.appendChild(footerWrapper.firstElementChild);
+    // ── Footer ──
+    // Only inject footer if not already present
+    var oldMenu = document.getElementById('menuOverlay');
+    if (oldMenu && !document.getElementById('siteHeader')) oldMenu.remove();
+    var oldAnnounce = document.getElementById('announceBar');
+    if (oldAnnounce && !document.getElementById('siteHeader')) oldAnnounce.remove();
+
+    // Inject footer at end of body only if not already present
+    if (!document.getElementById('siteFooter')) {
+      var footerWrapper = document.createElement('div');
+      footerWrapper.innerHTML = FOOTER_HTML.trim();
+      body.appendChild(footerWrapper.firstElementChild);
+    }
   }
 
   /* ─────────────────────────────────────────────────────────────────
