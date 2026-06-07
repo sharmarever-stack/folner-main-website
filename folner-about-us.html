@@ -3,12 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="format-detection" content="telephone=no">
   <title>Folner — About Us</title>
+
+  <!-- SEO -->
+  <link rel="canonical" href="https://folner.com/about">
+  <meta name="robots" content="index, follow">
   <meta name="description" content="Folner is a product development company dedicated to creating beautiful, intuitive software that feels alive.">
   <meta name="theme-color" content="#000000">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Folner — About Us">
+  <meta property="og:description" content="Folner is a product development company creating beautiful, intuitive software that feels alive.">
+  <meta property="og:image" content="https://folner.com/assets/images/Folner_Wordmark_Dark_Logo-final.png">
+  <meta property="og:url" content="https://folner.com/about">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Folner — About Us">
+  <meta name="twitter:description" content="Folner is a product development company creating beautiful, intuitive software that feels alive.">
+  <meta name="twitter:image" content="https://folner.com/assets/images/Folner_Wordmark_Dark_Logo-final.png">
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/png" href="assets/images/Folner_Icon_Dark_Logo-final.png">
+  <link rel="apple-touch-icon" href="assets/images/Folner_Icon_Dark_Logo-final.png">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=optional">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=optional" rel="stylesheet">
 <style>
 :root {
   --canvas: #000000;
@@ -81,19 +108,19 @@ canvas#heroNeural{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
 .hero-platform em{font-style:normal;background:var(--gradient-prism);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 .hero-manifesto{font-size:clamp(14px,1.5vw,17px);font-weight:400;color:rgba(255,255,255,0.38);line-height:1.80;letter-spacing:0em;max-width:480px;margin:0 auto;opacity:0;animation:fadeUp 0.9s 1.7s var(--ease-snap) forwards;}
 .scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fadeUp 1s 2.2s var(--ease-snap) forwards;}
-.scroll-indicator span{Ipx;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.20);}
+.scroll-indicator span{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.20);}
 .scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,rgba(255,255,255,0.30),transparent);animation:scrollPulse 2.4s ease-in-out 2.5s infinite;}
 @keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(1) translateY(0);}50%{opacity:1;transform:scaleY(0.5) translateY(50%);}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
 
 /* ── Shared section ── */
 section{position:relative;z-index:2;}
-.section-eyebrow{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-bottom:20px;}
+.section-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-bottom:20px;}
 .prism-strip{width:36px;height:2px;background:var(--gradient-prism);border-radius:2px;margin-bottom:16px;}
 .prism-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06) 20%,rgba(255,255,255,0.06) 80%,transparent);margin:0 64px;position:relative;z-index:2;}
 
 /* ── Reveal ── */
-.reveal-up{opacity:0;transform:translateY(36px);transition:opacity 900ms var(--ease-snap),transform 900ms var(--ease-snap);}
+.reveal-up{opacity:0;transform:translateY(36px);transition:opacity 900ms var(--ease-snap),transform 900ms var(--ease-snap);contain:layout style;}
 .reveal-fade{opacity:0;transition:opacity 1000ms var(--ease-snap);}
 .reveal-up.visible,.reveal-fade.visible{opacity:1;transform:translateY(0);}
 .d1{transition-delay:80ms;} .d2{transition-delay:180ms;} .d3{transition-delay:280ms;} .d4{transition-delay:380ms;}
@@ -117,7 +144,7 @@ section{position:relative;z-index:2;}
 .mission-panel:hover{border-color:rgba(255,255,255,0.14);}
 .mission-quote{font-size:19px;font-weight:400;color:rgba(255,255,255,0.72);line-height:1.65;letter-spacing:-0.01em;margin-bottom:24px;}
 .mission-quote strong{color:#fff;font-weight:600;}
-.mission-attribution{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.18);}
+.mission-attribution{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.18);}
 .panel-glow{position:absolute;top:-80px;right:-80px;width:240px;height:240px;background:radial-gradient(circle,rgba(198,121,196,0.15) 0%,transparent 70%);pointer-events:none;}
 
 /* ── WHAT IF ── */
@@ -131,7 +158,7 @@ section{position:relative;z-index:2;}
 .whatif-card{background:rgba(7,8,10,0.90);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:32px;position:relative;overflow:hidden;cursor:default;will-change:transform;transition:border-color 300ms ease;}
 .whatif-card::before{content:'';position:absolute;inset:0;border-radius:16px;opacity:0;transition:opacity 400ms ease;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,0.04) 0%,transparent 60%);}
 .whatif-card:hover::before{opacity:1;}
-.whatif-q{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-bottom:16px;}
+.whatif-q{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-bottom:16px;}
 .whatif-statement{font-size:18px;font-weight:600;letter-spacing:-0.02em;line-height:1.35;color:rgba(255,255,255,0.82);}
 .whatif-accent{position:absolute;bottom:0;left:0;right:0;height:1.5px;opacity:0.7;}
 .whatif-card:nth-child(1) .whatif-accent{background:linear-gradient(90deg,rgba(198,121,196,0.15),transparent);}
@@ -171,7 +198,7 @@ section{position:relative;z-index:2;}
 .belief-num{font-size:clamp(52px,5vw,80px);font-weight:900;letter-spacing:-0.06em;line-height:1;color:rgba(255,255,255,0.22);align-self:center;font-variant-numeric:tabular-nums;transition:color 400ms ease;}
 .belief-card:hover .belief-num{color:rgba(255,255,255,0.22);}
 .belief-title{font-size:clamp(20px,2vw,28px);font-weight:700;letter-spacing:-0.03em;line-height:1.15;color:#fff;margin-bottom:14px;padding-top:4px;}
-.belief-tag{display:inline-block;Ipx;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--bclr);margin-bottom:16px;opacity:0.85;}
+.belief-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--bclr);margin-bottom:16px;opacity:0.85;}
 .belief-body{font-size:15px;font-weight:400;color:rgba(255,255,255,0.42);line-height:1.78;text-align:left;}
 .belief-halo{position:absolute;top:0;right:0;width:400px;height:100%;pointer-events:none;opacity:0;transition:opacity 500ms ease;}
 .belief-card--signal .belief-halo{background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(198,121,196,0.15) 0%,transparent 70%);}
@@ -228,7 +255,7 @@ section{position:relative;z-index:2;}
 .principle-num{font-size:12px;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.16);padding-top:3px;font-variant-numeric:tabular-nums;}
 .principle-label{font-size:18px;font-weight:600;letter-spacing:-0.02em;color:#fff;margin-bottom:8px;}
 .principle-desc{font-size:14px;font-weight:400;color:rgba(255,255,255,0.38);line-height:1.68;text-align:left;}
-.principle-tag{font-size:10px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.16);padding-top:5px;text-align:right;}
+.principle-tag{font-size:11px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.16);padding-top:5px;text-align:right;}
 
 /* ── Culture ── */
 .culture-section{padding:120px 64px;background:var(--surface-1);overflow:hidden;}
@@ -242,7 +269,7 @@ section{position:relative;z-index:2;}
 .culture-right{display:flex;flex-direction:column;gap:14px;padding-top:8px;}
 .culture-belief{background:var(--surface-2);border:1px solid var(--border-subtle);border-radius:14px;padding:24px 28px;transition:border-color 300ms ease;}
 .culture-belief:hover{border-color:var(--border-strong);}
-.culture-belief-label{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-bottom:10px;}
+.culture-belief-label{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-bottom:10px;}
 
 /* ── What We're Building Next ── */
 .next-section{position:relative;padding:0 0 140px;overflow:hidden;background:#000;}
@@ -262,7 +289,7 @@ section{position:relative;z-index:2;}
 .next-side{display:flex;flex-direction:column;gap:24px;padding-bottom:6px;}
 .next-side-eyebrow{display:flex;align-items:center;gap:12px;}
 .next-side-eyebrow::before{content:'';width:24px;height:1px;background:rgba(255,255,255,0.20);}
-.next-eyebrow-text{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.22);}
+.next-eyebrow-text{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.22);}
 .next-side-text{font-size:15px;line-height:1.78;color:rgba(255,255,255,0.42);letter-spacing:-0.005em;text-align:left;}
 .next-cta-row{display:flex;gap:14px;flex-wrap:wrap;}
 .next-cta-primary{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:6px;background:#fff;color:#000;font-size:13.5px;font-weight:700;letter-spacing:-0.01em;text-decoration:none;transition:opacity 180ms ease,transform 160ms ease;}
@@ -303,7 +330,7 @@ footer{position:relative;z-index:2;border-top:1px solid var(--border-subtle);}
 .footer-cta:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.20);color:#fff;}
 .footer-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:0 24px;}
 .footer-col{display:flex;flex-direction:column;gap:12px;}
-.footer-col-label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-bottom:4px;}
+.footer-col-label{font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-bottom:4px;}
 .footer-link{font-size:13px;color:rgba(255,255,255,0.38);text-decoration:none;transition:color 150ms ease;}
 .footer-link:hover{color:rgba(255,255,255,0.82);}
 .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid rgba(255,255,255,0.04);flex-wrap:wrap;gap:12px;}
@@ -362,14 +389,7 @@ body.c-hover #cursorRing{
 
 /* ── Brand buttons ── */
 .btn-icon{width:14px;height:14px;flex-shrink:0;display:inline-block;}
-.btn-p,.btn-g,.btn-sm,.hdr-btn,.sab-btn,.sb-apply,.form-submit,.suc-close,
-.hero-btn-p,.hero-btn-g,.hero-btn-primary,.hero-btn-secondary,
-.header-cta,.dept-tabs .dt{
-  display:inline-flex;align-items:center;gap:7px;
-  border-radius:6px;font-family:inherit;
-  letter-spacing:-0.01em;text-decoration:none;
-  transition:opacity 180ms ease,transform 160ms ease,background 180ms ease,border-color 180ms ease;
-}
+.btn-p,.btn-g,.btn-sm,
 /* Primary — solid white */
 .btn-p,.hero-btn-p,.hero-btn-primary,.sab-btn,.sb-apply,.form-submit{
   padding:10px 20px;background:#fff;color:#000;border:none;
@@ -382,16 +402,9 @@ body.c-hover #cursorRing{
 .form-submit:disabled{opacity:.32;cursor:not-allowed;transform:none;}
 .sb-apply{width:100%;padding:14px;font-size:13.5px;margin-bottom:12px;justify-content:center;}
 /* Ghost — bordered */
-.btn-g,.hero-btn-g,.hero-btn-secondary,.hdr-btn,.header-cta,.suc-close{
-  padding:10px 20px;background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.12);
-  color:rgba(255,255,255,.78);font-size:13.5px;font-weight:500;cursor:pointer;
-}
-.btn-g:hover,.hero-btn-g:hover,.hero-btn-secondary:hover,.hdr-btn:hover,.header-cta:hover,.suc-close:hover{
-  background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.26);
-  color:#fff;transform:translateY(-1px);
-}
-.hdr-btn,.header-cta{padding:7px 16px;font-size:12.5px;font-weight:600;}
+.btn-g,.hero-btn-g,.hero-btn-secondary,
+.btn-g:hover,.hero-btn-g:hover,.hero-btn-secondary:hover,
+
 .suc-close{padding:11px 28px;font-size:13px;margin-top:8px;}
 
 
@@ -399,9 +412,32 @@ body.c-hover #cursorRing{
 @keyframes pgIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
 body.pg-enter{animation:pgIn 500ms cubic-bezier(0.34,1.56,0.64,1) both;}
 body.pg-exit{opacity:0;transform:translateY(-8px);transition:opacity 280ms ease,transform 280ms ease;pointer-events:none;}
+
+/* ── Standard site footer ── */
+.site-footer{position:relative;background:#000;overflow:hidden;}
+.footer-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0.55;}
+.footer-prism-bar{position:relative;z-index:2;width:100%;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(198,121,196,0.55) 12%,rgba(250,61,29,0.50) 28%,rgba(255,176,5,0.50) 50%,rgba(225,225,254,0.40) 68%,rgba(3,88,247,0.50) 85%,transparent 100%);}
+.footer-inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:80px 64px 52px;}
+.footer-logo-wrap{display:flex;justify-content:center;margin-bottom:48px;}
+.footer-wordmark-logo{height:28px;width:auto;max-width:160px;object-fit:contain;display:block;opacity:0.85;transition:opacity 300ms ease;}
+.footer-wordmark-logo:hover{opacity:1;}
+.footer-center{display:flex;flex-direction:column;align-items:center;gap:24px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,0.06);text-align:center;}
+.footer-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:6px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.72);font-size:13px;font-weight:500;letter-spacing:-0.01em;text-decoration:none;transition:background 220ms ease,border-color 220ms ease,color 220ms ease;}
+.footer-cta:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.22);color:#fff;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:32px;flex-wrap:wrap;gap:12px;}
+.footer-nav-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.footer-link{font-size:14px;font-weight:500;color:rgba(255,255,255,0.62);text-decoration:none;letter-spacing:-0.005em;transition:color 160ms ease;}
+.footer-link:hover{color:#fff;}
+.footer-nav-sep{width:1px;height:12px;background:rgba(255,255,255,0.18);}
+.footer-copy{font-size:13px;color:rgba(255,255,255,0.50);}
+@media(max-width:768px){.footer-inner{padding:56px 32px 40px;}.footer-bottom{flex-direction:column;align-items:flex-start;gap:16px;}}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}
+.skip-link:focus{top:0;}
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#fff;color:#000;padding:8px 16px;z-index:10000;font-size:14px;transition:top 200ms;">Skip to content</a>
 <div id="cursorDot"></div><div id="cursorRing"></div>
 
 
@@ -421,40 +457,27 @@ body.pg-exit{opacity:0;transform:translateY(-8px);transition:opacity 280ms ease,
 <!-- Header -->
 <header class="site-header" id="siteHeader">
   <a class="header-icon" href="index.html" aria-label="Folner home">
-    <img src="mq175l5e-Folner_Icon_Dark_Logo-final.png" alt="Folner icon">
+    <img src="Folner_Logo/Final_Logos/Folner_Icon_Dark_Logo-final.png" alt="Folner icon" fetchpriority="high" decoding="async">
   </a>
   <a class="header-wordmark" href="index.html" aria-label="Folner">
-    <img src="mq175l5g-Folner_Wordmark_Dark_Logo-final.png" alt="Folner">
+    <img src="Folner_Logo/Final_Logos/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" fetchpriority="high" decoding="async">
   </a>
   <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </header>
-
 <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
   <nav class="menu-nav" aria-label="Site navigation">
-    <a href="#top"        class="menu-link">Home</a>
-    <a href="#mission"    class="menu-link">Mission</a>
-    <a href="#whatif"     class="menu-link">WHAT IF?</a>
-    <a href="#philosophy" class="menu-link">Philosophy</a>
+    <a href="index.html" class="menu-link">Home</a>
+    <a href="folner-about-us.html" class="menu-link">About</a>
+    <a href="folner-careers-2.html" class="menu-link">Careers</a>
+    <a href="folner-contact.html" class="menu-link">Contact</a>
   </nav>
 </div>
 
-<!-- HERO -->
-<section class="about-hero" id="top" data-od-id="hero">
-  <canvas id="heroNeural" aria-hidden="true"></canvas>
-  <div class="hero-vignette" aria-hidden="true"></div>
-  <div class="hero-content" id="heroContent">
-    <span class="hero-eyebrow">Folner — About Us</span>
-    <h1 class="hero-headline" id="heroHeadline" aria-label="Raise the Standard."></h1>
-    <p class="hero-platform"><em>WHAT IF</em> software felt alive?</p>
-    <p class="hero-manifesto">We are a product development company. We build and own software products. Every product we ship raises the standard of what software can be.</p>
-  </div>
-  <div class="scroll-indicator">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
+<main id="main-content">
+
+<h1 class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Folner — About Us</h1>
 
 <div class="prism-divider" aria-hidden="true"></div>
 
@@ -704,49 +727,37 @@ body.pg-exit{opacity:0;transform:translateY(-8px);transition:opacity 280ms ease,
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
-<footer>
-  <div class="footer-prism"></div>
+<footer class="site-footer" id="siteFooter">
+  <canvas class="footer-canvas" id="footerCanvas" aria-hidden="true"></canvas>
+  <div class="footer-prism-bar" aria-hidden="true"></div>
   <div class="footer-inner">
-    <div class="footer-brand-row">
-      <div class="footer-brand-left">
-        <img src="mq175l5g-Folner_Wordmark_Dark_Logo-final.png" alt="Folner">
-        <p class="footer-statement">A product development company dedicated to creating beautiful, intuitive software that feels alive.</p>
-        <a href="index.html" class="footer-cta"><svg class="btn-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="1.5" width="7" height="7" rx="1"/><polyline points="7,5 10.5,1.5"/><polyline points="8,1.5 10.5,1.5 10.5,4"/></svg>View Products</a>
-      </div>
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <div class="footer-col">
-          <p class="footer-col-label">Company</p>
-          <a href="folner-about-us.html" class="footer-link">About</a>
-          <a href="#philosophy" class="footer-link">Philosophy</a>
-          <a href="#culture" class="footer-link">Culture</a>
-        </div>
-        <div class="footer-col">
-          <p class="footer-col-label">Products</p>
-          <a href="index.html" class="footer-link">All Products</a>
-        </div>
-        <div class="footer-col">
-          <p class="footer-col-label">Legal</p>
-          <a href="privacy.html" class="footer-link">Privacy</a>
-          <a href="terms.html" class="footer-link">Terms</a>
-          <a href="security.html" class="footer-link">Security</a>
-          <a href="cookies.html" class="footer-link">Cookies</a>
-        </div>
-        <div class="footer-col">
-          <p class="footer-col-label">Explore</p>
-          <a href="#whatif" class="footer-link">WHAT IF?</a>
-          <a href="#philosophy" class="footer-link">Philosophy</a>
-          <a href="#culture" class="footer-link">Culture</a>
-        </div>
-      </nav>
+    <div class="footer-logo-wrap">
+      <img src="Folner_Logo/Final_Logos/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" class="footer-wordmark-logo" loading="lazy" decoding="async">
+    </div>
+    <div class="footer-center">
+      <a href="folner-careers-2.html" class="footer-cta">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><rect x="1" y="1" width="12" height="12" rx="2"/><path d="M4.5 7h5M7 4.5v5"/></svg>
+        See open roles
+      </a>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 Folner. Product Development Company.</p>
-      <div class="footer-legal">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="cookies.html">Cookies</a>
-      </div>
+      <nav class="footer-nav-row" aria-label="Footer">
+        <a href="folner-about-us.html" class="footer-link">About</a>
+        <div class="footer-nav-sep" aria-hidden="true"></div>
+        <a href="folner-careers-2.html" class="footer-link">Careers</a>
+        <div class="footer-nav-sep" aria-hidden="true"></div>
+        <a href="folner-contact.html" class="footer-link">Contact</a>
+        <div class="footer-nav-sep" aria-hidden="true"></div>
+        <a href="privacy.html" class="footer-link">Privacy</a>
+        <div class="footer-nav-sep" aria-hidden="true"></div>
+        <a href="terms.html" class="footer-link">Terms</a>
+        <div class="footer-nav-sep" aria-hidden="true"></div>
+        <a href="cookies.html" class="footer-link">Cookies</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 Folner, Inc. All rights reserved.</p>
     </div>
   </div>
 </footer>
@@ -891,22 +902,24 @@ function makeNeural(canvas, tintRGB, nodeCount, maxDist, speed, alpha) {
   if (!c) return;
   const ctx = c.getContext('2d');
   const COLORS = [[79,70,229],[2,132,199],[5,150,105],[217,119,6],[198,121,196]];
-  let W, H, nodes = [];
+  let W, H, nodes = [], visible = true;
   function resize() { W=c.width=c.offsetWidth; H=c.height=c.offsetHeight; }
-  function init() { nodes = Array.from({length:90}, () => ({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*0.30,vy:(Math.random()-0.5)*0.30,r:Math.random()*1.6+0.5})); }
+  function init() { nodes = Array.from({length:70}, () => ({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*0.28,vy:(Math.random()-0.5)*0.28,r:Math.random()*1.6+0.5})); }
   function draw() {
+    if (!visible) { requestAnimationFrame(draw); return; }
     ctx.clearRect(0,0,W,H);
     for (let i=0;i<nodes.length;i++){
       const a=nodes[i]; a.x+=a.vx; a.y+=a.vy;
       if(a.x<0||a.x>W)a.vx*=-1; if(a.y<0||a.y>H)a.vy*=-1;
       for(let j=i+1;j<nodes.length;j++){
         const b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
-        if(d<170){ const [r,g,bl]=COLORS[(i+j)%5]; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.strokeStyle=`rgba(${r},${g},${bl},${(1-d/170)*0.20})`; ctx.lineWidth=0.6; ctx.stroke(); }
+        if(d<160){ const [r,g,bl]=COLORS[(i+j)%5]; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.strokeStyle=`rgba(${r},${g},${bl},${(1-d/160)*0.18})`; ctx.lineWidth=0.6; ctx.stroke(); }
       }
       const [r,g,bl]=COLORS[i%5]; ctx.beginPath(); ctx.arc(a.x,a.y,a.r,0,Math.PI*2); ctx.fillStyle=`rgba(${r},${g},${bl},0.55)`; ctx.fill();
     }
     requestAnimationFrame(draw);
   }
+  new IntersectionObserver(entries => { visible = entries[0].isIntersecting; }, {threshold:0}).observe(c.parentElement||c);
   new ResizeObserver(resize).observe(c); resize(); init(); draw();
 })();
 
@@ -990,6 +1003,39 @@ document.querySelectorAll('.whatif-card').forEach(card => {
     pulse.style.animation = 'pulsate 0.8s ease-out forwards';
   });
 });
+
+(function(){
+  var fc=document.getElementById('footerCanvas');
+  if(!fc)return;
+  var ctx=fc.getContext('2d'),W=0,H=0,nodes=[],raf=null,active=false;
+  function resize(){W=fc.offsetWidth;H=fc.offsetHeight;fc.width=W;fc.height=H;}
+  function init(){
+    nodes=[];
+    for(var i=0;i<22;i++)nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4});
+  }
+  function draw(){
+    if(!active)return;
+    ctx.clearRect(0,0,W,H);
+    nodes.forEach(function(n){
+      n.x+=n.vx;n.y+=n.vy;
+      if(n.x<0||n.x>W)n.vx*=-1;
+      if(n.y<0||n.y>H)n.vy*=-1;
+    });
+    for(var i=0;i<nodes.length;i++)for(var j=i+1;j<nodes.length;j++){
+      var dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<120){ctx.beginPath();ctx.strokeStyle='rgba(198,121,196,'+(0.08*(1-d/120))+')';ctx.lineWidth=.5;ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();}
+    }
+    nodes.forEach(function(n){ctx.beginPath();ctx.arc(n.x,n.y,1.8,0,Math.PI*2);ctx.fillStyle='rgba(198,121,196,0.35)';ctx.fill();});
+    raf=requestAnimationFrame(draw);
+  }
+  var io=new IntersectionObserver(function(entries){
+    active=entries[0].isIntersecting;
+    if(active){resize();init();if(!raf)draw();}else{if(raf){cancelAnimationFrame(raf);raf=null;}}
+  },{threshold:.05});
+  io.observe(fc);
+  window.addEventListener('resize',function(){if(active){resize();init();}},{passive:true});
+})();
+
 </script>
 <script>
 /* ── Custom cursor ── */

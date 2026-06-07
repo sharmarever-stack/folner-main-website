@@ -3,46 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="format-detection" content="telephone=no">
   <title>Folner — What If?</title>
 
-  <!-- SEO & Social -->
+  <!-- SEO -->
+  <link rel="canonical" href="https://folner.com/">
+  <meta name="robots" content="index, follow">
   <meta name="description" content="Folner — Challenging the status quo of digital product design. What if everything worked better?">
   <meta name="keywords" content="Folner, design, product, digital, innovation">
   <meta name="author" content="Folner">
-  <meta name="theme-color" content="#030405">
+  <meta name="theme-color" content="#000000">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Folner — What If?">
   <meta property="og:description" content="Challenging the status quo of digital product design. What if everything worked better?">
-  <meta property="og:image" content="assets/images/Folner_Wordmark_Dark_Logo.png">
-  <meta property="og:url" content="https://folner.com">
+  <meta property="og:image" content="https://folner.com/assets/images/Folner_Wordmark_Dark_Logo-final.png">
+  <meta property="og:url" content="https://folner.com/">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Folner — What If?">
   <meta name="twitter:description" content="Challenging the status quo of digital product design. What if everything worked better?">
-  <meta name="twitter:image" content="assets/images/Folner_Wordmark_Dark_Logo.png">
+  <meta name="twitter:image" content="https://folner.com/assets/images/Folner_Wordmark_Dark_Logo-final.png">
 
-  <!-- Favicon -->
+  <!-- Favicon & Icons -->
   <link rel="icon" type="image/png" href="assets/images/Folner_Icon_Dark_Logo-final.png">
+  <link rel="apple-touch-icon" href="assets/images/Folner_Icon_Dark_Logo-final.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Folner",
+    "url": "https://folner.com",
+    "logo": "https://folner.com/assets/images/Folner_Wordmark_Dark_Logo-final.png",
+    "description": "Challenging the status quo of digital product design.",
+    "sameAs": []
+  }
+  </script>
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#fff;color:#000;padding:8px 16px;z-index:10000;font-size:14px;transition:top 200ms;">Skip to content</a>
   <!-- Page Load Overlay -->
   <div class="page-loader" id="pageLoader"></div>
 
   <!-- ─── Announcement Bar ─────────────────────────────────────────────── -->
-  <div class="announce-bar" id="announceBar" role="banner">
+  <div class="announce-bar" id="announceBar" role="complementary" aria-label="Announcement">
     <span class="announce-dot" aria-hidden="true"></span>
-    <span class="announce-text">Folner is now hiring — we are building something remarkable — <a href="../folner-careers-2.html" class="announce-link">See open roles →</a></span>
+    <span class="announce-text">Folner is now hiring — we are building something remarkable — <a href="folner-careers-2.html" class="announce-link">See open roles →</a></span>
     <button class="announce-close" id="announceClose" aria-label="Dismiss announcement">✕</button>
   </div>
 
@@ -56,12 +77,12 @@
   <header class="site-header" id="siteHeader">
     <!-- Left: Icon logo -->
     <a class="header-icon" href="/" aria-label="Folner home">
-      <img src="assets/images/Folner_Icon_Dark_Logo-final.png" alt="Folner icon">
+      <img src="assets/images/Folner_Icon_Dark_Logo-final.png" alt="Folner icon" fetchpriority="high" decoding="async">
     </a>
 
     <!-- Center: Wordmark logo -->
     <a class="header-wordmark" href="/" aria-label="Folner">
-      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner">
+      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" fetchpriority="high" decoding="async">
     </a>
 
     <!-- Right: Burger menu -->
@@ -76,12 +97,12 @@
   <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
     <nav class="menu-nav" aria-label="Site navigation">
       <a href="index.html" class="menu-link">Home</a>
-      <a href="../folner-about-us.html" class="menu-link">About</a>
-      <a href="../folner-careers-2.html" class="menu-link">Careers</a>
+      <a href="folner-about-us.html" class="menu-link">About</a>
+      <a href="folner-careers-2.html" class="menu-link">Careers</a>
     </nav>
   </div>
 
-  <main>
+  <main id="main-content">
 
     <!-- ─── Hero ─────────────────────────────────────────────────────────── -->
     <section class="hero">
@@ -104,7 +125,7 @@
     </section>
 
     <!-- ─── Technology Act — Effortless is engineered. ───────────────────── -->
-    <section class="ie2-section" id="techAct" aria-label="Innovation Engineering">
+    <section id="techAct" class="ie2-section" aria-label="Innovation Engineering">
       <canvas class="ie2-neural" id="ie2Neural" aria-hidden="true"></canvas>
 
       <div class="ie2-header">
@@ -265,7 +286,7 @@
           <!-- RIGHT — floating glass panel preview -->
           <div class="rcw-right" aria-hidden="true">
             <div class="rcw-panel" id="rcwPanel">
-              <canvas class="rcw-canvas" id="cwCanvas"></canvas>
+              <canvas class="rcw-canvas" id="cwCanvas" aria-hidden="true"></canvas>
             </div>
           </div>
 
@@ -429,10 +450,11 @@
 
         <!-- Folner Icon — centered, static, dominant -->
         <div class="oe-logo-center">
-          <img
-            src="assets/images/Folner_Icon_Dark_Logo-final.png"
+          <img src="assets/images/Folner_Icon_Dark_Logo-final.png"
             alt="Folner"
             draggable="false"
+            loading="lazy"
+            decoding="async"
           >
         </div>
 
@@ -479,7 +501,7 @@
 
       <!-- Brand wordmark -->
       <div class="footer-logo-wrap">
-        <img src="Folner_Logo/Final_Logos/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" class="footer-wordmark-logo">
+        <img src="Folner_Logo/Final_Logos/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" class="footer-wordmark-logo" loading="lazy" decoding="async">
       </div>
 
       <!-- Center: logo + statement + CTA -->
@@ -496,6 +518,8 @@
           <a href="folner-about-us.html" class="footer-link">About</a>
           <div class="footer-nav-sep" aria-hidden="true"></div>
           <a href="folner-careers-2.html" class="footer-link">Careers</a>
+          <div class="footer-nav-sep" aria-hidden="true"></div>
+          <a href="folner-contact.html" class="footer-link">Contact</a>
           <div class="footer-nav-sep" aria-hidden="true"></div>
           <a href="privacy.html" class="footer-link">Privacy</a>
           <div class="footer-nav-sep" aria-hidden="true"></div>
@@ -518,6 +542,6 @@
   </svg>
 
   <!-- Scripts -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

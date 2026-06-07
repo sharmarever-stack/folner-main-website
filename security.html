@@ -3,8 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
 <title>Security — Folner</title>
+
+<!-- SEO -->
+<link rel="canonical" href="https://folner.com/security">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Folner security practices. Learn about our infrastructure, data protection, and security architecture.">
+<meta name="theme-color" content="#000000">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Security — Folner">
+<meta property="og:description" content="Folner security practices. Learn about our infrastructure, data protection, and security architecture.">
+<meta property="og:image" content="https://folner.com/assets/images/Folner_Wordmark_Dark_Logo-final.png">
+<meta property="og:url" content="https://folner.com/security">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Security — Folner">
+<meta name="twitter:description" content="Folner security practices. Learn about our infrastructure, data protection, and security architecture.">
+<meta name="twitter:image" content="https://folner.com/assets/images/Folner_Wordmark_Dark_Logo-final.png">
+
+<!-- Favicon & Icons -->
 <link rel="icon" type="image/png" href="assets/images/Folner_Icon_Dark_Logo-final.png">
+<link rel="apple-touch-icon" href="assets/images/Folner_Icon_Dark_Logo-final.png">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
@@ -196,7 +223,7 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
 .principle-row.flip { direction: rtl; }
 .principle-row.flip > * { direction: ltr; }
 .p-text {
-  padding: 72px 40px; text-align: justify; display: flex; flex-direction: column; justify-content: center;
+  padding: 72px 40px; text-align: left; display: flex; flex-direction: column; justify-content: center;
   border-right: 1px solid rgba(255,255,255,0.06);
 }
 .principle-row.flip .p-text { border-right: none; border-left: 1px solid rgba(255,255,255,0.06); }
@@ -210,7 +237,7 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
   letter-spacing: -0.035em; line-height: 1.1; color: #fff;
   margin-top: -12px; margin-bottom: 20px;
 }
-.p-desc { font-size: 15px; line-height: 1.78; color: rgba(255,255,255,0.45); max-width: 440px; text-align: justify; }
+.p-desc { font-size: 15px; line-height: 1.78; color: rgba(255,255,255,0.45); max-width: 440px; text-align: left; }
 .p-desc strong { color: rgba(255,255,255,0.75); font-weight: 600; }
 .p-pill {
   margin-top: 24px; display: inline-flex; align-items: center; gap: 8px;
@@ -333,25 +360,39 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
   .uptime-inner { padding: 0 24px; }
   .cta-section { padding: 80px 24px; }
 }
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}
+
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 28px;transition:transform 300ms ease;}
+.header-icon img,.header-wordmark img{height:auto;display:block;}
+.burger-btn{background:none;border:none;padding:8px;cursor:pointer;display:flex;flex-direction:column;gap:5px;z-index:101;justify-self:end;}
+.burger-btn span{display:block;width:22px;height:1.5px;background:#fff;border-radius:999px;transform-origin:center;transition:transform 300ms ease,opacity 200ms ease;}
+.menu-overlay{position:fixed;inset:0;z-index:99;background:rgba(0,0,0,0.95);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 300ms ease,visibility 300ms ease;}
+.menu-overlay.open{opacity:1;visibility:visible;}
+.menu-nav{display:flex;flex-direction:column;gap:24px;text-align:center;}
+.menu-link{font-size:24px;font-weight:600;color:rgba(255,255,255,0.80);text-decoration:none;letter-spacing:-0.02em;transition:color 200ms ease;}
+.menu-link:hover{color:#fff;}
+.skip-link:focus{top:0;}
+
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#fff;color:#000;padding:8px 16px;z-index:10000;font-size:14px;transition:top 200ms;">Skip to content</a>
 
 <!-- ── NAV ──────────────────────────────────────────────────────── -->
-<nav class="nav">
-  <a href="index.html" class="nav-icon" aria-label="Folner home">
-    <img src="assets/images/Folner_Icon_Dark_Logo-final.png" alt="Folner">
-  </a>
-  <a href="index.html" class="nav-wordmark">
-    <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner">
-  </a>
-  <a href="index.html" class="nav-back">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 2.5L4 7l4.5 4.5"/></svg>
-    Back
-  </a>
-</nav>
-
-<!-- ── HERO ──────────────────────────────────────────────────────── -->
+<header class="site-header" id="siteHeader">
+  <a class="header-icon" href="index.html" aria-label="Folner home"><img src="Folner_Logo/Final_Logos/Folner_Icon_Dark_Logo-final.png" alt="Folner" style="height:24px;width:auto;" fetchpriority="high" decoding="async"></a>
+  <a class="header-wordmark" href="index.html" aria-label="Folner"><img src="Folner_Logo/Final_Logos/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" style="height:18px;width:auto;" fetchpriority="high" decoding="async"></a>
+  <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</header>
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <nav class="menu-nav" aria-label="Site navigation">
+    <a class="menu-link" href="index.html">Home</a>
+    <a class="menu-link" href="folner-about-us.html">About</a>
+    <a class="menu-link" href="folner-careers-2.html">Careers</a>
+    <a class="menu-link" href="folner-contact.html">Contact</a>
+  </nav>
+</div>
+<main id="main-content">
 <section class="hero" aria-label="Security">
   <canvas id="nc" aria-hidden="true"></canvas>
   <div class="hero-vignette" aria-hidden="true"></div>
@@ -697,20 +738,25 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
 </section>
 
 <div class="prism" aria-hidden="true"></div>
+</main>
 
 <!-- ── FOOTER ─────────────────────────────────────────────────────── -->
 <footer class="site-footer">
   <div class="footer-prism"></div>
   <div class="footer-inner">
     <div class="footer-wordmark">
-      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner">
+      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" loading="lazy" decoding="async">
     </div>
     <p class="footer-copy">© 2026 Folner. All rights reserved.</p>
-    <nav class="footer-legal" aria-label="Legal">
+    <nav class="footer-legal" aria-label="Footer navigation">
+      <a href="index.html" class="f-link">Home</a>
+      <a href="folner-about-us.html" class="f-link">About</a>
+      <a href="folner-careers-2.html" class="f-link">Careers</a>
+      <a href="folner-contact.html" class="f-link">Contact</a>
       <a href="privacy.html" class="f-link">Privacy</a>
       <a href="terms.html" class="f-link">Terms</a>
       <a href="cookies.html" class="f-link">Cookies</a>
-      <a href="security.html" class="f-link active">Security</a>
+      <a href="security.html" class="f-link">Security</a>
     </nav>
   </div>
 </footer>

@@ -534,13 +534,14 @@ body {
   position: absolute;
   left: 50%;
   top: 0;
-  transform: translate(-50%, 0);
-  width: 10px;
-  height: 10px;
-  background: #fff;
+  transform: translate(-50%, 0px);
+  width: 12px;
+  height: 12px;
+  background: rgba(198,121,196,1);
   border-radius: 50%;
-  will-change: top;
-  box-shadow: 0 0 10px rgba(255,255,255,0.7), 0 0 20px rgba(86,194,255,0.4);
+  will-change: transform;
+  box-shadow: 0 0 12px rgba(198,121,196,0.6), 0 0 24px rgba(198,121,196,0.3);
+  transition: box-shadow 300ms ease;
 }
 
 /* ── Timeline rows ─────────────────────────────────────────────────────── */
@@ -1979,3 +1980,5 @@ body.announce-visible .site-header { top: 40px; }
   .oe-stage { height: 220px; }
   .oe-row-0, .oe-row-1, .oe-row-2 { height: 50px; }
 }
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}

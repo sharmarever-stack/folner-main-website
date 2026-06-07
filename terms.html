@@ -3,8 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
 <title>Terms of Service — Folner</title>
+
+<!-- SEO -->
+<link rel="canonical" href="https://folner.com/terms">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Folner terms of service. The rules and guidelines for using Folner products and services.">
+<meta name="theme-color" content="#000000">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Terms of Service — Folner">
+<meta property="og:description" content="Folner terms of service. The rules and guidelines for using Folner products and services.">
+<meta property="og:image" content="https://folner.com/assets/images/Folner_Wordmark_Dark_Logo-final.png">
+<meta property="og:url" content="https://folner.com/terms">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Terms of Service — Folner">
+<meta name="twitter:description" content="Folner terms of service. The rules and guidelines for using Folner products and services.">
+<meta name="twitter:image" content="https://folner.com/assets/images/Folner_Wordmark_Dark_Logo-final.png">
+
+<!-- Favicon & Icons -->
 <link rel="icon" type="image/png" href="assets/images/Folner_Icon_Dark_Logo-final.png">
+<link rel="apple-touch-icon" href="assets/images/Folner_Icon_Dark_Logo-final.png">
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
@@ -156,6 +183,19 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
   margin-top: 10px; font-size: 13px; font-weight: 500;
   letter-spacing: 0.01em; color: rgba(255,255,255,0.40); line-height: 1.5;
 }
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}
+
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 28px;transition:transform 300ms ease;}
+.header-icon img,.header-wordmark img{height:auto;display:block;}
+.burger-btn{background:none;border:none;padding:8px;cursor:pointer;display:flex;flex-direction:column;gap:5px;z-index:101;justify-self:end;}
+.burger-btn span{display:block;width:22px;height:1.5px;background:#fff;border-radius:999px;transform-origin:center;transition:transform 300ms ease,opacity 200ms ease;}
+.menu-overlay{position:fixed;inset:0;z-index:99;background:rgba(0,0,0,0.95);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity 300ms ease,visibility 300ms ease;}
+.menu-overlay.open{opacity:1;visibility:visible;}
+.menu-nav{display:flex;flex-direction:column;gap:24px;text-align:center;}
+.menu-link{font-size:24px;font-weight:600;color:rgba(255,255,255,0.80);text-decoration:none;letter-spacing:-0.02em;transition:color 200ms ease;}
+.menu-link:hover{color:#fff;}
+.skip-link:focus{top:0;}
+
 </style>
 <style>
 /* ── INTRO SECTION ───────────────────────────────────────────────── */
@@ -184,7 +224,7 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
 }
 .intro-body {
   font-size: 16px; font-weight: 400; line-height: 1.75;
-  color: rgba(255,255,255,0.48); max-width: 440px; text-align: justify;
+  color: rgba(255,255,255,0.48); max-width: 440px; text-align: left;
 }
 .intro-body strong { color: rgba(255,255,255,0.80); font-weight: 600; }
 .intro-graphic { position: relative; height: 380px; }
@@ -205,7 +245,7 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
 .principle-row.flip { direction: rtl; }
 .principle-row.flip > * { direction: ltr; }
 .p-text {
-  padding: 72px 40px; text-align: justify;
+  padding: 72px 40px; text-align: left;
   display: flex; flex-direction: column; justify-content: center;
   border-right: 1px solid rgba(255,255,255,0.06);
 }
@@ -222,7 +262,7 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
   margin-top: -12px; margin-bottom: 20px;
 }
 .p-desc {
-  text-align: justify;
+  text-align: left;
   font-size: 15px; line-height: 1.78; color: rgba(255,255,255,0.45);
   max-width: 440px;
 }
@@ -372,22 +412,23 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#fff;color:#000;padding:8px 16px;z-index:10000;font-size:14px;transition:top 200ms;">Skip to content</a>
 
 <!-- ── HEADER ─────────────────────────────────────────────────── -->
-<header class="nav">
-  <a href="index.html" class="nav-icon" aria-label="Folner home">
-    <img src="assets/images/Folner_Icon_Dark_Logo-final.png" alt="Folner">
-  </a>
-  <a href="index.html" class="nav-wordmark" aria-label="Folner">
-    <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner">
-  </a>
-  <a href="index.html" class="nav-back">
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 2L4 6l3.5 4"/></svg>
-    Back
-  </a>
+<header class="site-header" id="siteHeader">
+  <a class="header-icon" href="index.html" aria-label="Folner home"><img src="Folner_Logo/Final_Logos/Folner_Icon_Dark_Logo-final.png" alt="Folner" style="height:24px;width:auto;" fetchpriority="high" decoding="async"></a>
+  <a class="header-wordmark" href="index.html" aria-label="Folner"><img src="Folner_Logo/Final_Logos/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" style="height:18px;width:auto;" fetchpriority="high" decoding="async"></a>
+  <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </header>
-
-<!-- ── HERO ───────────────────────────────────────────────────── -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <nav class="menu-nav" aria-label="Site navigation">
+    <a class="menu-link" href="index.html">Home</a>
+    <a class="menu-link" href="folner-about-us.html">About</a>
+    <a class="menu-link" href="folner-careers-2.html">Careers</a>
+    <a class="menu-link" href="folner-contact.html">Contact</a>
+  </nav>
+</div>
+<main id="main-content">
 <section class="hero" aria-label="Terms of Service hero">
   <canvas id="nc" aria-hidden="true"></canvas>
   <div class="hero-vignette" aria-hidden="true"></div>
@@ -786,17 +827,22 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
 </section>
 
 <div class="prism" aria-hidden="true"></div>
+</main>
 
 <!-- ── FOOTER ─────────────────────────────────────────────────── -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-wm">
-      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner">
+      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" loading="lazy" decoding="async">
     </div>
     <div class="footer-copy">© 2026 Folner. All rights reserved.</div>
-    <nav class="footer-links" aria-label="Legal">
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="index.html" class="fl">Home</a>
+      <a href="folner-about-us.html" class="fl">About</a>
+      <a href="folner-careers-2.html" class="fl">Careers</a>
+      <a href="folner-contact.html" class="fl">Contact</a>
       <a href="privacy.html" class="fl">Privacy</a>
-      <a href="terms.html" class="fl active">Terms</a>
+      <a href="terms.html" class="fl">Terms</a>
       <a href="cookies.html" class="fl">Cookies</a>
       <a href="security.html" class="fl">Security</a>
     </nav>

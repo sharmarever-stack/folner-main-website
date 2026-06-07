@@ -175,7 +175,6 @@ window._folnerUtil = {
     gl.shaderSource(sh, src);
     gl.compileShader(sh);
     if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
-      console.error('[GlobalNeural]', gl.getShaderInfoLog(sh));
       return null;
     }
     return sh;
@@ -189,7 +188,7 @@ window._folnerUtil = {
   gl.attachShader(prog, vs); gl.attachShader(prog, fs);
   gl.linkProgram(prog);
   if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
-    console.error('[GlobalNeural Link]', gl.getProgramInfoLog(prog)); return;
+    return;
   }
   gl.useProgram(prog);
 
@@ -225,10 +224,7 @@ window._folnerUtil = {
   }
   window.addEventListener('resize', resize);
   resize();
-
-  console.log('%c[Folner] Global Neural: WebGL 2.0', 'color:#56C2FF;font-weight:bold');
-
-  function frame(now) {
+function frame(now) {
     smx += (ptr.x - smx) * 0.07;
     smy += (ptr.y - smy) * 0.07;
     act += ((ptr.active ? 1 : 0) - act) * 0.06;
@@ -535,7 +531,7 @@ window._folnerUtil = {
     function c(type, src) {
       var sh = gl2.createShader(type);
       gl2.shaderSource(sh, src); gl2.compileShader(sh);
-      if (!gl2.getShaderParameter(sh, gl2.COMPILE_STATUS)) { console.error('[Hero]', gl2.getShaderInfoLog(sh)); return null; }
+      if (!gl2.getShaderParameter(sh, gl2.COMPILE_STATUS)) { return null; }
       return sh;
     }
     var hVs = c(gl2.VERTEX_SHADER, HERO_VS);
@@ -544,7 +540,7 @@ window._folnerUtil = {
     var hProg = gl2.createProgram();
     gl2.attachShader(hProg, hVs); gl2.attachShader(hProg, hFs);
     gl2.linkProgram(hProg);
-    if (!gl2.getProgramParameter(hProg, gl2.LINK_STATUS)) { console.error('[Hero Link]', gl2.getProgramInfoLog(hProg)); return; }
+    if (!gl2.getProgramParameter(hProg, gl2.LINK_STATUS)) { return; }
     gl2.useProgram(hProg);
     var vao = gl2.createVertexArray(); gl2.bindVertexArray(vao);
     var buf = gl2.createBuffer(); gl2.bindBuffer(gl2.ARRAY_BUFFER, buf);
@@ -581,7 +577,6 @@ window._folnerUtil = {
       requestAnimationFrame(heroFrame);
     }
     requestAnimationFrame(heroFrame);
-    console.log('%c[Folner] Hero Canvas: WebGL 2.0 (transparent waves)', 'color:#C679C4;font-weight:bold');
   }
 
   typedEl.textContent = '';
@@ -2424,18 +2419,30 @@ window._folnerUtil = {
     var body    = document.getElementById('ie2Body');
     if (!tracker || !spine || !body) return;
 
-    function updateTracker() {
+    var targetY = 0, currentY = 0, velocity = 0;
+
+    function getTarget() {
       var bodyRect = body.getBoundingClientRect();
       var spineH   = spine.offsetHeight;
       var viewMid  = window.innerHeight * 0.5;
       var pxPast   = viewMid - bodyRect.top;
       var pct      = Math.max(0, Math.min(1, pxPast / bodyRect.height));
-      tracker.style.top = Math.round(pct * spineH) + 'px';
+      targetY = pct * spineH;
     }
 
-    window.addEventListener('scroll', updateTracker, { passive: true });
-    window.addEventListener('resize', updateTracker);
-    updateTracker();
+    function animate() {
+      var diff = targetY - currentY;
+      velocity += (diff - velocity) * 0.08;
+      currentY += velocity * 0.28;
+      if (Math.abs(diff) < 0.5) currentY = targetY;
+      tracker.style.transform = 'translate(-50%, ' + currentY + 'px)';
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('scroll', getTarget, { passive: true });
+    window.addEventListener('resize', getTarget);
+    getTarget();
+    animate();
   })();
 
 
@@ -3024,9 +3031,6 @@ window._folnerUtil = {
   } else {
     initCardCanvases();
   }
-
-  console.log('%c[Folner] Innovation Engineering: Rebuilt — neural bg + 8 canvas drawers', 'color:#56C2FF;font-weight:bold');
-
 })();
 
 
@@ -3998,3 +4002,20 @@ window._folnerUtil = {
   io.observe(c.parentElement);
   window.addEventListener('resize',resize);
 })();
+
+
+// ─── Image Error Fallback ──────────────────────────────────────────────────
+// Gracefully handle images that fail to load (broken links, network issues)
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('img').forEach(function(img) {
+    img.addEventListener('error', function() {
+      this.style.opacity = '0';
+      this.style.visibility = 'hidden';
+    });
+  });
+});
+
+// ─── WebGL2 Support Notice ─────────────────────────────────────────────────
+// If WebGL2 is not supported, visual effects degrade gracefully (canvases show
+// static gradient backgrounds). No explicit user notification needed as the
+// page content remains fully accessible and functional.
