@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="format-detection" content="telephone=no">
+  <title>Folner — Platforms &amp; Protocols</title>
+
+  <!-- SEO -->
+  <link rel="canonical" href="https://folner.com/platforms-protocols">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="Folner builds across every major platform — web, mobile, SaaS, cloud, desktop, and browser extensions — held to the same uncompromising engineering protocols every time.">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Folner — Platforms &amp; Protocols">
+  <meta property="og:description" content="Every environment. Every standard. One relentless commitment to quality across web, mobile, SaaS, cloud, desktop, and browser platforms.">
+  <meta property="og:image" content="https://folner.com/assets/images/Folner_Wordmark_Dark_Logo-final.png">
+  <meta property="og:url" content="https://folner.com/platforms-protocols">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Folner — Platforms &amp; Protocols">
+  <meta name="twitter:description" content="Every environment. Every standard. One relentless commitment to quality across web, mobile, SaaS, cloud, desktop, and browser platforms.">
+  <meta name="twitter:image" content="https://folner.com/assets/images/Folner_Wordmark_Dark_Logo-final.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/Folner_Icon_Light_Logo.png">
+  <link rel="apple-touch-icon" href="assets/images/Folner_Icon_Light_Logo.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=optional">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=optional" rel="stylesheet">
+
+<style>
+/* ─────────────────────────────────────────────
+   DESIGN TOKENS — Felnor OLED Emission System
+───────────────────────────────────────────── */
+:root {
+  --canvas: #000000;
+  --surface-1: #07080A;
+  --surface-2: #0F1012;
+  --text: #ffffff;
+  --text-2: #9c9c9d;
+  --text-3: #5a5b5c;
+  --border-subtle: rgba(255,255,255,0.05);
+  --border-strong: rgba(255,255,255,0.10);
+
+  /* Emission color components (R,G,B for rgba() compositing) */
+  --emit-signal:  3, 88, 247;
+  --emit-cyan:    86, 194, 255;
+  --emit-mint:    89, 212, 153;
+  --emit-amber:   255, 176, 5;
+  --emit-rose:    198, 121, 196;
+  --emit-flare:   250, 61, 29;
+  --emit-purple:  160, 80, 255;
+  --emit-ice:     225, 225, 254;
+
+  /* Active emission — overridden per component */
+  --emission: var(--emit-cyan);
+
+  /* Gradients */
+  --gradient-prism: linear-gradient(90deg, #C679C4 0%, #FA3D1D 25%, #FFB005 50%, #E1E1FE 75%, #0358F7 100%);
+
+  /* Glass */
+  --glass-bg: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.08);
+  --glass-blur: 20px;
+
+  /* Grain */
+  --grain-opacity: 0.035;
+
+  /* Motion */
+  --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-chroma: cubic-bezier(0.77, 0, 0.175, 1);
+
+  /* Typography */
+  --font: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─────────────────────────────────────────────
+   EMISSION SHORTCUT CLASSES
+───────────────────────────────────────────── */
+.emits-signal  { --emission: var(--emit-signal);  }
+.emits-cyan    { --emission: var(--emit-cyan);    }
+.emits-mint    { --emission: var(--emit-mint);    }
+.emits-amber   { --emission: var(--emit-amber);   }
+.emits-rose    { --emission: var(--emit-rose);    }
+.emits-flare   { --emission: var(--emit-flare);   }
+.emits-purple  { --emission: var(--emit-purple);  }
+.emits-ice     { --emission: var(--emit-ice);     }
+
+/* ─────────────────────────────────────────────
+   GLOBAL RESETS
+───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--font);
+}
+
+/* ─────────────────────────────────────────────
+   SKIP LINK
+───────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -56px;
+  left: 16px;
+  background: #ffffff;
+  color: #000000;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 100;
+  transition: top 200ms var(--ease-snap);
+}
+.skip-link:focus-visible {
+  top: 16px;
+  outline: 2px solid rgba(225,225,254,0.80);
+  outline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────────
+   GLOBAL GRAIN OVERLAY
+───────────────────────────────────────────── */
+.global-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  opacity: var(--grain-opacity);
+  z-index: 5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+}
+
+/* ─────────────────────────────────────────────
+   CURSOR GLOW
+───────────────────────────────────────────── */
+#cursorGlow {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(198,121,196,0.07) 0%, transparent 65%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: left 0.6s var(--ease-snap), top 0.6s var(--ease-snap);
+  will-change: left, top;
+}
+@media (pointer: coarse) {
+  #cursorGlow { display: none; }
+}
+
+/* ─────────────────────────────────────────────
+   FOCUS STYLES
+───────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid rgba(225,225,254,0.55);
+  outline-offset: 2px;
+}
+
+/* ─────────────────────────────────────────────
+   ANNOUNCEMENT BAR
+───────────────────────────────────────────── */
+.announce-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: rgba(10,10,12,0.92);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 13px;
+  overflow: hidden;
+  max-height: 56px;
+  transition: max-height 300ms ease, padding 300ms ease, opacity 300ms ease;
+}
+.announce-bar.dismissed {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+.announce-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgb(var(--emit-mint));
+  box-shadow: 0 0 6px rgba(var(--emit-mint), 0.8), 0 0 12px rgba(var(--emit-mint), 0.4);
+  flex-shrink: 0;
+  animation: announcePulse 1.5s ease-in-out infinite;
+}
+@keyframes announcePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.announce-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.60);
+}
+.announce-link {
+  color: rgba(255,255,255,0.90);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 160ms ease;
+}
+.announce-link:hover { color: #fff; }
+.announce-close {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.38);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  transition: color 160ms ease;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+}
+.announce-close:hover { color: #fff; }
+
+/* ─────────────────────────────────────────────
+   SITE HEADER
+───────────────────────────────────────────── */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 20px 28px;
+  transition: background 300ms ease, backdrop-filter 300ms ease;
+}
+.site-header.scrolled {
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+}
+@supports not (backdrop-filter: blur(1px)) {
+  .site-header.scrolled {
+    background: rgba(0,0,0,0.92);
+  }
+  .menu-overlay {
+    background: rgba(4,5,6,0.98) !important;
+  }
+}
+.header-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  text-decoration: none;
+}
+.header-icon img {
+  height: 32px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+.header-wordmark {
+  display: inline-flex;
+  align-items: center;
+  justify-self: center;
+  text-decoration: none;
+}
+.header-wordmark img {
+  height: 22px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+.burger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  justify-self: end;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  outline: none;
+}
+.burger-btn span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #fff;
+  border-radius: 999px;
+  transform-origin: center;
+  transition: transform 300ms var(--ease-snap), opacity 200ms ease, width 300ms ease;
+}
+.burger-btn[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.burger-btn[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.burger-btn[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ─────────────────────────────────────────────
+   MENU OVERLAY
+───────────────────────────────────────────── */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4,5,6,0.94);
+  backdrop-filter: blur(28px) saturate(1.2);
+  -webkit-backdrop-filter: blur(28px) saturate(1.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms var(--ease-snap);
+}
+.menu-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  position: relative;
+  z-index: 1;
+}
+.menu-link {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  transform: translateY(24px);
+  opacity: 0;
+  transition: transform 500ms var(--ease-snap), opacity 500ms var(--ease-snap), color 200ms ease, text-shadow 200ms ease;
+}
+.menu-overlay.open .menu-link {
+  transform: translateY(0);
+  opacity: 1;
+}
+.menu-overlay.open .menu-link:nth-child(1) { transition-delay: 60ms; }
+.menu-overlay.open .menu-link:nth-child(2) { transition-delay: 120ms; }
+.menu-overlay.open .menu-link:nth-child(3) { transition-delay: 180ms; }
+.menu-overlay.open .menu-link:nth-child(4) { transition-delay: 240ms; }
+.menu-overlay.open .menu-link:nth-child(5) { transition-delay: 300ms; }
+.menu-link:hover {
+  color: #fff;
+  text-shadow: 0 0 20px rgba(198,121,196,0.4), 0 0 40px rgba(198,121,196,0.18);
+}
+.menu-link[aria-current="page"] {
+  color: rgba(255,255,255,0.90);
+  background: var(--gradient-prism);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─────────────────────────────────────────────
+   SECTION SHARED
+───────────────────────────────────────────── */
+section { position: relative; z-index: 2; }
+
+.pp-section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pp-section-header {
+  margin-bottom: 64px;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.22);
+  margin-bottom: 20px;
+}
+
+.prism-strip {
+  width: 36px;
+  height: 2px;
+  background: var(--gradient-prism);
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.prism-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06) 20%, rgba(255,255,255,0.06) 80%, transparent);
+  margin: 0 64px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Prism text utility */
+.prism-text {
+  background: var(--gradient-prism);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─────────────────────────────────────────────
+   REVEAL ANIMATIONS
+───────────────────────────────────────────── */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 900ms var(--ease-snap), transform 900ms var(--ease-snap);
+  contain: layout style;
+}
+.reveal-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 600ms var(--ease-snap);
+}
+.reveal-fade.visible {
+  opacity: 1;
+}
+.d1 { transition-delay: 80ms; }
+.d2 { transition-delay: 180ms; }
+.d3 { transition-delay: 280ms; }
+.d4 { transition-delay: 380ms; }
+
+/* ─────────────────────────────────────────────
+   SPLIT H2 WORD ANIMATIONS
+───────────────────────────────────────────── */
+.split-h2 { overflow: hidden; }
+.split-word {
+  display: inline-block;
+  overflow: visible;
+  vertical-align: bottom;
+  margin-right: 0.25em;
+}
+.split-word-inner {
+  display: inline-block;
+  transform: translateY(105%);
+  opacity: 0;
+  transition: transform 700ms var(--ease-snap), opacity 700ms var(--ease-snap);
+}
+.split-h2.visible .split-word-inner {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────────
+   HERO SECTION
+───────────────────────────────────────────── */
+.pp-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #000000;
+  padding-top: 80px;
+}
+#heroNeural {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.85) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 24px;
+  max-width: 920px;
+}
+.hero-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+  margin-bottom: 40px;
+}
+.hero-headline {
+  font-size: clamp(56px, 10vw, 140px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  display: block;
+  margin-bottom: 0;
+}
+.hero-line {
+  display: block;
+}
+.hero-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  line-height: 1.15;
+}
+.hero-word-inner {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: transform 400ms var(--ease-snap), opacity 400ms var(--ease-snap);
+  padding-right: 0.22em;
+}
+.hero-word-inner.animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+.hero-sub {
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: rgba(255,255,255,0.45);
+  margin-top: 48px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.65;
+}
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  opacity: 1;
+  transition: opacity 200ms ease;
+}
+.scroll-indicator.hidden { opacity: 0; }
+.scroll-indicator span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.20);
+}
+.scroll-line {
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.30), transparent);
+  animation: scrollPulse 2.4s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1) translateY(0); }
+  50% { opacity: 1; transform: scaleY(0.6) translateY(40%); }
+}
+
+/* ─────────────────────────────────────────────
+   PLATFORMS GRID SECTION
+───────────────────────────────────────────── */
+.pp-platforms {
+  padding: 120px 64px;
+  position: relative;
+  overflow: hidden;
+}
+.pp-platforms-atmo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(55% 50% at 50% 20%, rgba(3,88,247,0.08), transparent);
+}
+.pp-section-heading {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #fff;
+}
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Emission card pattern */
+.platform-card.folnor-emitter {
+  background: #07080A;
+  border: 1px solid rgba(var(--emission), 0.18);
+  box-shadow: inset 0 1px 0 rgba(var(--emission), 0.12);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  overflow: visible;
+  cursor: default;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+.platform-card.folnor-emitter::after {
+  content: '';
+  position: absolute;
+  inset: -24px;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at center, rgba(var(--emission), 0.16) 0%, transparent 68%);
+  filter: blur(20px);
+  z-index: -1;
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
+.platform-card.folnor-emitter:hover {
+  border-color: rgba(var(--emission), 0.32);
+  box-shadow: 0 0 24px rgba(var(--emission), 0.14);
+}
+.platform-card:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.40);
+  outline-offset: 3px;
+}
+.platform-icon {
+  color: rgb(var(--emission));
+  margin-bottom: 20px;
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.platform-icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.platform-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+.platform-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.42);
+  line-height: 1.65;
+}
+
+/* ─────────────────────────────────────────────
+   PROTOCOLS ACCORDION SECTION
+───────────────────────────────────────────── */
+.pp-protocols {
+  padding: 120px 64px;
+  position: relative;
+  overflow: hidden;
+}
+.protocols-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 56px;
+}
+.protocol-item {
+  position: relative;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.protocol-trigger {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 24px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  text-align: left;
+  min-height: 44px;
+  transition: color 200ms ease;
+}
+.protocol-trigger:focus-visible {
+  outline: 2px solid rgba(225,225,254,0.55);
+  outline-offset: 2px;
+}
+.proto-num {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.22);
+  min-width: 32px;
+  font-variant-numeric: tabular-nums;
+}
+.proto-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  flex: 1;
+  color: #fff;
+}
+.proto-chevron {
+  flex-shrink: 0;
+  transition: transform 300ms var(--ease-snap);
+  color: rgba(255,255,255,0.38);
+}
+.protocol-item.is-open .proto-chevron {
+  transform: rotate(90deg);
+}
+.proto-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 400ms var(--ease-snap);
+}
+.protocol-item.is-open .proto-body {
+  max-height: 600px;
+}
+.proto-text {
+  font-size: 15px;
+  color: rgba(255,255,255,0.42);
+  line-height: 1.75;
+  padding: 0 0 28px 48px;
+}
+.protocol-item.is-open {
+  background: radial-gradient(80% 200% at 0% 50%, rgba(var(--emission, 3, 88, 247), 0.04), transparent);
+}
+.proto-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--gradient-prism);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 300ms var(--ease-snap);
+}
+.protocol-item.accent-visible .proto-accent {
+  transform: scaleY(1);
+}
+
+/* ─────────────────────────────────────────────
+   PHILOSOPHY STATEMENT SECTION
+───────────────────────────────────────────── */
+.pp-philosophy {
+  padding: 120px 64px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(60% 55% at 50% 20%, rgba(160,80,255,0.18), transparent);
+}
+.pp-philosophy-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.pp-philosophy-deco-line {
+  width: 2px;
+  min-height: 200px;
+  align-self: stretch;
+  background: var(--gradient-prism);
+  opacity: 0.35;
+  border-radius: 2px;
+}
+.pp-philosophy-text {
+  text-align: left;
+}
+.pp-phil-strip-top,
+.pp-phil-strip-bottom {
+  height: 1px;
+  background: var(--gradient-prism);
+  opacity: 0.35;
+  margin: 24px 0;
+}
+.pp-phil-heading {
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+.pp-phil-line-1 {
+  display: block;
+  color: #ffffff;
+}
+.pp-phil-line-2 {
+  display: block;
+  background: var(--gradient-prism);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─────────────────────────────────────────────
+   FEATURE MATRIX SECTION
+───────────────────────────────────────────── */
+.pp-matrix {
+  padding: 120px 64px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(55% 50% at 50% 25%, rgba(89,212,153,0.10), transparent);
+}
+.pp-matrix-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.pp-matrix-left {
+  position: sticky;
+  top: 120px;
+}
+.pp-matrix-heading {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #fff;
+  margin-top: 24px;
+}
+.pp-matrix-right {
+  display: flex;
+  flex-direction: column;
+}
+.feature-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 400ms var(--ease-snap), transform 400ms var(--ease-snap);
+}
+.feature-row.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.feature-row:nth-child(1) { transition-delay: 0ms; }
+.feature-row:nth-child(2) { transition-delay: 80ms; }
+.feature-row:nth-child(3) { transition-delay: 160ms; }
+.feature-row:nth-child(4) { transition-delay: 240ms; }
+.feature-row:nth-child(5) { transition-delay: 320ms; }
+.feature-row:nth-child(6) { transition-delay: 400ms; }
+.feature-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+.feature-bar {
+  height: 2px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.feature-bar-fill {
+  height: 2px;
+  background: var(--gradient-prism);
+  border-radius: 999px;
+  width: 100%;
+}
+.feature-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.65;
+}
+
+/* ─────────────────────────────────────────────
+   CTA SECTION
+───────────────────────────────────────────── */
+.pp-cta {
+  position: relative;
+  padding: 120px 64px;
+  background: #000000;
+  overflow: hidden;
+  text-align: center;
+}
+.pp-cta-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.pp-cta-heading {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin-top: 24px;
+  line-height: 1.1;
+}
+.pp-cta-em {
+  background: var(--gradient-prism);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: normal;
+}
+.pp-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.pp-cta-primary.folnor-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+  min-height: 44px;
+}
+.pp-cta-primary.folnor-pill:hover {
+  border-color: rgba(3,88,247,0.35);
+  box-shadow: 0 0 14px rgba(3,88,247,0.18);
+}
+.pp-cta-primary.folnor-pill:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.40);
+  outline-offset: 3px;
+}
+.pp-cta-secondary {
+  color: #9c9c9d;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 200ms ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.pp-cta-secondary:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.pp-cta-halo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(50% 60% at 50% 50%, rgba(3,88,247,0.12), transparent);
+}
+
+/* ─────────────────────────────────────────────
+   SITE FOOTER
+───────────────────────────────────────────── */
+.site-footer {
+  position: relative;
+  z-index: 2;
+  background: #000000;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-prism-bar {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(198,121,196,0.55) 12%, rgba(250,61,29,0.50) 28%, rgba(255,176,5,0.50) 50%, rgba(225,225,254,0.40) 68%, rgba(3,88,247,0.50) 85%, transparent 100%);
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 64px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.footer-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.footer-logo-wrap img {
+  height: 20px;
+  width: auto;
+  opacity: 0.75;
+  transition: opacity 300ms ease;
+}
+.footer-logo-wrap img:hover { opacity: 1; }
+.footer-tagline {
+  font-size: 13px;
+  color: rgba(255,255,255,0.30);
+  text-align: center;
+}
+.footer-nav-row,
+.footer-legal-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  align-items: center;
+  justify-content: center;
+}
+.footer-link {
+  font-size: 13px;
+  color: rgba(255,255,255,0.38);
+  text-decoration: none;
+  padding: 6px 12px;
+  transition: color 150ms ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.footer-link:hover { color: rgba(255,255,255,0.80); }
+.footer-link--legal {
+  font-size: 12px;
+  color: rgba(255,255,255,0.22);
+  padding: 4px 10px;
+}
+.footer-nav-sep {
+  width: 1px;
+  height: 12px;
+  background: rgba(255,255,255,0.10);
+  margin: 0 2px;
+}
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.20);
+  text-align: center;
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .pp-platforms,
+  .pp-protocols,
+  .pp-philosophy,
+  .pp-matrix,
+  .pp-cta {
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .prism-divider {
+    margin: 0 24px;
+  }
+  .pp-matrix-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .pp-matrix-left {
+    position: static;
+  }
+  .pp-philosophy-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .pp-philosophy-deco-line {
+    width: 100%;
+    height: 2px;
+    min-height: 0;
+    align-self: auto;
+  }
+  .pp-philosophy-text {
+    text-align: center;
+  }
+  .pp-cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-inner {
+    padding: 48px 24px 32px;
+    align-items: center;
+  }
+  .footer-logo-wrap {
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .platforms-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   PREFERS REDUCED MOTION
+───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-up,
+  .reveal-fade,
+  .feature-row,
+  .split-word-inner,
+  .hero-word-inner {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero-word-inner { opacity: 1 !important; transform: translateY(0) !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip to content -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Global grain -->
+<div class="global-grain" aria-hidden="true"></div>
+
+<!-- Cursor glow -->
+<div id="cursorGlow" aria-hidden="true"></div>
+
+<!-- ── Announcement Bar ─────────────────────────────────────── -->
+<aside id="announceBar" role="complementary" aria-label="Announcement" class="announce-bar">
+  <span class="announce-dot" aria-hidden="true"></span>
+  <span class="announce-text">Folner is now hiring — we are building something remarkable — <a href="folner-careers-2.html" class="announce-link">See open roles →</a></span>
+  <button class="announce-close" id="announceClose" aria-label="Dismiss announcement">✕</button>
+</aside>
+
+<!-- ── Site Header ──────────────────────────────────────────── -->
+<header class="site-header" id="siteHeader">
+  <a class="header-icon" href="index.html" aria-label="Folner home">
+    <img src="assets/images/Folner_Icon_Dark_Logo-final.png" alt="Folner icon"
+         height="32" fetchpriority="high" decoding="async">
+  </a>
+  <a class="header-wordmark" href="index.html" aria-label="Folner">
+    <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner"
+         height="22" fetchpriority="high" decoding="async">
+  </a>
+  <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<!-- ── Menu Overlay ─────────────────────────────────────────── -->
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <nav class="menu-nav" aria-label="Site navigation">
+    <a href="index.html"                      class="menu-link">Home</a>
+    <a href="folner-about-us.html"            class="menu-link">About</a>
+    <a href="platforms-protocols.html"        class="menu-link" aria-current="page">Platforms &amp; Protocols</a>
+    <a href="folner-careers-2.html"           class="menu-link">Careers</a>
+    <a href="folner-contact.html"             class="menu-link">Contact</a>
+  </nav>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MAIN CONTENT
+═══════════════════════════════════════════════════════════ -->
+<main id="main-content">
+
+  <!-- ── HERO ──────────────────────────────────────────────── -->
+  <section class="pp-hero" id="hero" aria-label="Platforms and Protocols hero">
+    <canvas id="heroNeural" aria-hidden="true"></canvas>
+    <div class="hero-vignette" aria-hidden="true"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">PLATFORMS &amp; PROTOCOLS</span>
+      <h1 class="hero-headline" id="heroHeadline" aria-label="Built for every environment.">
+        <!-- Word spans injected by JS -->
+      </h1>
+      <p class="hero-sub">
+        Every environment. Every standard. One relentless commitment to quality.
+      </p>
+    </div>
+    <div class="scroll-indicator" id="scrollIndicator" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── PLATFORMS GRID ────────────────────────────────────── -->
+  <section class="pp-platforms" id="platforms" aria-label="What We Build For">
+    <div class="pp-section-inner">
+      <div class="pp-section-header reveal-up">
+        <div class="prism-strip" aria-hidden="true"></div>
+        <p class="section-eyebrow">WHAT WE BUILD FOR</p>
+        <h2 class="split-h2 pp-section-heading reveal-up d1">Built for every environment.</h2>
+      </div>
+      <div class="platforms-grid">
+
+        <!-- Web Applications -->
+        <article class="platform-card folnor-emitter emits-signal reveal-up d1" tabindex="0">
+          <div class="platform-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3 class="platform-name">Web Applications</h3>
+          <p class="platform-desc">Performant, accessible web apps engineered to scale from launch day to millions of users.</p>
+        </article>
+
+        <!-- Mobile iOS & Android -->
+        <article class="platform-card folnor-emitter emits-cyan reveal-up d2" tabindex="0">
+          <div class="platform-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+              <line x1="12" y1="18" x2="12.01" y2="18"/>
+            </svg>
+          </div>
+          <h3 class="platform-name">Mobile — iOS &amp; Android</h3>
+          <p class="platform-desc">Native-quality mobile experiences that feel fluid on every device, OS version, and screen size.</p>
+        </article>
+
+        <!-- SaaS Products -->
+        <article class="platform-card folnor-emitter emits-mint reveal-up d3" tabindex="0">
+          <div class="platform-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="16 16 12 12 8 16"/>
+              <line x1="12" y1="12" x2="12" y2="21"/>
+              <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/>
+            </svg>
+          </div>
+          <h3 class="platform-name">SaaS Products</h3>
+          <p class="platform-desc">Multi-tenant SaaS platforms with enterprise-grade reliability, security, and subscription architecture.</p>
+        </article>
+
+        <!-- Browser Extensions -->
+        <article class="platform-card folnor-emitter emits-amber reveal-up d1" tabindex="0">
+          <div class="platform-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
+              <line x1="16" y1="8" x2="2" y2="22"/>
+              <line x1="17.5" y1="15" x2="9" y2="15"/>
+            </svg>
+          </div>
+          <h3 class="platform-name">Browser Extensions</h3>
+          <p class="platform-desc">Lightweight, performant browser extensions built to Manifest V3 standards across all major browsers.</p>
+        </article>
+
+        <!-- Cloud Infrastructure -->
+        <article class="platform-card folnor-emitter emits-flare reveal-up d2" tabindex="0">
+          <div class="platform-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="5" r="2"/>
+              <circle cx="5" cy="19" r="2"/>
+              <circle cx="19" cy="19" r="2"/>
+              <line x1="12" y1="7" x2="5" y2="17"/>
+              <line x1="12" y1="7" x2="19" y2="17"/>
+              <line x1="5" y1="19" x2="19" y2="19"/>
+            </svg>
+          </div>
+          <h3 class="platform-name">Cloud Infrastructure</h3>
+          <p class="platform-desc">Resilient, autoscaling cloud systems designed for zero-downtime deployments and global distribution.</p>
+        </article>
+
+        <!-- Desktop Applications -->
+        <article class="platform-card folnor-emitter emits-rose reveal-up d3" tabindex="0">
+          <div class="platform-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="platform-name">Desktop Applications</h3>
+          <p class="platform-desc">Cross-platform desktop apps with native system integration, offline capability, and premium UX.</p>
+        </article>
+
+      </div>
+    </div>
+    <div class="pp-platforms-atmo" aria-hidden="true"></div>
+  </section>
+
+  <!-- ── PROTOCOLS ACCORDION ───────────────────────────────── -->
+  <section class="pp-protocols" id="protocols" aria-label="How We Build">
+    <div class="pp-section-inner">
+      <div class="pp-section-header reveal-up">
+        <div class="prism-strip" aria-hidden="true"></div>
+        <p class="section-eyebrow">HOW WE BUILD</p>
+        <h2 class="split-h2 pp-section-heading reveal-up d1">The standards behind every product.</h2>
+      </div>
+
+      <div class="protocols-list" role="list">
+
+        <!-- 01 Performance -->
+        <div class="protocol-item reveal-up d1" role="listitem">
+          <button class="protocol-trigger" aria-expanded="false"
+                  aria-controls="proto-body-1" id="proto-btn-1">
+            <span class="proto-num">01</span>
+            <span class="proto-title">Performance</span>
+            <span class="proto-chevron" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          </button>
+          <div class="proto-body" id="proto-body-1" role="region" aria-labelledby="proto-btn-1">
+            <p class="proto-text">Sub-100ms interaction targets across every product. We optimize rendering pipelines, lazy-load aggressively, and run lighthouse audits as a standard part of every release. Performance is not a phase — it is a continuous discipline.</p>
+          </div>
+          <div class="proto-accent" aria-hidden="true"></div>
+        </div>
+
+        <!-- 02 Security -->
+        <div class="protocol-item reveal-up d2" role="listitem">
+          <button class="protocol-trigger" aria-expanded="false"
+                  aria-controls="proto-body-2" id="proto-btn-2">
+            <span class="proto-num">02</span>
+            <span class="proto-title">Security</span>
+            <span class="proto-chevron" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          </button>
+          <div class="proto-body" id="proto-body-2" role="region" aria-labelledby="proto-btn-2">
+            <p class="proto-text">Defense-in-depth from day one. Input validation, strict CSP headers, hardened authentication flows, and zero-trust architecture principles applied at every layer. Security is never an afterthought — it is a design constraint.</p>
+          </div>
+          <div class="proto-accent" aria-hidden="true"></div>
+        </div>
+
+        <!-- 03 Accessibility -->
+        <div class="protocol-item reveal-up d3" role="listitem">
+          <button class="protocol-trigger" aria-expanded="false"
+                  aria-controls="proto-body-3" id="proto-btn-3">
+            <span class="proto-num">03</span>
+            <span class="proto-title">Accessibility</span>
+            <span class="proto-chevron" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          </button>
+          <div class="proto-body" id="proto-body-3" role="region" aria-labelledby="proto-btn-3">
+            <p class="proto-text">WCAG 2.1 AA minimum on every surface. Semantic HTML, complete keyboard navigation, screen reader compatibility, and 4.5:1 contrast ratios enforced throughout. Accessibility is not optional — it is the baseline.</p>
+          </div>
+          <div class="proto-accent" aria-hidden="true"></div>
+        </div>
+
+        <!-- 04 Scalability -->
+        <div class="protocol-item reveal-up d1" role="listitem">
+          <button class="protocol-trigger" aria-expanded="false"
+                  aria-controls="proto-body-4" id="proto-btn-4">
+            <span class="proto-num">04</span>
+            <span class="proto-title">Scalability</span>
+            <span class="proto-chevron" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          </button>
+          <div class="proto-body" id="proto-body-4" role="region" aria-labelledby="proto-btn-4">
+            <p class="proto-text">Architecture that handles 10× growth without a rewrite. Stateless services, horizontal scaling patterns, intelligent caching, and database designs that don't become bottlenecks at scale. We build for where you're going, not just where you are.</p>
+          </div>
+          <div class="proto-accent" aria-hidden="true"></div>
+        </div>
+
+        <!-- 05 Design Quality -->
+        <div class="protocol-item reveal-up d2" role="listitem">
+          <button class="protocol-trigger" aria-expanded="false"
+                  aria-controls="proto-body-5" id="proto-btn-5">
+            <span class="proto-num">05</span>
+            <span class="proto-title">Design Quality</span>
+            <span class="proto-chevron" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          </button>
+          <div class="proto-body" id="proto-body-5" role="region" aria-labelledby="proto-btn-5">
+            <p class="proto-text">400+ PPI visual precision in every component. Mathematical spacing systems, editorial typography hierarchies, 60fps cinematic motion, and obsessive consistency enforced through shared design tokens and primitives.</p>
+          </div>
+          <div class="proto-accent" aria-hidden="true"></div>
+        </div>
+
+        <!-- 06 Reliability -->
+        <div class="protocol-item reveal-up d3" role="listitem">
+          <button class="protocol-trigger" aria-expanded="false"
+                  aria-controls="proto-body-6" id="proto-btn-6">
+            <span class="proto-num">06</span>
+            <span class="proto-title">Reliability</span>
+            <span class="proto-chevron" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          </button>
+          <div class="proto-body" id="proto-body-6" role="region" aria-labelledby="proto-btn-6">
+            <p class="proto-text">Fail-gracefully design at every layer. Error boundaries, resilient state management, progressive degradation, and observability systems that surface problems before users encounter them. Reliability is the promise users never hear — but always feel.</p>
+          </div>
+          <div class="proto-accent" aria-hidden="true"></div>
+        </div>
+
+        <!-- 07 Cross-Platform Consistency -->
+        <div class="protocol-item reveal-up d1" role="listitem">
+          <button class="protocol-trigger" aria-expanded="false"
+                  aria-controls="proto-body-7" id="proto-btn-7">
+            <span class="proto-num">07</span>
+            <span class="proto-title">Cross-Platform Consistency</span>
+            <span class="proto-chevron" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </span>
+          </button>
+          <div class="proto-body" id="proto-body-7" role="region" aria-labelledby="proto-btn-7">
+            <p class="proto-text">Identical quality regardless of OS, browser, or device. The same interaction precision on a 4K desktop as on a 375px phone. Cross-platform is not a checkbox — it is the standard every surface must meet without exception.</p>
+          </div>
+          <div class="proto-accent" aria-hidden="true"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRISM DIVIDER ─────────────────────────────────────── -->
+  <div class="prism-divider" aria-hidden="true"></div>
+
+  <!-- ── PHILOSOPHY STATEMENT ──────────────────────────────── -->
+  <section class="pp-philosophy" id="philosophy" aria-label="Technology Philosophy">
+    <div class="pp-philosophy-inner">
+      <div class="pp-philosophy-deco-line reveal-fade" aria-hidden="true"></div>
+      <div class="pp-philosophy-text reveal-up">
+        <div class="pp-phil-strip-top" aria-hidden="true"></div>
+        <h2 class="pp-phil-heading">
+          <span class="pp-phil-line-1">One standard.</span>
+          <span class="pp-phil-line-2">No exceptions.</span>
+        </h2>
+        <div class="pp-phil-strip-bottom" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRISM DIVIDER ─────────────────────────────────────── -->
+  <div class="prism-divider" aria-hidden="true"></div>
+
+  <!-- ── FEATURE MATRIX ────────────────────────────────────── -->
+  <section class="pp-matrix" id="matrix" aria-label="Every Platform, One Standard">
+    <div class="pp-matrix-inner">
+      <div class="pp-matrix-left">
+        <div class="reveal-up">
+          <div class="prism-strip" aria-hidden="true"></div>
+          <p class="section-eyebrow">EVERY PLATFORM, ONE STANDARD</p>
+        </div>
+        <h2 class="split-h2 pp-matrix-heading reveal-up d1">The same bar. Everywhere.</h2>
+      </div>
+      <div class="pp-matrix-right">
+
+        <div class="feature-row">
+          <span class="feature-label">Performance</span>
+          <div class="feature-bar"><div class="feature-bar-fill"></div></div>
+          <span class="feature-desc">Sub-100ms interaction targets</span>
+        </div>
+
+        <div class="feature-row">
+          <span class="feature-label">Accessibility (WCAG 2.1 AA)</span>
+          <div class="feature-bar"><div class="feature-bar-fill"></div></div>
+          <span class="feature-desc">Keyboard, screen reader, contrast compliant</span>
+        </div>
+
+        <div class="feature-row">
+          <span class="feature-label">Security</span>
+          <div class="feature-bar"><div class="feature-bar-fill"></div></div>
+          <span class="feature-desc">Zero-trust, hardened by default</span>
+        </div>
+
+        <div class="feature-row">
+          <span class="feature-label">Responsive Design</span>
+          <div class="feature-bar"><div class="feature-bar-fill"></div></div>
+          <span class="feature-desc">375px to 4K — no exceptions</span>
+        </div>
+
+        <div class="feature-row">
+          <span class="feature-label">Dark Mode Support</span>
+          <div class="feature-bar"><div class="feature-bar-fill"></div></div>
+          <span class="feature-desc">OLED-native from the ground up</span>
+        </div>
+
+        <div class="feature-row">
+          <span class="feature-label">Cross-Platform Consistency</span>
+          <div class="feature-bar"><div class="feature-bar-fill"></div></div>
+          <span class="feature-desc">Identical quality on every platform</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRISM DIVIDER ─────────────────────────────────────── -->
+  <div class="prism-divider" aria-hidden="true"></div>
+
+  <!-- ── CTA SECTION ───────────────────────────────────────── -->
+  <section class="pp-cta" id="cta" aria-label="Start Building">
+    <div class="pp-cta-inner">
+      <div class="prism-strip" style="margin: 0 auto 0;" aria-hidden="true"></div>
+      <h2 class="pp-cta-heading reveal-up">
+        Let's <em class="pp-cta-em">build</em> something.
+      </h2>
+      <div class="pp-cta-actions reveal-up d1">
+        <a href="folner-contact.html" class="pp-cta-primary folnor-pill">
+          Start a project
+        </a>
+        <a href="folner-careers-2.html" class="pp-cta-secondary">
+          See open roles
+        </a>
+      </div>
+    </div>
+    <div class="pp-cta-halo" aria-hidden="true"></div>
+  </section>
+
+</main>
+
+<!-- ── SITE FOOTER ──────────────────────────────────────────── -->
+<footer class="site-footer" id="siteFooter">
+  <div class="footer-prism-bar" aria-hidden="true"></div>
+  <div class="footer-inner">
+    <div class="footer-logo-wrap">
+      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png"
+           alt="Folner" loading="lazy" decoding="async">
+      <p class="footer-tagline">Software That Feels Alive</p>
+    </div>
+    <nav class="footer-nav-row" aria-label="Footer navigation">
+      <a href="index.html"             class="footer-link">Home</a>
+      <span class="footer-nav-sep" aria-hidden="true"></span>
+      <a href="folner-about-us.html"   class="footer-link">About</a>
+      <span class="footer-nav-sep" aria-hidden="true"></span>
+      <a href="folner-careers-2.html"  class="footer-link">Careers</a>
+      <span class="footer-nav-sep" aria-hidden="true"></span>
+      <a href="folner-contact.html"    class="footer-link">Contact</a>
+    </nav>
+    <div class="footer-legal-row">
+      <a href="privacy.html"  class="footer-link footer-link--legal">Privacy Policy</a>
+      <span class="footer-nav-sep" aria-hidden="true"></span>
+      <a href="terms.html"    class="footer-link footer-link--legal">Terms</a>
+      <span class="footer-nav-sep" aria-hidden="true"></span>
+      <a href="cookies.html"  class="footer-link footer-link--legal">Cookies</a>
+    </div>
+    <p class="footer-copy">© 2025 Folner. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPT 1 — Core interactions
+     Header scroll · Burger menu · Announce bar · Cursor glow · Reveal IO
+═══════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+  try {
+
+    /* ── Header scroll ── */
+    var header = document.getElementById('siteHeader');
+    var announceBar = document.getElementById('announceBar');
+    var headerOffset = 80; // announce bar height approx
+
+    function updateHeaderOffset() {
+      if (announceBar && !announceBar.classList.contains('dismissed')) {
+        headerOffset = announceBar.offsetHeight || 56;
+      } else {
+        headerOffset = 0;
+      }
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!header) return;
+      if (window.scrollY > 40) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      // Scroll indicator hide
+      var si = document.getElementById('scrollIndicator');
+      if (si) {
+        if (window.scrollY > window.innerHeight * 0.20) {
+          si.classList.add('hidden');
+        } else {
+          si.classList.remove('hidden');
+        }
+      }
+    }, { passive: true });
+
+    /* ── Menu overlay ── */
+    var burgerBtn = document.getElementById('burgerBtn');
+    var menuOverlay = document.getElementById('menuOverlay');
+    var menuLinks = menuOverlay ? menuOverlay.querySelectorAll('.menu-link') : [];
+    var menuOpen = false;
+
+    function openMenu() {
+      if (!menuOverlay || !burgerBtn) return;
+      menuOpen = true;
+      menuOverlay.classList.add('open');
+      menuOverlay.setAttribute('aria-hidden', 'false');
+      burgerBtn.setAttribute('aria-expanded', 'true');
+      burgerBtn.setAttribute('aria-label', 'Close menu');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      if (!menuOverlay || !burgerBtn) return;
+      menuOpen = false;
+      menuOverlay.classList.remove('open');
+      menuOverlay.setAttribute('aria-hidden', 'true');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+      burgerBtn.setAttribute('aria-label', 'Open menu');
+      document.body.style.overflow = '';
+    }
+
+    if (burgerBtn) {
+      burgerBtn.addEventListener('click', function () {
+        if (menuOpen) { closeMenu(); } else { openMenu(); }
+      });
+    }
+
+    menuLinks.forEach(function (link) {
+      link.addEventListener('click', function () { closeMenu(); });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menuOpen) { closeMenu(); }
+    });
+
+    /* ── Announcement bar ── */
+    var announceClose = document.getElementById('announceClose');
+
+    (function initAnnounce() {
+      if (!announceBar) return;
+      if (sessionStorage.getItem('announceDismissed') === 'true') {
+        announceBar.classList.add('dismissed');
+      }
+    })();
+
+    if (announceClose && announceBar) {
+      announceClose.addEventListener('click', function () {
+        announceBar.classList.add('dismissed');
+        sessionStorage.setItem('announceDismissed', 'true');
+        updateHeaderOffset();
+      });
+    }
+
+    /* ── Cursor glow ── */
+    (function initCursor() {
+      if (window.matchMedia('(pointer: coarse)').matches) return;
+      var glow = document.getElementById('cursorGlow');
+      if (!glow) return;
+      var firstMove = true;
+      window.addEventListener('mousemove', function (e) {
+        if (firstMove) {
+          glow.style.opacity = '0.07';
+          firstMove = false;
+        }
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+      }, { passive: true });
+    })();
+
+    /* ── Reveal IntersectionObserver ── */
+    (function initReveal() {
+      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReduced) {
+        // Make everything immediately visible
+        document.querySelectorAll('.reveal-up, .reveal-fade, .feature-row').forEach(function (el) {
+          el.classList.add('visible');
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          el.style.transition = 'none';
+        });
+        return;
+      }
+
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal-up, .reveal-fade').forEach(function (el) {
+          el.classList.add('visible');
+        });
+        return;
+      }
+
+      var revealIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal-up, .reveal-fade').forEach(function (el) {
+        revealIO.observe(el);
+      });
+
+      /* Feature matrix rows observer */
+      var matrixIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            matrixIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.feature-row').forEach(function (el) {
+        matrixIO.observe(el);
+      });
+
+      /* Accordion accent lines observer */
+      var accentIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('accent-visible');
+            accentIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.20 });
+
+      document.querySelectorAll('.protocol-item').forEach(function (el) {
+        accentIO.observe(el);
+      });
+
+      /* Split-h2 observer */
+      var splitIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            splitIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.20 });
+
+      document.querySelectorAll('.split-h2').forEach(function (el) {
+        splitIO.observe(el);
+      });
+
+    })();
+
+  } catch (e) {
+    console.warn('[Folner] Core interactions failed:', e);
+  }
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPT 2 — Neural canvas particle network
+═══════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+  try {
+    var canvas = document.getElementById('heroNeural');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    var W = 0, H = 0;
+    var particles = [];
+    var NUM_PARTICLES = 70;
+    var CONNECTION_DIST = 140;
+    var rafId = null;
+
+    function resize() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+    }
+
+    function createParticles() {
+      particles = [];
+      for (var i = 0; i < NUM_PARTICLES; i++) {
+        particles.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          radius: Math.random() * 1.5 + 0.5
+        });
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      // Update positions
+      for (var i = 0; i < NUM_PARTICLES; i++) {
+        var p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = W;
+        if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H;
+        if (p.y > H) p.y = 0;
+      }
+
+      // Draw connections
+      for (var i = 0; i < NUM_PARTICLES; i++) {
+        for (var j = i + 1; j < NUM_PARTICLES; j++) {
+          var dx = particles[i].x - particles[j].x;
+          var dy = particles[i].y - particles[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < CONNECTION_DIST) {
+            var alpha = (1 - dist / CONNECTION_DIST) * 0.12;
+            ctx.strokeStyle = 'rgba(255,255,255,' + alpha + ')';
+            ctx.lineWidth = 0.5;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw particles
+      for (var i = 0; i < NUM_PARTICLES; i++) {
+        var p = particles[i];
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,0.45)';
+        ctx.fill();
+      }
+
+      rafId = requestAnimationFrame(draw);
+    }
+
+    function start() {
+      resize();
+      createParticles();
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(draw);
+    }
+
+    function stop() {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+
+    // Visibility change
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        stop();
+      } else {
+        if (!rafId) {
+          rafId = requestAnimationFrame(draw);
+        }
+      }
+    });
+
+    // Resize
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        stop();
+        start();
+      }, 200);
+    }, { passive: true });
+
+    start();
+
+  } catch (e) {
+    console.warn('[Folner] Neural canvas failed:', e);
+  }
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPT 3 — Protocols accordion
+═══════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+  try {
+    var triggers = document.querySelectorAll('.protocol-trigger');
+    var currentOpen = null;
+
+    function openItem(btn) {
+      var item = btn.closest('.protocol-item');
+      if (!item) return;
+      btn.setAttribute('aria-expanded', 'true');
+      item.classList.add('is-open');
+      currentOpen = btn;
+    }
+
+    function closeItem(btn) {
+      var item = btn.closest('.protocol-item');
+      if (!item) return;
+      btn.setAttribute('aria-expanded', 'false');
+      item.classList.remove('is-open');
+    }
+
+    triggers.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+        // Close currently open item (if different)
+        if (currentOpen && currentOpen !== btn) {
+          closeItem(currentOpen);
+          currentOpen = null;
+        }
+
+        if (isExpanded) {
+          closeItem(btn);
+          currentOpen = null;
+        } else {
+          openItem(btn);
+        }
+      });
+
+      btn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          btn.click();
+        }
+      });
+    });
+
+  } catch (e) {
+    console.warn('[Folner] Accordion failed:', e);
+  }
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPT 4 — Hero word-split + split-h2
+═══════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+  try {
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ── Hero headline word-split ── */
+    var heroHeadline = document.getElementById('heroHeadline');
+    if (heroHeadline) {
+      var lines = [
+        { text: 'Built for', prism: false },
+        { text: 'every environment.', prism: true }
+      ];
+
+      heroHeadline.innerHTML = '';
+
+      var wordIndex = 0;
+      lines.forEach(function (line) {
+        var lineEl = document.createElement('span');
+        lineEl.className = 'hero-line';
+        var words = line.text.split(' ');
+        words.forEach(function (word, wi) {
+          var wrapper = document.createElement('span');
+          wrapper.className = 'hero-word';
+          var inner = document.createElement('span');
+          inner.className = 'hero-word-inner';
+          if (line.prism) {
+            inner.style.background = 'linear-gradient(90deg, #C679C4 0%, #FA3D1D 25%, #FFB005 50%, #E1E1FE 75%, #0358F7 100%)';
+            inner.style.webkitBackgroundClip = 'text';
+            inner.style.webkitTextFillColor = 'transparent';
+            inner.style.backgroundClip = 'text';
+          }
+          if (prefersReduced) {
+            inner.style.transform = 'translateY(0)';
+            inner.style.opacity = '1';
+            inner.style.transition = 'none';
+          } else {
+            inner.style.transitionDelay = (200 + wordIndex * 200) + 'ms';
+          }
+          inner.textContent = word;
+          wrapper.appendChild(inner);
+          lineEl.appendChild(wrapper);
+          if (wi < words.length - 1) {
+            lineEl.appendChild(document.createTextNode('\u00A0'));
+          }
+          wordIndex++;
+        });
+        heroHeadline.appendChild(lineEl);
+      });
+
+      if (!prefersReduced) {
+        requestAnimationFrame(function () {
+          heroHeadline.querySelectorAll('.hero-word-inner').forEach(function (el) {
+            el.classList.add('animate');
+          });
+        });
+      }
+    }
+
+    /* ── Split-h2 word injection ── */
+    if (!prefersReduced) {
+      document.querySelectorAll('.split-h2').forEach(function (heading) {
+        var text = heading.textContent.trim();
+        var words = text.split(/\s+/);
+        heading.innerHTML = '';
+        words.forEach(function (word, i) {
+          var wrapper = document.createElement('span');
+          wrapper.className = 'split-word';
+          var inner = document.createElement('span');
+          inner.className = 'split-word-inner';
+          inner.style.transitionDelay = (i * 60) + 'ms';
+          inner.textContent = word;
+          wrapper.appendChild(inner);
+          heading.appendChild(wrapper);
+          if (i < words.length - 1) {
+            heading.appendChild(document.createTextNode('\u00A0'));
+          }
+        });
+      });
+    }
+
+  } catch (e) {
+    console.warn('[Folner] Word-split failed:', e);
+  }
+})();
+</script>
+
+</body>
+</html>

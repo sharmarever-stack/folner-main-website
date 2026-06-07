@@ -37,7 +37,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
 <style>
 :root {
-  --em: 16,185,129;        /* emerald — uptime green */
+  --em: 89,212,153;        /* mint — security green (Felnor emission) */
   --orion: 123,51,125;
   --blue: 3,88,247;
   --font: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -154,9 +154,9 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
 .prism {
   width: 100%; height: 1.5px;
   background: linear-gradient(90deg,
-    transparent 0%, rgba(16,185,129,0.55) 12%,
+    transparent 0%, rgba(89,212,153,0.55) 12%,
     rgba(3,88,247,0.50) 32%, rgba(255,176,5,0.45) 50%,
-    rgba(198,121,196,0.40) 68%, rgba(16,185,129,0.50) 88%, transparent 100%);
+    rgba(198,121,196,0.40) 68%, rgba(89,212,153,0.50) 88%, transparent 100%);
 }
 
 /* ── STAT BAND ───────────────────────────────────────────────────── */
@@ -276,7 +276,7 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
 }
 .uptime-title em {
   font-style: normal;
-  background: linear-gradient(90deg, rgba(16,185,129,1), rgba(3,88,247,0.90));
+  background: linear-gradient(90deg, rgba(89,212,153,1), rgba(3,88,247,0.90));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 /* Live uptime bar graph */
@@ -332,7 +332,7 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
 
 /* ── FOOTER ───────────────────────────────────────────────────────── */
 .site-footer { background: #000; }
-.footer-prism { width: 100%; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(16,185,129,0.45) 12%, rgba(3,88,247,0.40) 32%, rgba(255,176,5,0.38) 50%, rgba(198,121,196,0.35) 68%, rgba(16,185,129,0.45) 88%, transparent 100%); }
+.footer-prism { width: 100%; height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(89,212,153,0.45) 12%, rgba(3,88,247,0.40) 32%, rgba(255,176,5,0.38) 50%, rgba(198,121,196,0.35) 68%, rgba(89,212,153,0.45) 88%, transparent 100%); }
 .footer-inner {
   max-width: 1280px; margin: 0 auto; padding: 36px 64px 32px;
   display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
@@ -465,7 +465,7 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
     <nav class="menu-nav" aria-label="Site navigation">
       <a href="index.html" class="menu-link">Home</a>
       <a href="folner-about-us.html" class="menu-link">About</a>
-      <a href="folner-careers-2.html" class="menu-link">Careers</a>
+      <a href="platforms-protocols.html" class="menu-link">Platforms</a>      <a href="folner-careers-2.html" class="menu-link">Careers</a>
       <a href="folner-contact.html" class="menu-link">Contact</a>
     </nav>
   </div>
@@ -543,19 +543,19 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
       <svg viewBox="0 0 460 360" width="460" height="360" style="max-width:100%">
         <defs>
           <radialGradient id="eg1" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="rgba(16,185,129,0.18)"/>
-            <stop offset="100%" stop-color="rgba(16,185,129,0)"/>
+            <stop offset="0%" stop-color="rgba(89,212,153,0.18)"/>
+            <stop offset="100%" stop-color="rgba(89,212,153,0)"/>
           </radialGradient>
         </defs>
         <!-- Outer ring -->
-        <circle cx="230" cy="180" r="130" fill="none" stroke="rgba(16,185,129,0.07)" stroke-width="1"/>
-        <circle cx="230" cy="180" r="90" fill="none" stroke="rgba(16,185,129,0.10)" stroke-width="1"/>
+        <circle cx="230" cy="180" r="130" fill="none" stroke="rgba(89,212,153,0.07)" stroke-width="1"/>
+        <circle cx="230" cy="180" r="90" fill="none" stroke="rgba(89,212,153,0.10)" stroke-width="1"/>
         <circle cx="230" cy="180" r="55" fill="url(#eg1)"/>
         <!-- Rotating ring with dot -->
-        <circle cx="230" cy="180" r="90" fill="none" stroke="rgba(16,185,129,0.28)" stroke-width="1.2" stroke-dasharray="6 4">
+        <circle cx="230" cy="180" r="90" fill="none" stroke="rgba(89,212,153,0.28)" stroke-width="1.2" stroke-dasharray="6 4">
           <animateTransform attributeName="transform" type="rotate" from="0 230 180" to="360 230 180" dur="12s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="230" cy="90" r="5" fill="rgba(16,185,129,0.85)">
+        <circle cx="230" cy="90" r="5" fill="rgba(89,212,153,0.85)">
           <animateTransform attributeName="transform" type="rotate" from="0 230 180" to="360 230 180" dur="12s" repeatCount="indefinite"/>
           <animate attributeName="r" values="5;7;5" dur="1.5s" repeatCount="indefinite"/>
         </circle>
@@ -567,11 +567,11 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
           <animateTransform attributeName="transform" type="rotate" from="0 230 180" to="-360 230 180" dur="20s" repeatCount="indefinite"/>
         </circle>
         <!-- Lock icon center -->
-        <rect x="210" y="175" width="40" height="30" rx="5" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.60)" stroke-width="1.5"/>
-        <path d="M219 175 L219 167 Q219 158 230 158 Q241 158 241 167 L241 175" fill="none" stroke="rgba(16,185,129,0.60)" stroke-width="1.8" stroke-linecap="round"/>
-        <circle cx="230" cy="190" r="4" fill="rgba(16,185,129,0.90)"/>
+        <rect x="210" y="175" width="40" height="30" rx="5" fill="rgba(89,212,153,0.15)" stroke="rgba(89,212,153,0.60)" stroke-width="1.5"/>
+        <path d="M219 175 L219 167 Q219 158 230 158 Q241 158 241 167 L241 175" fill="none" stroke="rgba(89,212,153,0.60)" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="230" cy="190" r="4" fill="rgba(89,212,153,0.90)"/>
         <!-- Pulse ring -->
-        <circle cx="230" cy="180" r="130" fill="none" stroke="rgba(16,185,129,0.05)" stroke-width="1">
+        <circle cx="230" cy="180" r="130" fill="none" stroke="rgba(89,212,153,0.05)" stroke-width="1">
           <animate attributeName="r" values="110;145;110" dur="4s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.6;0;0.6" dur="4s" repeatCount="indefinite"/>
         </circle>
@@ -601,25 +601,25 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
             <animate attributeName="stroke-dashoffset" from="10" to="0" dur="0.8s" repeatCount="indefinite"/>
           </line>
           <!-- Checkpoint 1 -->
-          <circle cx="195" cy="166" r="18" fill="rgba(16,185,129,0.10)" stroke="rgba(16,185,129,0.45)" stroke-width="1.2"/>
-          <text x="195" y="163" text-anchor="middle" fill="rgba(16,185,129,0.75)" font-size="7" font-family="ui-monospace,monospace">IAM</text>
-          <text x="195" y="174" text-anchor="middle" fill="rgba(16,185,129,0.55)" font-size="7" font-family="ui-monospace,monospace">CHECK</text>
+          <circle cx="195" cy="166" r="18" fill="rgba(89,212,153,0.10)" stroke="rgba(89,212,153,0.45)" stroke-width="1.2"/>
+          <text x="195" y="163" text-anchor="middle" fill="rgba(89,212,153,0.75)" font-size="7" font-family="ui-monospace,monospace">IAM</text>
+          <text x="195" y="174" text-anchor="middle" fill="rgba(89,212,153,0.55)" font-size="7" font-family="ui-monospace,monospace">CHECK</text>
           <!-- Arrow 2 -->
-          <line x1="213" y1="166" x2="268" y2="166" stroke="rgba(16,185,129,0.22)" stroke-width="1" stroke-dasharray="3 2">
+          <line x1="213" y1="166" x2="268" y2="166" stroke="rgba(89,212,153,0.22)" stroke-width="1" stroke-dasharray="3 2">
             <animate attributeName="stroke-dashoffset" from="10" to="0" dur="0.8s" repeatCount="indefinite"/>
           </line>
           <!-- Checkpoint 2 -->
-          <circle cx="283" cy="166" r="18" fill="rgba(16,185,129,0.10)" stroke="rgba(16,185,129,0.35)" stroke-width="1.2"/>
-          <text x="283" y="163" text-anchor="middle" fill="rgba(16,185,129,0.65)" font-size="7" font-family="ui-monospace,monospace">RBAC</text>
-          <text x="283" y="174" text-anchor="middle" fill="rgba(16,185,129,0.45)" font-size="7" font-family="ui-monospace,monospace">POLICY</text>
+          <circle cx="283" cy="166" r="18" fill="rgba(89,212,153,0.10)" stroke="rgba(89,212,153,0.35)" stroke-width="1.2"/>
+          <text x="283" y="163" text-anchor="middle" fill="rgba(89,212,153,0.65)" font-size="7" font-family="ui-monospace,monospace">RBAC</text>
+          <text x="283" y="174" text-anchor="middle" fill="rgba(89,212,153,0.45)" font-size="7" font-family="ui-monospace,monospace">POLICY</text>
           <!-- Arrow 3 -->
-          <line x1="301" y1="166" x2="348" y2="166" stroke="rgba(16,185,129,0.15)" stroke-width="1" stroke-dasharray="3 2">
+          <line x1="301" y1="166" x2="348" y2="166" stroke="rgba(89,212,153,0.15)" stroke-width="1" stroke-dasharray="3 2">
             <animate attributeName="stroke-dashoffset" from="10" to="0" dur="0.8s" repeatCount="indefinite"/>
           </line>
           <!-- Destination: PROD -->
           <rect x="350" y="148" width="78" height="36" rx="6" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
           <text x="389" y="167" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="8" font-family="ui-monospace,monospace">PRODUCTION</text>
-          <text x="389" y="180" text-anchor="middle" fill="rgba(16,185,129,0.45)" font-size="7" font-family="ui-monospace,monospace">TIME-LIMITED</text>
+          <text x="389" y="180" text-anchor="middle" fill="rgba(89,212,153,0.45)" font-size="7" font-family="ui-monospace,monospace">TIME-LIMITED</text>
           <!-- Logged label below -->
           <text x="230" y="225" text-anchor="middle" fill="rgba(255,255,255,0.18)" font-size="9" font-family="ui-monospace,monospace" letter-spacing="0.12em">EVERY SESSION LOGGED · AUDIT TRAIL IMMUTABLE</text>
         </g>
@@ -645,8 +645,8 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
       <svg viewBox="0 0 460 360" width="460" height="360" style="max-width:100%">
         <defs>
           <radialGradient id="og1" cx="50%" cy="80%" r="60%">
-            <stop offset="0%" stop-color="rgba(16,185,129,0.10)"/>
-            <stop offset="100%" stop-color="rgba(16,185,129,0)"/>
+            <stop offset="0%" stop-color="rgba(89,212,153,0.10)"/>
+            <stop offset="100%" stop-color="rgba(89,212,153,0)"/>
           </radialGradient>
         </defs>
         <rect x="0" y="0" width="460" height="360" fill="url(#og1)"/>
@@ -659,7 +659,7 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
           <line x1="0" y1="40" x2="380" y2="40" stroke="rgba(255,255,255,0.04)" stroke-width="0.8"/>
           <!-- Area fill path (smooth) -->
           <path d="M0,110 C20,108 40,105 60,106 C80,107 90,104 110,103 C130,102 140,100 160,99 C180,98 195,97 210,98 C225,99 240,96 255,72 C265,55 270,45 280,50 C290,56 300,80 315,95 C330,108 350,112 380,110 L380,120 L0,120 Z"
-            fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.55)" stroke-width="1.5" fill-opacity="0.6"/>
+            fill="rgba(89,212,153,0.08)" stroke="rgba(89,212,153,0.55)" stroke-width="1.5" fill-opacity="0.6"/>
           <!-- Anomaly spike marker -->
           <circle cx="255" cy="72" r="5" fill="none" stroke="rgba(255,176,5,0.80)" stroke-width="1.5">
             <animate attributeName="r" values="5;9;5" dur="2s" repeatCount="indefinite"/>
@@ -690,11 +690,11 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
     <div class="p-graphic" aria-hidden="true">
       <svg viewBox="0 0 460 340" width="460" height="340" style="max-width:100%">
         <!-- Three AZ nodes -->
-        <circle cx="230" cy="80" r="36" fill="rgba(16,185,129,0.10)" stroke="rgba(16,185,129,0.45)" stroke-width="1.5"/>
-        <text x="230" y="76" text-anchor="middle" fill="rgba(16,185,129,0.80)" font-size="8" font-family="ui-monospace,monospace">AZ-1</text>
-        <text x="230" y="89" text-anchor="middle" fill="rgba(16,185,129,0.55)" font-size="7" font-family="ui-monospace,monospace">PRIMARY</text>
+        <circle cx="230" cy="80" r="36" fill="rgba(89,212,153,0.10)" stroke="rgba(89,212,153,0.45)" stroke-width="1.5"/>
+        <text x="230" y="76" text-anchor="middle" fill="rgba(89,212,153,0.80)" font-size="8" font-family="ui-monospace,monospace">AZ-1</text>
+        <text x="230" y="89" text-anchor="middle" fill="rgba(89,212,153,0.55)" font-size="7" font-family="ui-monospace,monospace">PRIMARY</text>
         <!-- Health pulse -->
-        <circle cx="230" cy="80" r="36" fill="none" stroke="rgba(16,185,129,0.20)" stroke-width="1">
+        <circle cx="230" cy="80" r="36" fill="none" stroke="rgba(89,212,153,0.20)" stroke-width="1">
           <animate attributeName="r" values="36;52;36" dur="2.5s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.8;0;0.8" dur="2.5s" repeatCount="indefinite"/>
         </circle>
@@ -705,10 +705,10 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
         <text x="360" y="237" text-anchor="middle" fill="rgba(3,88,247,0.65)" font-size="8" font-family="ui-monospace,monospace">AZ-3</text>
         <text x="360" y="249" text-anchor="middle" fill="rgba(3,88,247,0.45)" font-size="7" font-family="ui-monospace,monospace">REPLICA</text>
         <!-- Connections -->
-        <line x1="198" y1="108" x2="128" y2="212" stroke="rgba(16,185,129,0.20)" stroke-width="1" stroke-dasharray="5 3">
+        <line x1="198" y1="108" x2="128" y2="212" stroke="rgba(89,212,153,0.20)" stroke-width="1" stroke-dasharray="5 3">
           <animate attributeName="stroke-dashoffset" from="16" to="0" dur="1.2s" repeatCount="indefinite"/>
         </line>
-        <line x1="262" y1="108" x2="332" y2="212" stroke="rgba(16,185,129,0.20)" stroke-width="1" stroke-dasharray="5 3">
+        <line x1="262" y1="108" x2="332" y2="212" stroke="rgba(89,212,153,0.20)" stroke-width="1" stroke-dasharray="5 3">
           <animate attributeName="stroke-dashoffset" from="16" to="0" dur="1.2s" repeatCount="indefinite"/>
         </line>
         <line x1="132" y1="240" x2="328" y2="240" stroke="rgba(3,88,247,0.15)" stroke-width="1" stroke-dasharray="4 3"/>
@@ -741,24 +741,24 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
         <ellipse cx="230" cy="180" rx="120" ry="20" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.8"/>
         <circle cx="230" cy="180" r="120" fill="url(#wg)"/>
         <!-- Probe pings -->
-        <circle cx="165" cy="130" r="5" fill="rgba(16,185,129,0.85)">
+        <circle cx="165" cy="130" r="5" fill="rgba(89,212,153,0.85)">
           <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" begin="0s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="165" cy="130" r="5" fill="none" stroke="rgba(16,185,129,0.40)" stroke-width="1">
+        <circle cx="165" cy="130" r="5" fill="none" stroke="rgba(89,212,153,0.40)" stroke-width="1">
           <animate attributeName="r" values="5;16;5" dur="1.8s" begin="0s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.8;0;0.8" dur="1.8s" begin="0s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="310" cy="145" r="5" fill="rgba(16,185,129,0.85)">
+        <circle cx="310" cy="145" r="5" fill="rgba(89,212,153,0.85)">
           <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" begin="0.6s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="310" cy="145" r="5" fill="none" stroke="rgba(16,185,129,0.35)" stroke-width="1">
+        <circle cx="310" cy="145" r="5" fill="none" stroke="rgba(89,212,153,0.35)" stroke-width="1">
           <animate attributeName="r" values="5;14;5" dur="1.8s" begin="0.6s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.8;0;0.8" dur="1.8s" begin="0.6s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="230" cy="230" r="5" fill="rgba(16,185,129,0.85)">
+        <circle cx="230" cy="230" r="5" fill="rgba(89,212,153,0.85)">
           <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" begin="1.2s" repeatCount="indefinite"/>
         </circle>
-        <circle cx="230" cy="230" r="5" fill="none" stroke="rgba(16,185,129,0.30)" stroke-width="1">
+        <circle cx="230" cy="230" r="5" fill="none" stroke="rgba(89,212,153,0.30)" stroke-width="1">
           <animate attributeName="r" values="5;12;5" dur="1.8s" begin="1.2s" repeatCount="indefinite"/>
           <animate attributeName="opacity" values="0.8;0;0.8" dur="1.8s" begin="1.2s" repeatCount="indefinite"/>
         </circle>
@@ -834,7 +834,6 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
     <div class="footer-bottom">
       <nav class="footer-nav-row" aria-label="Footer">
         <a href="folner-about-us.html" class="footer-link">About</a>
-        <div class="footer-nav-sep" aria-hidden="true"></div>
         <a href="folner-careers-2.html" class="footer-link">Careers</a>
         <div class="footer-nav-sep" aria-hidden="true"></div>
         <a href="folner-contact.html" class="footer-link">Contact</a>
@@ -955,9 +954,9 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
           const cPulse = 0.5 + 0.25*(Math.sin(pi) + Math.sin(pj));
           const ea = strength * cPulse * 0.48;
           const eg = ctx.createLinearGradient(nodes[i].x*W, nodes[i].y*H, nodes[j].x*W, nodes[j].y*H);
-          eg.addColorStop(0,   `rgba(16,185,129,${ea.toFixed(3)})`);
+          eg.addColorStop(0,   `rgba(89,212,153,${ea.toFixed(3)})`);
           eg.addColorStop(0.5, `rgba(80,230,160,${(ea*1.5).toFixed(3)})`);
-          eg.addColorStop(1,   `rgba(16,185,129,${ea.toFixed(3)})`);
+          eg.addColorStop(1,   `rgba(89,212,153,${ea.toFixed(3)})`);
           ctx.lineWidth = 0.4 + strength * 0.9;
           ctx.strokeStyle = eg;
           ctx.beginPath();
@@ -976,8 +975,8 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
       const nx = n.x * W, ny = n.y * H;
 
       const halo = ctx.createRadialGradient(nx, ny, 0, nx, ny, radius * 5);
-      halo.addColorStop(0, `rgba(16,185,129,${(alpha * 0.30).toFixed(3)})`);
-      halo.addColorStop(1, 'rgba(16,185,129,0)');
+      halo.addColorStop(0, `rgba(89,212,153,${(alpha * 0.30).toFixed(3)})`);
+      halo.addColorStop(1, 'rgba(89,212,153,0)');
       ctx.beginPath(); ctx.arc(nx, ny, radius * 5, 0, Math.PI*2);
       ctx.fillStyle = halo; ctx.fill();
 
@@ -987,7 +986,7 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
 
     // Accent orbs
     [
-      { rx: 0.20, ry: 0.30, c: '16,185,129', s: 210 },
+      { rx: 0.20, ry: 0.30, c: '89,212,153', s: 210 },
       { rx: 0.80, ry: 0.60, c: '3,88,247',   s: 250 },
       { rx: 0.50, ry: 0.72, c: '123,51,125', s: 180 }
     ].forEach((o, i) => {
@@ -1024,11 +1023,11 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
   }
 
   const layers = [
-    { label: 'CDN / EDGE', sub: 'DDoS mitigation', c: '16,185,129' },
+    { label: 'CDN / EDGE', sub: 'DDoS mitigation', c: '89,212,153' },
     { label: 'WAF',        sub: 'Request filtering', c: '3,88,247'   },
     { label: 'LOAD BALANCER', sub: 'TLS termination', c: '3,88,247'  },
     { label: 'APP LAYER',  sub: 'Auth · Logic', c: '123,51,125'       },
-    { label: 'DATA LAYER', sub: 'AES-256 encrypted', c: '16,185,129' }
+    { label: 'DATA LAYER', sub: 'AES-256 encrypted', c: '89,212,153' }
   ];
 
   const particles = Array.from({length: 18}, () => ({
@@ -1056,7 +1055,7 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
     let startY = (H - totalH) / 2;
 
     // Draw flow lines between layers
-    ctx.strokeStyle = 'rgba(16,185,129,0.08)';
+    ctx.strokeStyle = 'rgba(89,212,153,0.08)';
     ctx.lineWidth = 1;
     for(let i = 0; i < layers.length - 1; i++){
       const y1 = startY + i * (bH + 16) + bH;

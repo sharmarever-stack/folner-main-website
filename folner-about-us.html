@@ -188,10 +188,10 @@ section{position:relative;z-index:2;}
 .belief-card{position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,0.06);padding:64px 64px 72px;display:grid;grid-template-columns:180px 1fr 1fr;gap:0 80px;align-items:start;transition:background 400ms ease;}
 .belief-card:last-child{border-bottom:1px solid rgba(255,255,255,0.06);}
 .belief-card:hover{background:rgba(255,255,255,0.015);}
-.belief-card--signal{--bclr:rgba(198,121,196,0.15);}
-.belief-card--cyan{--bclr:rgba(198,121,196,0.15);}
-.belief-card--mint{--bclr:rgba(198,121,196,0.15);}
-.belief-card--amber{--bclr:rgba(168,144,112,0.75);}
+.belief-card--signal{--bclr:rgba(3,88,247,0.20);}
+.belief-card--cyan{--bclr:rgba(86,194,255,0.18);}
+.belief-card--mint{--bclr:rgba(89,212,153,0.18);}
+.belief-card--amber{--bclr:rgba(255,176,5,0.18);}
 /* animated left accent line */
 .belief-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--bclr);transform:scaleY(0);transform-origin:top;transition:transform 700ms cubic-bezier(0.34,1.56,0.64,1);}
 .belief-card.visible::before{transform:scaleY(1);}
@@ -199,12 +199,16 @@ section{position:relative;z-index:2;}
 .belief-card:hover .belief-num{color:rgba(255,255,255,0.22);}
 .belief-title{font-size:clamp(20px,2vw,28px);font-weight:700;letter-spacing:-0.03em;line-height:1.15;color:#fff;margin-bottom:14px;padding-top:4px;}
 .belief-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--bclr);margin-bottom:16px;opacity:0.85;}
+.belief-card--signal .belief-tag{color:rgba(3,88,247,0.90);}
+.belief-card--cyan .belief-tag{color:rgba(86,194,255,0.90);}
+.belief-card--mint .belief-tag{color:rgba(89,212,153,0.90);}
+.belief-card--amber .belief-tag{color:rgba(255,176,5,0.90);}
 .belief-body{font-size:15px;font-weight:400;color:rgba(255,255,255,0.42);line-height:1.78;text-align:left;}
 .belief-halo{position:absolute;top:0;right:0;width:400px;height:100%;pointer-events:none;opacity:0;transition:opacity 500ms ease;}
-.belief-card--signal .belief-halo{background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(198,121,196,0.15) 0%,transparent 70%);}
-.belief-card--cyan .belief-halo{background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(198,121,196,0.15) 0%,transparent 70%);}
-.belief-card--mint .belief-halo{background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(198,121,196,0.15) 0%,transparent 70%);}
-.belief-card--amber .belief-halo{background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(168,144,112,0.07) 0%,transparent 70%);}
+.belief-card--signal .belief-halo{background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(3,88,247,0.18) 0%,transparent 70%);}
+.belief-card--cyan .belief-halo{background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(86,194,255,0.15) 0%,transparent 70%);}
+.belief-card--mint .belief-halo{background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(89,212,153,0.15) 0%,transparent 70%);}
+.belief-card--amber .belief-halo{background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(255,176,5,0.12) 0%,transparent 70%);}
 .belief-card:hover .belief-halo{opacity:1;}
 
 /* ── How We Build ── */

@@ -1,0 +1,58 @@
+goal:
+  slug: platforms-protocols-redesign
+  title: "Platforms & Protocols Page — Complete Implementation"
+  status: active
+  kind: existing_plan
+  oracle: "platforms-protocols.html exists, is non-empty (>500 lines), and contains all required section IDs: hero, platforms, protocols, philosophy, matrix, cta, siteFooter"
+  intake:
+    original_request: "do the complete implementation of platforms-protocols.html"
+    interpreted_outcome: "platforms-protocols.html is a complete, visually correct, site-consistent page matching the spec"
+    input_shape: existing_plan
+    authority: approved
+    proof_type: artifact
+    completion_proof: "File exists, non-empty, all sections present, renders correctly in browser"
+    likely_misfire: "Page looks done structurally but missing JS interactions or mobile responsiveness"
+    blind_spots:
+      - "Asset paths must be correct relative to Main_Website/"
+      - "Site chrome must match folner-about-us.html exactly"
+    existing_plan_facts:
+      - "/Users/sanjaysharma/Desktop/Folner/.kiro/specs/platforms-protocols-redesign/requirements.md"
+      - "/Users/sanjaysharma/Desktop/Folner/.kiro/specs/platforms-protocols-redesign/design.md"
+      - "/Users/sanjaysharma/Desktop/Folner/.kiro/specs/platforms-protocols-redesign/tasks.md"
+  agents:
+    scout: bundled
+    worker: bundled
+    judge: bundled
+
+tasks:
+  - id: T001
+    type: worker
+    assignee: Worker
+    status: active
+    objective: "Build the complete platforms-protocols.html file from scratch implementing all tasks 1-24 from tasks.md"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/platforms-protocols.html"
+    inputs:
+      - "/Users/sanjaysharma/Desktop/Folner/.kiro/specs/platforms-protocols-redesign/requirements.md"
+      - "/Users/sanjaysharma/Desktop/Folner/.kiro/specs/platforms-protocols-redesign/design.md"
+      - "/Users/sanjaysharma/Desktop/Folner/.kiro/specs/platforms-protocols-redesign/tasks.md"
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/folner-about-us.html"
+    verify:
+      - "test -s /Users/sanjaysharma/Desktop/Folner/Main_Website/platforms-protocols.html"
+    stop_if:
+      - "Asset images not found at assets/images/"
+    receipt: null
+
+  - id: T999
+    type: judge
+    assignee: Judge
+    status: queued
+    objective: "Audit whether platforms-protocols.html is complete and matches the oracle"
+    inputs:
+      - "T001 receipt"
+      - "platforms-protocols.html file content"
+    expected_output:
+      - "complete | not_complete"
+      - "full_outcome_complete: true | false"
+      - "missing evidence if not complete"
+    receipt: null

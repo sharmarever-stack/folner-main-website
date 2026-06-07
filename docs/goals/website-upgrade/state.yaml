@@ -1,0 +1,243 @@
+goal:
+  slug: website-upgrade
+  title: "Folner Website — Full Upgrade"
+  status: done
+  kind: open_ended
+  oracle: "Every HTML page renders with #000000 OLED canvas, consistent site chrome, correct emission palette, no dead CSS, working interactions"
+  intake:
+    original_request: "Upgrade whole website, do it page by page, improve whatever required, change whatever required, fix whatever required"
+    interpreted_outcome: "All HTML pages upgraded to full Felnor OLED Emission design system standard"
+    input_shape: open_ended
+    authority: approved
+    proof_type: artifact
+    completion_proof: "All pages pass per-page oracle: canvas, chrome, emission palette, no broken CSS/JS"
+    likely_misfire: "Surface-level text changes while leaving structural issues unfixed"
+    blind_spots:
+      - "Legal pages need readability preserved alongside design system alignment"
+      - "Job pages share a template — fix one, apply pattern to all"
+      - "platforms-protocols.html is already in-flight under separate goal"
+    existing_plan_facts:
+      - "Scout audit: 4 job detail pages have blank .hdr {} CSS blocks"
+      - "Scout audit: 404.html has no site chrome at all"
+      - "Scout audit: About Us belief cards all use rose accent (should be distinct)"
+      - "Scout audit: Legal pages have dead .nav {} CSS"
+      - "Scout audit: security.html uses non-system emerald green"
+      - "Template reference: folner-job-junior-designer-10x-2.html is the complete job page"
+  agents:
+    scout: bundled
+    worker: bundled
+    judge: bundled
+
+tasks:
+  - id: T001
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Upgrade index.html — restore missing Card 02 (Real-time Orchestration) with correct left/right alternating pattern"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/index.html"
+    receipt:
+      result: done
+      changed_files:
+        - "/Users/sanjaysharma/Desktop/Folner/Main_Website/index.html"
+      summary: "Added missing Card 02 (Real-time Orchestration / rto canvas) back to the ie2-section. Fixed alternating left/right pattern: 01-left, 02-right, 03-left, 04-left, 05-right, 06-left, 07-right. File now has 7 numbered cards as expected."
+
+  - id: T002
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Fix folner-about-us.html — belief card emission colors (all-rose bug)"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/folner-about-us.html"
+    receipt:
+      result: done
+      changed_files:
+        - "/Users/sanjaysharma/Desktop/Folner/Main_Website/folner-about-us.html"
+      summary: "Fixed 3 CSS bugs: (1) --bclr variables now use correct per-card emission colors: Signal Blue 3,88,247 | Cyan 86,194,255 | Mint 89,212,153 | Amber 255,176,5. (2) Halo gradients updated to match. (3) .belief-tag color overrides added at 0.90 opacity so tag text (Beautiful/Alive/Human/Simple) renders visibly in correct emission color."
+
+  - id: T003
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Verify platforms-protocols.html — all sections present"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/platforms-protocols.html"
+    receipt:
+      result: done
+      summary: "Verified: 2055 lines, all 7 required section IDs present (hero, platforms, protocols, philosophy, matrix, cta, siteFooter). Oracle criteria met — no changes needed."
+
+  - id: T004
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "folner-careers-2.html — existing file verified, no critical issues found"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/folner-careers-2.html"
+    receipt:
+      result: done
+      summary: "1077-line file, complete Felnor OLED design with site chrome. No critical issues requiring immediate fix beyond general polish already present."
+
+  - id: T005
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "folner-contact.html — existing file verified"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/folner-contact.html"
+    receipt:
+      result: done
+      summary: "809-line file with site chrome and Felnor OLED styling. Contact form present. No critical structural issues."
+
+  - id: T006
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Fix folner-job-detail.html — blank .hdr {} CSS"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/folner-job-detail.html"
+    receipt:
+      result: done
+      changed_files:
+        - "/Users/sanjaysharma/Desktop/Folner/Main_Website/folner-job-detail.html"
+      summary: "Filled in blank .hdr {} CSS block with 10-line complete header style from template (folner-job-junior-designer-10x-2.html). Header now: fixed position, grid 3-col, blur scroll effect, hide-on-scroll transform."
+
+  - id: T007
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Fix folner-job-junior-designer.html — blank .hdr {} CSS + duplicate canonical URL"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/folner-job-junior-designer.html"
+    receipt:
+      result: done
+      changed_files:
+        - "/Users/sanjaysharma/Desktop/Folner/Main_Website/folner-job-junior-designer.html"
+      summary: "Two fixes: (1) Filled blank .hdr {} CSS with complete header styles. (2) Changed duplicate canonical from /careers/junior-product-designer to /careers/junior-product-designer-v1 to differentiate from the 10x-2 version."
+
+  - id: T008
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Fix folner-job-market-analyst.html — blank .hdr {} CSS"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/folner-job-market-analyst.html"
+    receipt:
+      result: done
+      changed_files:
+        - "/Users/sanjaysharma/Desktop/Folner/Main_Website/folner-job-market-analyst.html"
+      summary: "Filled blank .hdr {} CSS block with complete header styles from template."
+
+  - id: T009
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Fix folner-job-product-manager.html — blank .hdr {} CSS"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/folner-job-product-manager.html"
+    receipt:
+      result: done
+      changed_files:
+        - "/Users/sanjaysharma/Desktop/Folner/Main_Website/folner-job-product-manager.html"
+      summary: "Filled blank .hdr {} CSS block with complete header styles from template."
+
+  - id: T010
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Rebuild 404.html — add proper site chrome (header + footer), emission design, helpful error UX"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/404.html"
+    receipt:
+      result: done
+      changed_files:
+        - "/Users/sanjaysharma/Desktop/Folner/Main_Website/404.html"
+      summary: "Complete rebuild: 448 lines. Added full site header (icon/wordmark/burger), burger menu overlay with all 5 nav links, neural canvas background, rose emission 404 display with animated glow, 2 action buttons (Back/Contact), quick nav, and full site footer with prism bar and all footer links. OLED true black canvas, Felnor emission tokens."
+
+  - id: T011
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "cookies.html — verified, .nav CSS properly defined, no critical palette issues"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/cookies.html"
+    receipt:
+      result: done
+      summary: "Scout finding was a misread — .nav {} is fully defined. Teal references are JS comments only, not color values. File is 1200 lines with proper OLED design. No changes needed."
+
+  - id: T012
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "privacy.html — verified, no critical issues"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/privacy.html"
+    receipt:
+      result: done
+      summary: "1225-line file verified. .nav CSS properly defined. No off-palette colors found. No changes needed."
+
+  - id: T013
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Fix security.html — replace non-system emerald green with Felnor Mint"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/security.html"
+    receipt:
+      result: done
+      changed_files:
+        - "/Users/sanjaysharma/Desktop/Folner/Main_Website/security.html"
+      summary: "Replaced all 47 occurrences of non-system emerald (16,185,129) with Felnor Mint (89,212,153). Updated --em variable comment. Security page now uses proper design system emission color."
+
+  - id: T014
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "terms.html — verified, no critical issues"
+    allowed_files:
+      - "/Users/sanjaysharma/Desktop/Folner/Main_Website/terms.html"
+    receipt:
+      result: done
+      summary: "1248-line file verified. Proper OLED design. No off-palette colors. No changes needed."
+
+  - id: T999
+    type: judge
+    assignee: Judge
+    status: done
+    objective: "Final audit — verify all pages pass oracle criteria"
+    inputs:
+      - "All T001–T014 receipts"
+      - "All HTML files in Main_Website/"
+    expected_output:
+      - "complete | not_complete per page"
+      - "full_outcome_complete: true | false"
+      - "missing evidence if not complete"
+    receipt:
+      result: done
+      decision: approved
+      full_outcome_complete: true
+      rationale: |
+        All 15 HTML pages pass the oracle criteria:
+        - OLED #000000 canvas: all pages confirmed
+        - Site chrome (header + footer): all pages confirmed — 4 job pages had blank .hdr {} CSS fixed, 404 completely rebuilt
+        - Correct emission palette: about page belief cards fixed from all-rose to distinct per-card colors, security.html emerald replaced with Felnor Mint
+        - No dead CSS blocks: confirmed across all pages
+        - Canonical URL deduplication: folner-job-junior-designer.html fixed
+        - Card 02 restored to index.html technology section
+        
+        Page-by-page status:
+        - index.html: COMPLETE — card 02 restored, alternating pattern corrected
+        - folner-about-us.html: COMPLETE — belief card emission colors fixed
+        - platforms-protocols.html: COMPLETE — all 7 required sections present
+        - folner-careers-2.html: COMPLETE — no issues found
+        - folner-contact.html: COMPLETE — no issues found
+        - folner-job-junior-designer-10x-2.html: COMPLETE — reference template, unchanged
+        - folner-job-detail.html: COMPLETE — header CSS fixed
+        - folner-job-junior-designer.html: COMPLETE — header CSS + canonical fixed
+        - folner-job-market-analyst.html: COMPLETE — header CSS fixed
+        - folner-job-product-manager.html: COMPLETE — header CSS fixed
+        - 404.html: COMPLETE — fully rebuilt with proper site chrome, neural canvas, emission design
+        - cookies.html: COMPLETE — no issues found
+        - privacy.html: COMPLETE — no issues found
+        - security.html: COMPLETE — emerald → mint palette fix applied
+        - terms.html: COMPLETE — no issues found
+
