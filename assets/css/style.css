@@ -22,6 +22,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
 }
 
 .discovery-bubble {
@@ -94,6 +96,7 @@ body {
   pointer-events: none;
   opacity: 1;
   transition: opacity 1.4s ease;
+  will-change: opacity;
 }
 
 .page-loader.loaded {
@@ -193,6 +196,7 @@ body {
   opacity: 0;
   pointer-events: none;
   transition: opacity 400ms var(--ease-smooth);
+  will-change: opacity;
 }
 
 .menu-overlay.open {
@@ -619,6 +623,7 @@ body {
   display: flex;
   flex-direction: column;
   opacity: 0;
+  will-change: opacity, transform;
   transition:
     opacity 500ms cubic-bezier(0.23, 1, 0.32, 1),
     transform 500ms cubic-bezier(0.23, 1, 0.32, 1),
@@ -1197,7 +1202,7 @@ body {
 .announce-close:hover { color: rgba(255,255,255,0.9); }
 
 /* Push header down when announce bar is showing */
-.site-header { transition: top 300ms cubic-bezier(0.22,1,0.36,1), opacity 400ms ease, transform 400ms cubic-bezier(0.22,1,0.36,1); }
+.site-header { transition: top 300ms cubic-bezier(0.22,1,0.36,1), opacity 400ms ease, transform 400ms cubic-bezier(0.22,1,0.36,1); will-change: transform, opacity; }
 body.announce-visible .site-header { top: 40px; }
 
 /* Hide header after hero */
@@ -1245,6 +1250,7 @@ body.announce-visible .site-header { top: 40px; }
   transform: translateY(40px);
   transition: opacity 1000ms cubic-bezier(0.16,1,0.3,1),
               transform 1000ms cubic-bezier(0.16,1,0.3,1);
+  will-change: opacity, transform;
 }
 
 .rcw-inner--visible {
@@ -2018,5 +2024,12 @@ body.announce-visible .site-header { top: 40px; }
   .oe-stage { height: 220px; }
   .oe-row-0, .oe-row-1, .oe-row-2 { height: 50px; }
 }
+
+/* ─── Performance: CSS Containment ──────────────────────────────────────── */
+/* Limit repaint scope for major isolated sections */
+.ie2-section { contain: layout style; }
+.so-section  { contain: layout style; }
+.rcw-section { contain: layout style; }
+.site-footer { contain: layout style; isolation: isolate; }
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}
