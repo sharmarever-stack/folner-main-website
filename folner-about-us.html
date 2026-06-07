@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Folner — About Us</title>
+  <meta name="description" content="Folner is a product development company dedicated to creating beautiful, intuitive software that feels alive.">
+  <meta name="theme-color" content="#000000">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --canvas: #000000;
+  --surface-1: #07080A;
+  --surface-2: #0F1012;
+  --text: #ffffff;
+  --text-2: #9c9c9d;
+  --border-subtle: rgba(255,255,255,0.05);
+  --border-strong: rgba(255,255,255,0.10);
+  --r-signal: 3; --g-signal: 88; --b-signal: 247;
+  --r-cyan: 86; --g-cyan: 194; --b-cyan: 255;
+  --r-mint: 89; --g-mint: 212; --b-mint: 153;
+  --r-amber: 255; --g-amber: 176; --b-amber: 5;
+  --r-rose: 198; --g-rose: 121; --b-rose: 196;
+  --gradient-prism: linear-gradient(90deg,#C679C4 0%,#56C2FF 20%,#59D499 45%,#FFB005 75%,#C679C4 100%);
+  --ease-snap: cubic-bezier(0.23,1,0.32,1);
+  --ease-chroma: cubic-bezier(0.77,0,0.175,1);
+  --font: 'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;scroll-behavior:smooth;}
+html,body{width:100%;overflow-x:hidden;background:#000;color:#fff;font-family:var(--font);}
+
+
+
+/* ── Cursor glow ── */
+#cursorGlow{position:fixed;pointer-events:none;z-index:50;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(198,121,196,0.07) 0%,transparent 65%);transform:translate(-50%,-50%);transition:left 0.6s var(--ease-snap),top 0.6s var(--ease-snap);will-change:transform;}
+
+/* ── Global grain ── */
+.global-grain{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:1;pointer-events:none;opacity:0.04;mix-blend-mode:soft-light;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");}
+
+/* ── Full-page neural bg ── */
+#bgNeural{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0.10;}
+
+/* ── Header ── */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 28px;transition:background 400ms ease,backdrop-filter 400ms ease;}
+.site-header.scrolled{background:rgba(0,0,0,0.75);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);}
+.header-icon{display:inline-flex;align-items:center;justify-self:start;text-decoration:none;}
+.header-icon img{height:28px;width:auto;}
+.header-wordmark{display:inline-flex;align-items:center;justify-self:center;text-decoration:none;}
+.header-wordmark img{height:22px;width:auto;}
+.burger-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;justify-self:end;width:32px;height:32px;background:none;border:none;cursor:pointer;padding:4px;outline:none;}
+.burger-btn span{display:block;width:22px;height:1.5px;background:#fff;border-radius:999px;transform-origin:center;transition:transform 300ms var(--ease-snap),opacity 200ms ease,width 300ms ease;}
+.burger-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.burger-btn[aria-expanded="true"] span:nth-child(2){opacity:0;width:0;}
+.burger-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+/* ── Menu overlay ── */
+.menu-overlay{position:fixed;inset:0;z-index:18;display:flex;align-items:center;justify-content:center;background:rgba(4,5,6,0.94);backdrop-filter:blur(28px) saturate(1.2);-webkit-backdrop-filter:blur(28px) saturate(1.2);opacity:0;pointer-events:none;transition:opacity 400ms var(--ease-snap);}
+.menu-overlay.open{opacity:1;pointer-events:all;}
+.menu-nav{display:flex;flex-direction:column;align-items:center;gap:36px;}
+.menu-link{color:rgba(255,255,255,0.75);text-decoration:none;font-size:clamp(28px,6vw,64px);font-weight:700;letter-spacing:-0.03em;transform:translateY(24px);opacity:0;transition:transform 500ms var(--ease-snap),opacity 500ms var(--ease-snap),color 160ms ease;}
+.menu-overlay.open .menu-link{transform:translateY(0);opacity:1;}
+.menu-overlay.open .menu-link:nth-child(1){transition-delay:60ms;}
+.menu-overlay.open .menu-link:nth-child(2){transition-delay:120ms;}
+.menu-overlay.open .menu-link:nth-child(3){transition-delay:180ms;}
+.menu-overlay.open .menu-link:nth-child(4){transition-delay:240ms;}
+.menu-link:hover{color:#fff;}
+
+/* ── Hero ── */
+.about-hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;background:#000;}
+canvas#heroNeural{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+.hero-vignette{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 90% 80% at 50% 50%,transparent 0%,rgba(0,0,0,0.5) 55%,rgba(0,0,0,0.95) 100%);}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;max-width:900px;}
+.hero-eyebrow{display:block;font-size:11px;font-weight:500;letter-spacing:0.20em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:40px;opacity:0;animation:fadeUp 0.9s 0.2s var(--ease-snap) forwards;}
+.hero-headline{font-size:clamp(60px,11vw,148px);font-weight:800;letter-spacing:-0.045em;line-height:1.05;padding-bottom:0.12em;margin-bottom:36px;display:block;}
+.hero-word{display:inline-block;overflow:visible;vertical-align:top;}
+.hero-word-inner{display:inline-block;background:linear-gradient(155deg,#fff 0%,rgba(255,255,255,0.50) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;transform:translateY(110%);opacity:0;will-change:transform,opacity;}
+.hero-platform{font-size:clamp(20px,3vw,32px);font-weight:600;letter-spacing:-0.02em;margin-bottom:24px;color:rgba(255,255,255,0.85);opacity:0;animation:fadeUp 0.9s 1.4s var(--ease-snap) forwards;}
+.hero-platform em{font-style:normal;background:var(--gradient-prism);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-manifesto{font-size:clamp(14px,1.5vw,17px);font-weight:400;color:rgba(255,255,255,0.38);line-height:1.80;letter-spacing:0em;max-width:480px;margin:0 auto;opacity:0;animation:fadeUp 0.9s 1.7s var(--ease-snap) forwards;}
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fadeUp 1s 2.2s var(--ease-snap) forwards;}
+.scroll-indicator span{Ipx;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.20);}
+.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,rgba(255,255,255,0.30),transparent);animation:scrollPulse 2.4s ease-in-out 2.5s infinite;}
+@keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(1) translateY(0);}50%{opacity:1;transform:scaleY(0.5) translateY(50%);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── Shared section ── */
+section{position:relative;z-index:2;}
+.section-eyebrow{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-bottom:20px;}
+.prism-strip{width:36px;height:2px;background:var(--gradient-prism);border-radius:2px;margin-bottom:16px;}
+.prism-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06) 20%,rgba(255,255,255,0.06) 80%,transparent);margin:0 64px;position:relative;z-index:2;}
+
+/* ── Reveal ── */
+.reveal-up{opacity:0;transform:translateY(36px);transition:opacity 900ms var(--ease-snap),transform 900ms var(--ease-snap);}
+.reveal-fade{opacity:0;transition:opacity 1000ms var(--ease-snap);}
+.reveal-up.visible,.reveal-fade.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:80ms;} .d2{transition-delay:180ms;} .d3{transition-delay:280ms;} .d4{transition-delay:380ms;}
+
+/* ── Word-split headings ── */
+.split-h2{overflow:hidden;}
+.split-word{display:inline-block;overflow:visible;vertical-align:bottom;margin-right:0.25em;}
+.split-word-inner{display:inline-block;transform:translateY(105%);opacity:0;transition:transform 700ms var(--ease-snap),opacity 700ms var(--ease-snap);}
+.split-h2.visible .split-word-inner{transform:translateY(0);opacity:1;}
+
+/* ── Section canvas overlays ── */
+.section-canvas-wrap{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+.section-canvas-wrap canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0.15;}
+
+/* ── Mission ── */
+.mission-section{padding:140px 64px 120px;overflow:hidden;}
+.mission-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.mission-heading{font-size:clamp(34px,4.5vw,58px);font-weight:700;letter-spacing:-0.03em;line-height:1.05;color:#fff;margin-bottom:32px;}
+.mission-body{font-size:16px;font-weight:400;color:rgba(255,255,255,0.42);line-height:1.80;letter-spacing:0em;text-align:left;}
+.mission-panel{background:rgba(7,8,10,0.85);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:40px;position:relative;overflow:hidden;backdrop-filter:blur(8px);transition:border-color 400ms ease;}
+.mission-panel:hover{border-color:rgba(255,255,255,0.14);}
+.mission-quote{font-size:19px;font-weight:400;color:rgba(255,255,255,0.72);line-height:1.65;letter-spacing:-0.01em;margin-bottom:24px;}
+.mission-quote strong{color:#fff;font-weight:600;}
+.mission-attribution{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.18);}
+.panel-glow{position:absolute;top:-80px;right:-80px;width:240px;height:240px;background:radial-gradient(circle,rgba(198,121,196,0.15) 0%,transparent 70%);pointer-events:none;}
+
+/* ── WHAT IF ── */
+.whatif-section{padding:120px 64px;overflow:hidden;}
+.whatif-inner{max-width:1280px;margin:0 auto;}
+.whatif-header{margin-bottom:72px;}
+.whatif-heading{font-size:clamp(40px,6vw,80px);font-weight:800;letter-spacing:-0.045em;line-height:0.96;color:#fff;margin-bottom:20px;}
+.whatif-heading em{font-style:normal;background:var(--gradient-prism);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.whatif-sub{font-size:16px;font-weight:400;color:rgba(255,255,255,0.38);line-height:1.75;max-width:460px;}
+.whatif-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.whatif-card{background:rgba(7,8,10,0.90);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:32px;position:relative;overflow:hidden;cursor:default;will-change:transform;transition:border-color 300ms ease;}
+.whatif-card::before{content:'';position:absolute;inset:0;border-radius:16px;opacity:0;transition:opacity 400ms ease;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,0.04) 0%,transparent 60%);}
+.whatif-card:hover::before{opacity:1;}
+.whatif-q{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-bottom:16px;}
+.whatif-statement{font-size:18px;font-weight:600;letter-spacing:-0.02em;line-height:1.35;color:rgba(255,255,255,0.82);}
+.whatif-accent{position:absolute;bottom:0;left:0;right:0;height:1.5px;opacity:0.7;}
+.whatif-card:nth-child(1) .whatif-accent{background:linear-gradient(90deg,rgba(198,121,196,0.15),transparent);}
+.whatif-card:nth-child(2) .whatif-accent{background:linear-gradient(90deg,rgba(198,121,196,0.15),transparent);}
+.whatif-card:nth-child(3) .whatif-accent{background:linear-gradient(90deg,rgba(198,121,196,0.15),transparent);}
+.whatif-card:nth-child(4) .whatif-accent{background:linear-gradient(90deg,rgba(168,144,112,0.9),transparent);}
+.whatif-card:nth-child(5) .whatif-accent{background:linear-gradient(90deg,rgba(198,121,196,0.15),transparent);}
+.whatif-card:nth-child(6) .whatif-accent{background:linear-gradient(90deg,rgba(200,100,80,0.9),transparent);}
+/* pulse ring on WHATIF cards */
+.whatif-pulse{position:absolute;top:50%;left:50%;width:60px;height:60px;border-radius:50%;transform:translate(-50%,-50%) scale(0);opacity:0;pointer-events:none;}
+.whatif-card:nth-child(1) .whatif-pulse{background:radial-gradient(circle,rgba(198,121,196,0.15),transparent);}
+.whatif-card:nth-child(2) .whatif-pulse{background:radial-gradient(circle,rgba(198,121,196,0.15),transparent);}
+.whatif-card:nth-child(3) .whatif-pulse{background:radial-gradient(circle,rgba(198,121,196,0.15),transparent);}
+.whatif-card:nth-child(4) .whatif-pulse{background:radial-gradient(circle,rgba(168,144,112,0.18),transparent);}
+.whatif-card:nth-child(5) .whatif-pulse{background:radial-gradient(circle,rgba(198,121,196,0.15),transparent);}
+.whatif-card:nth-child(6) .whatif-pulse{background:radial-gradient(circle,rgba(200,100,80,0.18),transparent);}
+@keyframes pulsate{0%{transform:translate(-50%,-50%) scale(0);opacity:0.8;}100%{transform:translate(-50%,-50%) scale(4);opacity:0;}}
+
+/* ── Beliefs ── */
+.beliefs-section{padding:0;overflow:hidden;}
+.beliefs-inner{max-width:1280px;margin:0 auto;padding:120px 64px 0;}
+.beliefs-header{margin-bottom:80px;}
+.beliefs-heading{font-size:clamp(34px,4.5vw,58px);font-weight:700;letter-spacing:-0.03em;line-height:1.05;color:#fff;margin-bottom:16px;}
+.beliefs-sub{font-size:16px;color:rgba(255,255,255,0.38);line-height:1.75;max-width:480px;}
+/* stacked full-bleed belief rows */
+.belief-grid{display:flex;flex-direction:column;gap:0;}
+.belief-card{position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,0.06);padding:64px 64px 72px;display:grid;grid-template-columns:180px 1fr 1fr;gap:0 80px;align-items:start;transition:background 400ms ease;}
+.belief-card:last-child{border-bottom:1px solid rgba(255,255,255,0.06);}
+.belief-card:hover{background:rgba(255,255,255,0.015);}
+.belief-card--signal{--bclr:rgba(198,121,196,0.15);}
+.belief-card--cyan{--bclr:rgba(198,121,196,0.15);}
+.belief-card--mint{--bclr:rgba(198,121,196,0.15);}
+.belief-card--amber{--bclr:rgba(168,144,112,0.75);}
+/* animated left accent line */
+.belief-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--bclr);transform:scaleY(0);transform-origin:top;transition:transform 700ms cubic-bezier(0.34,1.56,0.64,1);}
+.belief-card.visible::before{transform:scaleY(1);}
+.belief-num{font-size:clamp(52px,5vw,80px);font-weight:900;letter-spacing:-0.06em;line-height:1;color:rgba(255,255,255,0.22);align-self:center;font-variant-numeric:tabular-nums;transition:color 400ms ease;}
+.belief-card:hover .belief-num{color:rgba(255,255,255,0.22);}
+.belief-title{font-size:clamp(20px,2vw,28px);font-weight:700;letter-spacing:-0.03em;line-height:1.15;color:#fff;margin-bottom:14px;padding-top:4px;}
+.belief-tag{display:inline-block;Ipx;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--bclr);margin-bottom:16px;opacity:0.85;}
+.belief-body{font-size:15px;font-weight:400;color:rgba(255,255,255,0.42);line-height:1.78;text-align:left;}
+.belief-halo{position:absolute;top:0;right:0;width:400px;height:100%;pointer-events:none;opacity:0;transition:opacity 500ms ease;}
+.belief-card--signal .belief-halo{background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(198,121,196,0.15) 0%,transparent 70%);}
+.belief-card--cyan .belief-halo{background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(198,121,196,0.15) 0%,transparent 70%);}
+.belief-card--mint .belief-halo{background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(198,121,196,0.15) 0%,transparent 70%);}
+.belief-card--amber .belief-halo{background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(168,144,112,0.07) 0%,transparent 70%);}
+.belief-card:hover .belief-halo{opacity:1;}
+
+/* ── How We Build ── */
+.craft-showcase{padding:120px 64px;background:var(--surface-1);overflow:hidden;}
+.craft-showcase-inner{max-width:1280px;margin:0 auto;}
+.craft-showcase-header{margin-bottom:96px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0;}
+.craft-showcase-heading{font-size:clamp(38px,5.5vw,72px);font-weight:800;letter-spacing:-0.04em;line-height:1.0;color:#fff;margin-bottom:0;text-align:center;}
+.craft-showcase-heading .heading-qualifier{display:block;font-size:clamp(22px,2.8vw,38px);font-weight:300;letter-spacing:-0.02em;color:rgba(255,255,255,0.35);margin-top:10px;line-height:1.2;}
+.craft-showcase-divider{width:32px;height:1px;background:var(--gradient-prism);margin:28px auto;border:none;}
+.craft-showcase-sub{font-size:13px;font-weight:500;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.28);line-height:1.6;max-width:440px;text-align:center;}
+.craft-feature-list{display:flex;flex-direction:column;gap:2px;}
+.craft-feature{display:grid;grid-template-columns:72px 1fr auto;align-items:center;padding:0;border-radius:14px;overflow:hidden;background:var(--surface-2);border:1px solid var(--border-subtle);transition:border-color 300ms ease,background 300ms ease;cursor:default;}
+.craft-feature:hover{border-color:var(--border-strong);}
+.craft-feature.is-open{background:rgba(255,255,255,0.03);}
+.craft-feature-num-col{display:flex;align-items:center;justify-content:center;height:100%;padding:28px 0;border-right:1px solid var(--border-subtle);}
+.craft-feature-num{font-size:11px;font-weight:700;letter-spacing:0.10em;color:rgba(255,255,255,0.14);font-variant-numeric:tabular-nums;}
+.craft-feature-main{padding:28px 32px;display:flex;flex-direction:column;gap:0;}
+.craft-feature-title{font-size:18px;font-weight:700;letter-spacing:-0.02em;color:#fff;line-height:1.2;}
+.craft-feature-body{font-size:14px;font-weight:400;color:rgba(255,255,255,0.40);line-height:1.70;max-height:0;overflow:hidden;opacity:0;transition:max-height 400ms var(--ease-snap),opacity 300ms ease,margin-top 300ms ease;text-align:left;}
+.craft-feature.is-open .craft-feature-body{max-height:120px;opacity:1;margin-top:12px;}
+.craft-feature-accent{width:3px;height:100%;min-height:80px;flex-shrink:0;border-radius:0 3px 3px 0;opacity:0;transition:opacity 300ms ease;}
+.craft-feature.is-open .craft-feature-accent{opacity:1;}
+.craft-feature--blue  .craft-feature-accent{background:linear-gradient(180deg,rgba(198,121,196,0.15),transparent);}
+.craft-feature--cyan  .craft-feature-accent{background:linear-gradient(180deg,rgba(198,121,196,0.15),transparent);}
+.craft-feature--mint  .craft-feature-accent{background:linear-gradient(180deg,rgba(198,121,196,0.15),transparent);}
+.craft-feature--amber .craft-feature-accent{background:linear-gradient(180deg,rgba(168,144,112,0.8),transparent);}
+.craft-feature--rose  .craft-feature-accent{background:linear-gradient(180deg,rgba(198,121,196,0.15),transparent);}
+.craft-feature--blue.is-open  {background:radial-gradient(80% 200% at 0% 50%,rgba(198,121,196,0.15) 0%,transparent 100%);}
+.craft-feature--cyan.is-open  {background:radial-gradient(80% 200% at 0% 50%,rgba(198,121,196,0.15) 0%,transparent 100%);}
+.craft-feature--mint.is-open  {background:radial-gradient(80% 200% at 0% 50%,rgba(198,121,196,0.15) 0%,transparent 100%);}
+.craft-feature--amber.is-open {background:radial-gradient(80% 200% at 0% 50%,rgba(168,144,112,0.06) 0%,transparent 100%);}
+.craft-feature--rose.is-open  {background:radial-gradient(80% 200% at 0% 50%,rgba(198,121,196,0.15) 0%,transparent 100%);}
+.craft-feature--blue.is-open  .craft-feature-title{color:rgba(198,121,196,0.15);}
+.craft-feature--cyan.is-open  .craft-feature-title{color:rgba(198,121,196,0.15);}
+.craft-feature--mint.is-open  .craft-feature-title{color:rgba(198,121,196,0.15);}
+.craft-feature--amber.is-open .craft-feature-title{color:rgba(168,144,112,1);}
+.craft-feature--rose.is-open  .craft-feature-title{color:rgba(198,121,196,0.15);}
+
+/* ── Philosophy ── */
+.philosophy-section{padding:120px 64px;overflow:hidden;}
+.philosophy-inner{max-width:1280px;margin:0 auto;}
+.philosophy-header{margin-bottom:72px;}
+.philosophy-heading{font-size:clamp(34px,4.5vw,58px);font-weight:700;letter-spacing:-0.03em;line-height:1.05;color:#fff;margin-bottom:16px;}
+.philosophy-sub{font-size:16px;color:rgba(255,255,255,0.38);line-height:1.75;max-width:480px;}
+.principles-list{display:flex;flex-direction:column;}
+.principle-row{display:grid;grid-template-columns:68px 1fr 110px;align-items:start;padding:32px 0;border-bottom:1px solid var(--border-subtle);gap:24px;transition:background 200ms ease;}
+.principle-row:last-child{border-bottom:none;}
+.principle-num{font-size:12px;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.16);padding-top:3px;font-variant-numeric:tabular-nums;}
+.principle-label{font-size:18px;font-weight:600;letter-spacing:-0.02em;color:#fff;margin-bottom:8px;}
+.principle-desc{font-size:14px;font-weight:400;color:rgba(255,255,255,0.38);line-height:1.68;text-align:left;}
+.principle-tag{font-size:10px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:rgba(255,255,255,0.16);padding-top:5px;text-align:right;}
+
+/* ── Culture ── */
+.culture-section{padding:120px 64px;background:var(--surface-1);overflow:hidden;}
+.culture-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.culture-heading{font-size:clamp(34px,4.5vw,58px);font-weight:700;letter-spacing:-0.03em;line-height:1.05;color:#fff;margin-bottom:24px;}
+.culture-body{font-size:16px;font-weight:400;color:rgba(255,255,255,0.42);line-height:1.80;margin-bottom:40px;text-align:left;}
+.culture-belief-text{font-size:14.5px;font-weight:400;color:rgba(255,255,255,0.55);line-height:1.65;text-align:left;}
+.culture-traits{display:flex;flex-wrap:wrap;gap:10px;}
+.culture-trait{display:inline-flex;padding:8px 16px;border-radius:100px;border:1px solid var(--border-subtle);background:rgba(255,255,255,0.03);font-size:13px;font-weight:500;color:rgba(255,255,255,0.50);letter-spacing:-0.005em;transition:border-color 200ms ease,color 200ms ease;}
+.culture-trait:hover{border-color:var(--border-strong);color:rgba(255,255,255,0.80);}
+.culture-right{display:flex;flex-direction:column;gap:14px;padding-top:8px;}
+.culture-belief{background:var(--surface-2);border:1px solid var(--border-subtle);border-radius:14px;padding:24px 28px;transition:border-color 300ms ease;}
+.culture-belief:hover{border-color:var(--border-strong);}
+.culture-belief-label{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-bottom:10px;}
+
+/* ── What We're Building Next ── */
+.next-section{position:relative;padding:0 0 140px;overflow:hidden;background:#000;}
+.next-ticker-wrap{width:100%;overflow:hidden;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);padding:18px 0;margin-bottom:100px;}
+.next-ticker-track{display:flex;gap:0;width:max-content;animation:ticker 30s linear infinite;}
+.next-ticker-track:hover{animation-play-state:paused;}
+.next-ticker-item{display:flex;align-items:center;gap:28px;padding:0 44px;white-space:nowrap;}
+.next-ticker-label{font-size:10.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.18);}
+.next-ticker-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.12);}
+.next-ticker-item.hi .next-ticker-label{color:oklch(68% 0.18 255);opacity:0.7;}
+.next-ticker-item.hi .next-ticker-dot{background:oklch(68% 0.18 255);opacity:0.4;}
+@keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.next-inner{max-width:1280px;margin:0 auto;padding:0 64px;}
+.next-statement-row{display:grid;grid-template-columns:1fr 400px;align-items:end;gap:80px;margin-bottom:80px;}
+.next-heading{font-size:clamp(38px,5.2vw,78px);font-weight:800;letter-spacing:-0.03em;line-height:1.05;color:#fff;}
+.next-heading em{font-style:normal;background:linear-gradient(90deg,oklch(68% 0.18 255),oklch(72% 0.14 170));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.next-side{display:flex;flex-direction:column;gap:24px;padding-bottom:6px;}
+.next-side-eyebrow{display:flex;align-items:center;gap:12px;}
+.next-side-eyebrow::before{content:'';width:24px;height:1px;background:rgba(255,255,255,0.20);}
+.next-eyebrow-text{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.22);}
+.next-side-text{font-size:15px;line-height:1.78;color:rgba(255,255,255,0.42);letter-spacing:-0.005em;text-align:left;}
+.next-cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+.next-cta-primary{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:6px;background:#fff;color:#000;font-size:13.5px;font-weight:700;letter-spacing:-0.01em;text-decoration:none;transition:opacity 180ms ease,transform 160ms ease;}
+.next-cta-primary:hover{opacity:.88;transform:translateY(-1px);}
+.next-cta-secondary{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.78);font-size:13.5px;font-weight:500;text-decoration:none;transition:opacity 180ms ease,transform 160ms ease,background 180ms ease,border-color 180ms ease;}
+.next-cta-secondary:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.26);color:#fff;transform:translateY(-1px);}
+.next-stats-row{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,0.06);padding-top:56px;}
+.next-stat{padding:0 40px 0 0;border-right:1px solid rgba(255,255,255,0.06);}
+.next-stat:first-child{padding-left:0;}
+.next-stat:last-child{border-right:none;padding-left:40px;}
+.next-stat-num{font-size:clamp(32px,3.6vw,52px);font-weight:800;letter-spacing:-0.04em;color:#fff;line-height:1;font-variant-numeric:tabular-nums;}
+.next-stat-label{font-size:11px;letter-spacing:0.09em;text-transform:uppercase;color:rgba(255,255,255,0.24);margin-top:10px;}
+.next-glow{position:absolute;bottom:-240px;left:50%;transform:translateX(-50%);width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,oklch(58% 0.18 255 / 0.08) 0%,transparent 68%);pointer-events:none;}
+@media(max-width:900px){
+  .next-statement-row{grid-template-columns:1fr;gap:40px;}
+  .next-stats-row{grid-template-columns:1fr 1fr;gap:32px 0;}
+  .next-stat:nth-child(2){border-right:none;}
+  .next-stat:last-child{grid-column:1/-1;border-top:1px solid rgba(255,255,255,0.06);padding-top:32px;padding-left:0;}
+  .next-inner{padding:0 32px;}
+}
+@media(max-width:600px){
+  .next-stats-row{grid-template-columns:1fr;}
+  .next-stat{border-right:none!important;padding:0 0 24px!important;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:8px;}
+  .next-stat:last-child{border-bottom:none;}
+  .next-inner{padding:0 24px;}
+  .next-section{padding-bottom:80px;}
+}
+
+/* ── Footer ── */
+footer{position:relative;z-index:2;border-top:1px solid var(--border-subtle);}
+.footer-prism{height:1px;background:var(--gradient-prism);opacity:0.50;}
+.footer-inner{max-width:1280px;margin:0 auto;padding:72px 64px 48px;display:flex;flex-direction:column;gap:64px;}
+.footer-brand-row{display:grid;grid-template-columns:300px 1fr;align-items:start;gap:80px;}
+.footer-brand-left{display:flex;flex-direction:column;gap:20px;}
+.footer-brand-left img{height:20px;width:auto;opacity:0.75;}
+.footer-statement{font-size:14px;color:rgba(255,255,255,0.30);line-height:1.7;}
+.footer-cta{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);color:rgba(255,255,255,.52);font-size:12.5px;font-weight:500;text-decoration:none;transition:opacity 180ms ease,background 180ms ease,border-color 180ms ease,color 180ms ease;}
+.footer-cta:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.20);color:#fff;}
+.footer-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:0 24px;}
+.footer-col{display:flex;flex-direction:column;gap:12px;}
+.footer-col-label{font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.18);margin-bottom:4px;}
+.footer-link{font-size:13px;color:rgba(255,255,255,0.38);text-decoration:none;transition:color 150ms ease;}
+.footer-link:hover{color:rgba(255,255,255,0.82);}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:32px;border-top:1px solid rgba(255,255,255,0.04);flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.18);}
+.footer-legal{display:flex;gap:20px;}
+.footer-legal a{font-size:12px;color:rgba(255,255,255,0.18);text-decoration:none;transition:color 150ms ease;}
+.footer-legal a:hover{color:rgba(255,255,255,0.50);}
+
+:focus-visible{outline:1px solid rgba(225,225,254,0.55);outline-offset:2px;}
+
+@media(max-width:900px){
+  .mission-inner,.culture-inner{grid-template-columns:1fr;gap:48px;}
+  .whatif-grid{grid-template-columns:1fr 1fr;}
+  .belief-grid{grid-template-columns:1fr;}
+  .footer-brand-row{grid-template-columns:1fr;gap:40px;}
+  .footer-nav{grid-template-columns:repeat(2,1fr);gap:32px 24px;}
+  .footer-inner{padding:48px 32px 40px;}
+  section{padding-left:32px !important;padding-right:32px !important;}
+  .prism-divider{margin:0 32px;}
+}
+@media(max-width:600px){
+  .whatif-grid{grid-template-columns:1fr;}
+  .principle-row{grid-template-columns:48px 1fr;}
+  .principle-tag{display:none;}
+  .footer-nav{grid-template-columns:1fr 1fr;}
+  .footer-inner{padding:40px 24px 32px;}
+}
+
+/* ── Custom cursor ── */
+body{cursor:none;}
+a,button,input,textarea,label,[role="button"],select{cursor:none;}
+#cursorDot{
+  position:fixed;z-index:9999;pointer-events:none;width:6px;height:6px;border-radius:50%;
+  background:conic-gradient(#C679C4,#56C2FF,#59D499,#FFB005,#C679C4,#56C2FF);
+  animation:dotSpin 4s linear infinite;
+  transform:translate(-50%,-50%);transition:transform 80ms,opacity 120ms;will-change:transform;
+}
+@keyframes dotSpin{to{filter:hue-rotate(360deg);}}
+#cursorRing{
+  position:fixed;pointer-events:none;z-index:99999;
+  width:34px;height:34px;border-radius:50%;
+  transform:translate(-50%,-50%);
+  transition:width 220ms cubic-bezier(0.34,1.56,0.64,1),height 220ms cubic-bezier(0.34,1.56,0.64,1),opacity 180ms ease;
+  opacity:0;
+  /* gradient border via background clip trick */
+  padding:1.5px;
+  background:conic-gradient(#C679C4,#56C2FF,#59D499,#FFB005,#C679C4,#56C2FF);
+  animation:dotSpin 4s linear infinite;
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 1.5px),#fff calc(100% - 1.5px));
+  mask:radial-gradient(farthest-side,transparent calc(100% - 1.5px),#fff calc(100% - 1.5px));
+}
+body.c-hover #cursorRing{
+  width:52px;height:52px;opacity:.85;
+}
+
+
+/* ── Brand buttons ── */
+.btn-icon{width:14px;height:14px;flex-shrink:0;display:inline-block;}
+.btn-p,.btn-g,.btn-sm,.hdr-btn,.sab-btn,.sb-apply,.form-submit,.suc-close,
+.hero-btn-p,.hero-btn-g,.hero-btn-primary,.hero-btn-secondary,
+.header-cta,.dept-tabs .dt{
+  display:inline-flex;align-items:center;gap:7px;
+  border-radius:6px;font-family:inherit;
+  letter-spacing:-0.01em;text-decoration:none;
+  transition:opacity 180ms ease,transform 160ms ease,background 180ms ease,border-color 180ms ease;
+}
+/* Primary — solid white */
+.btn-p,.hero-btn-p,.hero-btn-primary,.sab-btn,.sb-apply,.form-submit{
+  padding:10px 20px;background:#fff;color:#000;border:none;
+  font-size:13.5px;font-weight:700;cursor:pointer;
+}
+.btn-p:hover,.hero-btn-p:hover,.hero-btn-primary:hover,.sab-btn:hover,.sb-apply:hover,.form-submit:hover{
+  opacity:.88;transform:translateY(-1px);
+}
+.form-submit{padding:16px;font-size:14px;justify-content:center;}
+.form-submit:disabled{opacity:.32;cursor:not-allowed;transform:none;}
+.sb-apply{width:100%;padding:14px;font-size:13.5px;margin-bottom:12px;justify-content:center;}
+/* Ghost — bordered */
+.btn-g,.hero-btn-g,.hero-btn-secondary,.hdr-btn,.header-cta,.suc-close{
+  padding:10px 20px;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.78);font-size:13.5px;font-weight:500;cursor:pointer;
+}
+.btn-g:hover,.hero-btn-g:hover,.hero-btn-secondary:hover,.hdr-btn:hover,.header-cta:hover,.suc-close:hover{
+  background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.26);
+  color:#fff;transform:translateY(-1px);
+}
+.hdr-btn,.header-cta{padding:7px 16px;font-size:12.5px;font-weight:600;}
+.suc-close{padding:11px 28px;font-size:13px;margin-top:8px;}
+
+
+/* ── Page transition ── */
+@keyframes pgIn{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+body.pg-enter{animation:pgIn 500ms cubic-bezier(0.34,1.56,0.64,1) both;}
+body.pg-exit{opacity:0;transform:translateY(-8px);transition:opacity 280ms ease,transform 280ms ease;pointer-events:none;}
+</style>
+</head>
+<body>
+<div id="cursorDot"></div><div id="cursorRing"></div>
+
+
+
+<!-- Scroll progress -->
+<div id="scrollProgress"></div>
+
+<!-- Cursor glow -->
+<div id="cursorGlow" aria-hidden="true"></div>
+
+<!-- Full-page neural bg -->
+<canvas id="bgNeural" aria-hidden="true"></canvas>
+
+<!-- Grain -->
+<div class="global-grain" aria-hidden="true"></div>
+
+<!-- Header -->
+<header class="site-header" id="siteHeader">
+  <a class="header-icon" href="index.html" aria-label="Folner home">
+    <img src="mq175l5e-Folner_Icon_Dark_Logo-final.png" alt="Folner icon">
+  </a>
+  <a class="header-wordmark" href="index.html" aria-label="Folner">
+    <img src="mq175l5g-Folner_Wordmark_Dark_Logo-final.png" alt="Folner">
+  </a>
+  <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <nav class="menu-nav" aria-label="Site navigation">
+    <a href="#top"        class="menu-link">Home</a>
+    <a href="#mission"    class="menu-link">Mission</a>
+    <a href="#whatif"     class="menu-link">WHAT IF?</a>
+    <a href="#philosophy" class="menu-link">Philosophy</a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="about-hero" id="top" data-od-id="hero">
+  <canvas id="heroNeural" aria-hidden="true"></canvas>
+  <div class="hero-vignette" aria-hidden="true"></div>
+  <div class="hero-content" id="heroContent">
+    <span class="hero-eyebrow">Folner — About Us</span>
+    <h1 class="hero-headline" id="heroHeadline" aria-label="Raise the Standard."></h1>
+    <p class="hero-platform"><em>WHAT IF</em> software felt alive?</p>
+    <p class="hero-manifesto">We are a product development company. We build and own software products. Every product we ship raises the standard of what software can be.</p>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<div class="prism-divider" aria-hidden="true"></div>
+
+<!-- MISSION -->
+<section class="mission-section" id="mission" data-od-id="mission">
+  <div class="section-canvas-wrap" aria-hidden="true"><canvas data-neural-tint="79,70,229"></canvas></div>
+  <div class="mission-inner">
+    <div class="mission-left">
+      <div class="reveal-up"><div class="prism-strip"></div><p class="section-eyebrow">Why We Exist</p></div>
+      <h2 class="split-h2 mission-heading reveal-up d1">We exist to make better software.</h2>
+      <p class="mission-body reveal-up d2">Most software is tolerated, not loved. People accept cluttered interfaces, bloated workflows, and products that treat them like operators rather than humans.<br><br>We wanted to do something different.<br><br>Folner exists to raise the standard of software experiences by building products where the user experience is the highest priority. Not a footnote. The entire point.</p>
+    </div>
+    <div class="mission-right">
+      <div class="mission-panel reveal-fade d2">
+        <p class="mission-quote">Most software companies overinvest in engineering and <strong>underinvest in user experience</strong>. We believe there's a better order of priorities.</p>
+        <p class="mission-attribution">Folner Brand Foundation</p>
+        <div class="panel-glow" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="prism-divider" aria-hidden="true"></div>
+
+<!-- WHAT IF -->
+<section class="whatif-section" id="whatif" data-od-id="whatif">
+  <div class="section-canvas-wrap" aria-hidden="true"><canvas data-neural-tint="198,121,196"></canvas></div>
+  <div class="whatif-inner">
+    <div class="whatif-header">
+      <div class="reveal-up"><div class="prism-strip"></div><p class="section-eyebrow">Brand Platform</p></div>
+      <h2 class="split-h2 whatif-heading reveal-up d1"><em>WHAT IF?</em></h2>
+      <p class="whatif-sub reveal-up d2">Every product we build starts with a question. Not an assumption. Not a market analysis. A question that challenges what people have learned to tolerate.</p>
+    </div>
+    <div class="whatif-grid">
+      <div class="whatif-card reveal-up d1"><p class="whatif-q">Question</p><p class="whatif-statement">What if software didn't look ugly?</p><div class="whatif-accent"></div><div class="whatif-pulse"></div></div>
+      <div class="whatif-card reveal-up d2"><p class="whatif-q">Question</p><p class="whatif-statement">What if software didn't feel dead?</p><div class="whatif-accent"></div><div class="whatif-pulse"></div></div>
+      <div class="whatif-card reveal-up d3"><p class="whatif-q">Question</p><p class="whatif-statement">What if software was powerful without complexity?</p><div class="whatif-accent"></div><div class="whatif-pulse"></div></div>
+      <div class="whatif-card reveal-up d1"><p class="whatif-q">Question</p><p class="whatif-statement">What if software felt human?</p><div class="whatif-accent"></div><div class="whatif-pulse"></div></div>
+      <div class="whatif-card reveal-up d2"><p class="whatif-q">Question</p><p class="whatif-statement">What if software never became a bottleneck?</p><div class="whatif-accent"></div><div class="whatif-pulse"></div></div>
+      <div class="whatif-card reveal-up d3"><p class="whatif-q">Question</p><p class="whatif-statement">What if software became fun to use?</p><div class="whatif-accent"></div><div class="whatif-pulse"></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="prism-divider" aria-hidden="true"></div>
+
+<!-- BELIEFS -->
+<section class="beliefs-section" id="beliefs" data-od-id="beliefs">
+  <div class="section-canvas-wrap" aria-hidden="true"><canvas data-neural-tint="5,150,105"></canvas></div>
+  <div class="beliefs-inner">
+    <div class="beliefs-header">
+      <div class="reveal-up"><div class="prism-strip"></div><p class="section-eyebrow">Core Beliefs</p></div>
+      <h2 class="split-h2 beliefs-heading reveal-up d1">What we believe about software.</h2>
+      <p class="beliefs-sub reveal-up d2">These aren't values on a wall. They are the decisions we make every single day when building products.</p>
+    </div>
+    <div class="belief-grid">
+      <div class="belief-card belief-card--signal reveal-up d1">
+        <span class="belief-num">01</span>
+        <div><span class="belief-tag">Beautiful</span><h3 class="belief-title">Software should be beautiful.</h3></div>
+        <p class="belief-body">Visual quality is not decoration. It shapes how products communicate, build trust, and create a genuine connection between people and technology. We take it seriously.</p>
+        <div class="belief-halo" aria-hidden="true"></div>
+      </div>
+      <div class="belief-card belief-card--cyan reveal-up d2">
+        <span class="belief-num">02</span>
+        <div><span class="belief-tag">Alive</span><h3 class="belief-title">Software should feel alive.</h3></div>
+        <p class="belief-body">Interfaces should respond like living systems, not static screens. Responsive, expressive, and helpful. Software that moves with users rather than making them wait.</p>
+        <div class="belief-halo" aria-hidden="true"></div>
+      </div>
+      <div class="belief-card belief-card--mint reveal-up d3">
+        <span class="belief-num">03</span>
+        <div><span class="belief-tag">Human</span><h3 class="belief-title">Technology should adapt to people.</h3></div>
+        <p class="belief-body">People should not have to adapt to software limitations. The best products understand users, anticipate their needs, reduce friction, and remove confusion wherever it appears.</p>
+        <div class="belief-halo" aria-hidden="true"></div>
+      </div>
+      <div class="belief-card belief-card--amber reveal-up d4">
+        <span class="belief-num">04</span>
+        <div><span class="belief-tag">Simple</span><h3 class="belief-title">Complexity is a design failure.</h3></div>
+        <p class="belief-body">The best products make difficult things feel straightforward. They do not pile on more features. Simplicity is the outcome of sustained, careful work over a long period of time.</p>
+        <div class="belief-halo" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="prism-divider" aria-hidden="true"></div>
+
+<!-- HOW WE BUILD -->
+<section class="craft-showcase" id="craft" data-od-id="craft">
+  <div class="section-canvas-wrap" aria-hidden="true"><canvas data-neural-tint="217,119,6"></canvas></div>
+  <div class="craft-showcase-inner">
+    <div class="craft-showcase-header">
+      <div class="reveal-up"><div class="prism-strip"></div><p class="section-eyebrow">How We Build</p></div>
+      <h2 class="craft-showcase-heading reveal-up d1">Five qualities<span class="heading-qualifier">every Folner product must have.</span></h2>
+      <hr class="craft-showcase-divider reveal-up d2" aria-hidden="true">
+      <p class="craft-showcase-sub reveal-up d2">Not aspirations. The standard every product is held to before it ships.</p>
+    </div>
+    <div class="craft-feature-list reveal-up d1">
+      <div class="craft-feature craft-feature--blue is-open" data-craft>
+        <div class="craft-feature-num-col"><span class="craft-feature-num">01</span></div>
+        <div class="craft-feature-main">
+          <p class="craft-feature-title">Responsive by nature.</p>
+          <p class="craft-feature-body">Every interaction gets immediate feedback. Nothing ever leaves a user wondering if something worked. The product communicates its state clearly and instantly, without ambiguity.</p>
+        </div>
+        <div class="craft-feature-accent"></div>
+      </div>
+      <div class="craft-feature craft-feature--cyan" data-craft>
+        <div class="craft-feature-num-col"><span class="craft-feature-num">02</span></div>
+        <div class="craft-feature-main">
+          <p class="craft-feature-title">Layered with purpose.</p>
+          <p class="craft-feature-body">Hierarchy is built into the product, not applied on top of it. Users understand where they are, what matters most, and what to do next without having to think about it.</p>
+        </div>
+        <div class="craft-feature-accent"></div>
+      </div>
+      <div class="craft-feature craft-feature--mint" data-craft>
+        <div class="craft-feature-num-col"><span class="craft-feature-num">03</span></div>
+        <div class="craft-feature-main">
+          <p class="craft-feature-title">Continuous, not fragmented.</p>
+          <p class="craft-feature-body">The experience flows naturally. Screens connect in a way that feels considered. Transitions carry meaning. Users never feel lost or dropped; the product moves with them.</p>
+        </div>
+        <div class="craft-feature-accent"></div>
+      </div>
+      <div class="craft-feature craft-feature--amber" data-craft>
+        <div class="craft-feature-num-col"><span class="craft-feature-num">04</span></div>
+        <div class="craft-feature-main">
+          <p class="craft-feature-title">Precise in every detail.</p>
+          <p class="craft-feature-body">Every element earns its place. Spacing is consistent. Typography is intentional. Nothing exists purely for decoration. Small details shape how a product feels, and we give them the attention they deserve.</p>
+        </div>
+        <div class="craft-feature-accent"></div>
+      </div>
+      <div class="craft-feature craft-feature--rose" data-craft>
+        <div class="craft-feature-num-col"><span class="craft-feature-num">05</span></div>
+        <div class="craft-feature-main">
+          <p class="craft-feature-title">Designed for real people.</p>
+          <p class="craft-feature-body">Software should work around human behavior, not the other way around. Predictable patterns, clear language, and low cognitive load make a product genuinely pleasant to use.</p>
+        </div>
+        <div class="craft-feature-accent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="prism-divider" aria-hidden="true"></div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy-section" id="philosophy" data-od-id="philosophy">
+  <div class="section-canvas-wrap" aria-hidden="true"><canvas data-neural-tint="2,132,199"></canvas></div>
+  <div class="philosophy-inner">
+    <div class="philosophy-header">
+      <div class="reveal-up"><div class="prism-strip"></div><p class="section-eyebrow">Product Philosophy</p></div>
+      <h2 class="split-h2 philosophy-heading reveal-up d1">How we build every product.</h2>
+      <p class="philosophy-sub reveal-up d2">These are not aspirations. They are the decisions that shape every product we ship.</p>
+    </div>
+    <div class="principles-list">
+      <div class="principle-row reveal-up d1"><span class="principle-num">01</span><div class="principle-body"><h3 class="principle-label">User experience comes first.</h3><p class="principle-desc">Every decision starts with the user experience. Features, architecture, and technology exist to support the experience, not the other way around.</p></div><span class="principle-tag">UX</span></div>
+      <div class="principle-row reveal-up d2"><span class="principle-num">02</span><div class="principle-body"><h3 class="principle-label">Simplicity is a feature.</h3><p class="principle-desc">Complexity is not sophistication. The best products make difficult things feel straightforward. Getting there requires real effort; it is never the easy path.</p></div><span class="principle-tag">Design</span></div>
+      <div class="principle-row reveal-up d3"><span class="principle-num">03</span><div class="principle-body"><h3 class="principle-label">Beauty has purpose.</h3><p class="principle-desc">Design is not decoration. Visual design improves understanding, builds confidence, and makes software genuinely enjoyable to use over time.</p></div><span class="principle-tag">Craft</span></div>
+      <div class="principle-row reveal-up d4"><span class="principle-num">04</span><div class="principle-body"><h3 class="principle-label">Details matter.</h3><p class="principle-desc">Micro interactions, spacing, typography, motion — these are never afterthoughts. Small details tend to define how a product feels more than any single large decision.</p></div><span class="principle-tag">Quality</span></div>
+      <div class="principle-row reveal-up" style="transition-delay:460ms"><span class="principle-num">05</span><div class="principle-body"><h3 class="principle-label">Build fewer things better.</h3><p class="principle-desc">We focus on categories where the experience is genuinely broken. Then we build one thoughtful product rather than spreading ourselves thin across many average ones.</p></div><span class="principle-tag">Strategy</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="prism-divider" aria-hidden="true"></div>
+
+<!-- CULTURE -->
+<section class="culture-section" id="culture" data-od-id="culture">
+  <div class="section-canvas-wrap" aria-hidden="true"><canvas data-neural-tint="198,121,196"></canvas></div>
+  <div class="culture-inner">
+    <div class="culture-left">
+      <div class="reveal-up"><div class="prism-strip"></div><p class="section-eyebrow">Culture</p></div>
+      <h2 class="split-h2 culture-heading reveal-up d1">Built by people who refuse to settle.</h2>
+      <p class="culture-body reveal-up d2">We look for curious people who care deeply about quality. Not because someone is watching, but because they genuinely care. People who notice details others overlook, ask questions others don't, and take ownership naturally.<br><br>We keep things simple internally too. No unnecessary process. No layers of approval. Just a shared belief that software can be a lot better than it currently is.</p>
+      <div class="culture-traits reveal-up d3">
+        <span class="culture-trait">Curious</span><span class="culture-trait">Ownership</span><span class="culture-trait">Craftsmanship</span><span class="culture-trait">Creative</span><span class="culture-trait">Collaborative</span><span class="culture-trait">Detail Obsessed</span>
+      </div>
+    </div>
+    <div class="culture-right">
+      <div class="culture-belief reveal-fade d1"><p class="culture-belief-label">What thrives here</p><p class="culture-belief-text">People who take initiative, see a problem and address it, and care about the outcome as much as the process.</p></div>
+      <div class="culture-belief reveal-fade d2"><p class="culture-belief-label">What we value most</p><p class="culture-belief-text">Curiosity, craftsmanship, and a genuine desire to make things better. We move at our own pace toward a clear standard.</p></div>
+      <div class="culture-belief reveal-fade d3"><p class="culture-belief-label">How we make decisions</p><p class="culture-belief-text">User experience first, then product quality, then long-term value. The person using the product shapes every decision we make.</p></div>
+      <div class="culture-belief reveal-fade d4"><p class="culture-belief-label">Our standard</p><p class="culture-belief-text">Every Folner product should be beautiful, intuitive, fast, reliable, and genuinely enjoyable to use. That is the bar we hold ourselves to.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="prism-divider" aria-hidden="true"></div>
+
+<!-- WHAT WE'RE BUILDING NEXT -->
+<section class="next-section" id="next" data-od-id="next">
+  <div class="section-canvas-wrap" aria-hidden="true"><canvas data-neural-tint="79,70,229"></canvas></div>
+  <div class="next-glow" aria-hidden="true"></div>
+
+  <!-- Ticker -->
+  <div class="next-ticker-wrap" aria-hidden="true">
+    <div class="next-ticker-track" id="nextTicker">
+      <div class="next-ticker-item"><span class="next-ticker-label">Developer Tools</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item hi"><span class="next-ticker-label">AI Workflows</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item"><span class="next-ticker-label">Finance</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item"><span class="next-ticker-label">Communication</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item hi"><span class="next-ticker-label">Productivity</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item"><span class="next-ticker-label">Healthcare</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item"><span class="next-ticker-label">Data &amp; Analytics</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item hi"><span class="next-ticker-label">Consumer Apps</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item"><span class="next-ticker-label">Education</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item"><span class="next-ticker-label">Infrastructure</span><span class="next-ticker-dot"></span></div>
+      <!-- duplicate for seamless loop -->
+      <div class="next-ticker-item"><span class="next-ticker-label">Developer Tools</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item hi"><span class="next-ticker-label">AI Workflows</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item"><span class="next-ticker-label">Finance</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item"><span class="next-ticker-label">Communication</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item hi"><span class="next-ticker-label">Productivity</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item"><span class="next-ticker-label">Healthcare</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item"><span class="next-ticker-label">Data &amp; Analytics</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item hi"><span class="next-ticker-label">Consumer Apps</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item"><span class="next-ticker-label">Education</span><span class="next-ticker-dot"></span></div>
+      <div class="next-ticker-item"><span class="next-ticker-label">Infrastructure</span><span class="next-ticker-dot"></span></div>
+    </div>
+  </div>
+
+  <div class="next-inner">
+    <div class="next-statement-row">
+      <h2 class="split-h2 next-heading reveal-up">The next chapter is about <em>depth.</em></h2>
+      <div class="next-side reveal-fade d2">
+        <div class="next-side-eyebrow"><span class="next-eyebrow-text">What's ahead</span></div>
+        <p class="next-side-text">We are moving into categories where the gap between what software does and what it could do is widest. Not to compete, but to rebuild from the ground up with user experience as the only constraint that matters.</p>
+        <div class="next-cta-row">
+          <a href="index.html" class="next-cta-primary"><svg class="btn-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="1.5" width="7" height="7" rx="1"/><polyline points="7,5 10.5,1.5"/><polyline points="8,1.5 10.5,1.5 10.5,4"/></svg>See our products</a>
+          <a href="#top" class="next-cta-secondary"><svg class="btn-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="1.5" width="9" height="9" rx="1"/><line x1="3.5" y1="3.5" x2="8.5" y2="3.5"/><polyline points="4.5,6.5 6,4.5 7.5,6.5"/><line x1="6" y1="4.5" x2="6" y2="8.5"/></svg>Back to top</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="next-stats-row reveal-up d2">
+      <div class="next-stat">
+        <p class="next-stat-num">UX First</p>
+        <p class="next-stat-label">Every product decision</p>
+      </div>
+      <div class="next-stat">
+        <p class="next-stat-num">Zero</p>
+        <p class="next-stat-label">Compromises on craft</p>
+      </div>
+      <div class="next-stat">
+        <p class="next-stat-num">One</p>
+        <p class="next-stat-label">Standard. Relentlessly upheld.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-prism"></div>
+  <div class="footer-inner">
+    <div class="footer-brand-row">
+      <div class="footer-brand-left">
+        <img src="mq175l5g-Folner_Wordmark_Dark_Logo-final.png" alt="Folner">
+        <p class="footer-statement">A product development company dedicated to creating beautiful, intuitive software that feels alive.</p>
+        <a href="index.html" class="footer-cta"><svg class="btn-icon" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="1.5" width="7" height="7" rx="1"/><polyline points="7,5 10.5,1.5"/><polyline points="8,1.5 10.5,1.5 10.5,4"/></svg>View Products</a>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-col">
+          <p class="footer-col-label">Company</p>
+          <a href="folner-about-us.html" class="footer-link">About</a>
+          <a href="#philosophy" class="footer-link">Philosophy</a>
+          <a href="#culture" class="footer-link">Culture</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-label">Products</p>
+          <a href="index.html" class="footer-link">All Products</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-label">Legal</p>
+          <a href="privacy.html" class="footer-link">Privacy</a>
+          <a href="terms.html" class="footer-link">Terms</a>
+          <a href="security.html" class="footer-link">Security</a>
+          <a href="cookies.html" class="footer-link">Cookies</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-label">Explore</p>
+          <a href="#whatif" class="footer-link">WHAT IF?</a>
+          <a href="#philosophy" class="footer-link">Philosophy</a>
+          <a href="#culture" class="footer-link">Culture</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Folner. Product Development Company.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+/* ── Cursor glow ── */
+const glow = document.getElementById('cursorGlow');
+window.addEventListener('mousemove', e => {
+  glow.style.left = e.clientX + 'px';
+  glow.style.top  = e.clientY + 'px';
+}, { passive: true });
+
+/* ── Scroll progress ── */
+const prog = document.getElementById('scrollProgress');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+  prog.style.width = Math.min(pct, 100) + '%';
+}, { passive: true });
+
+/* ── Header scroll ── */
+const hdr = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+  hdr.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* ── Burger menu ── */
+const burger = document.getElementById('burgerBtn');
+const overlay = document.getElementById('menuOverlay');
+burger.addEventListener('click', () => {
+  const open = overlay.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+  overlay.setAttribute('aria-hidden', !open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+overlay.querySelectorAll('.menu-link').forEach(l => {
+  l.addEventListener('click', () => {
+    overlay.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+    overlay.setAttribute('aria-hidden', true);
+    document.body.style.overflow = '';
+  });
+});
+
+/* ── Hero word-split ── */
+(function(){
+  const words = ['Raise', 'the<br>', 'Standard.'];
+  const h1 = document.getElementById('heroHeadline');
+  if (!h1) return;
+  words.forEach((w, i) => {
+    const span = document.createElement('span');
+    span.className = 'hero-word';
+    const inner = document.createElement('span');
+    inner.className = 'hero-word-inner';
+    inner.innerHTML = w;
+    inner.style.transition = `transform 1s ${0.5 + i * 0.18}s cubic-bezier(0.23,1,0.32,1), opacity 1s ${0.5 + i * 0.18}s cubic-bezier(0.23,1,0.32,1)`;
+    span.appendChild(inner);
+    h1.appendChild(span);
+    if (i < words.length - 1) h1.appendChild(document.createTextNode(' '));
+  });
+  requestAnimationFrame(() => {
+    h1.querySelectorAll('.hero-word-inner').forEach(el => {
+      el.style.transform = 'translateY(0)';
+      el.style.opacity = '1';
+    });
+  });
+})();
+
+/* ── Split h2s ── */
+function splitH2(el) {
+  const text = el.textContent.trim();
+  const wds  = text.split(' ');
+  el.innerHTML = wds.map((w, i) =>
+    `<span class="split-word" style="transition-delay:${i*80}ms"><span class="split-word-inner">${w}</span></span>`
+  ).join(' ');
+}
+document.querySelectorAll('.split-h2').forEach(splitH2);
+
+/* ── IntersectionObserver: reveal-up + reveal-fade + split-h2 ── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.10, rootMargin: '0px 0px -48px 0px' });
+document.querySelectorAll('.reveal-up, .reveal-fade, .split-h2').forEach(el => io.observe(el));
+
+/* ── Neural canvas factory ── */
+function makeNeural(canvas, tintRGB, nodeCount, maxDist, speed, alpha) {
+  const ctx = canvas.getContext('2d');
+  const [tr, tg, tb] = tintRGB;
+  let W, H, nodes = [];
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth  || canvas.parentElement.offsetWidth;
+    H = canvas.height = canvas.offsetHeight || canvas.parentElement.offsetHeight;
+    if (nodes.length === 0) init();
+  }
+  function init() {
+    nodes = Array.from({length: nodeCount}, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - 0.5) * speed, vy: (Math.random() - 0.5) * speed,
+      r: Math.random() * 1.4 + 0.4
+    }));
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      a.x += a.vx; a.y += a.vy;
+      if (a.x < 0 || a.x > W) a.vx *= -1;
+      if (a.y < 0 || a.y > H) a.vy *= -1;
+      for (let j = i+1; j < nodes.length; j++) {
+        const b = nodes[j];
+        const dx = a.x-b.x, dy = a.y-b.y;
+        const d = Math.sqrt(dx*dx+dy*dy);
+        if (d < maxDist) {
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(${tr},${tg},${tb},${(1-d/maxDist)*alpha})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+      ctx.beginPath();
+      ctx.arc(a.x, a.y, a.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(${tr},${tg},${tb},0.50)`;
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  new ResizeObserver(resize).observe(canvas.parentElement || canvas);
+  resize();
+  draw();
+}
+
+/* Hero neural (dense, multi-color) */
+(function(){
+  const c = document.getElementById('heroNeural');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  const COLORS = [[79,70,229],[2,132,199],[5,150,105],[217,119,6],[198,121,196]];
+  let W, H, nodes = [];
+  function resize() { W=c.width=c.offsetWidth; H=c.height=c.offsetHeight; }
+  function init() { nodes = Array.from({length:90}, () => ({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*0.30,vy:(Math.random()-0.5)*0.30,r:Math.random()*1.6+0.5})); }
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    for (let i=0;i<nodes.length;i++){
+      const a=nodes[i]; a.x+=a.vx; a.y+=a.vy;
+      if(a.x<0||a.x>W)a.vx*=-1; if(a.y<0||a.y>H)a.vy*=-1;
+      for(let j=i+1;j<nodes.length;j++){
+        const b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<170){ const [r,g,bl]=COLORS[(i+j)%5]; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.strokeStyle=`rgba(${r},${g},${bl},${(1-d/170)*0.20})`; ctx.lineWidth=0.6; ctx.stroke(); }
+      }
+      const [r,g,bl]=COLORS[i%5]; ctx.beginPath(); ctx.arc(a.x,a.y,a.r,0,Math.PI*2); ctx.fillStyle=`rgba(${r},${g},${bl},0.55)`; ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  new ResizeObserver(resize).observe(c); resize(); init(); draw();
+})();
+
+/* Full-page background neural */
+(function(){
+  const c = document.getElementById('bgNeural');
+  if (!c) return;
+  const ctx = c.getContext('2d');
+  const COLORS = [[79,70,229],[2,132,199],[5,150,105],[217,119,6],[198,121,196]];
+  let W, H, nodes = [];
+  function resize() { W=c.width=window.innerWidth; H=c.height=window.innerHeight; if(!nodes.length)init(); }
+  function init() { nodes=Array.from({length:60},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*0.15,vy:(Math.random()-0.5)*0.15,r:Math.random()*1.2+0.3})); }
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    for(let i=0;i<nodes.length;i++){
+      const a=nodes[i]; a.x+=a.vx; a.y+=a.vy;
+      if(a.x<0||a.x>W)a.vx*=-1; if(a.y<0||a.y>H)a.vy*=-1;
+      for(let j=i+1;j<nodes.length;j++){
+        const b=nodes[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.sqrt(dx*dx+dy*dy);
+        if(d<200){ const [r,g,bl]=COLORS[(i+j)%5]; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.strokeStyle=`rgba(${r},${g},${bl},${(1-d/200)*0.06})`; ctx.lineWidth=0.4; ctx.stroke(); }
+      }
+      const [r,g,bl]=COLORS[i%5]; ctx.beginPath(); ctx.arc(a.x,a.y,a.r,0,Math.PI*2); ctx.fillStyle=`rgba(${r},${g},${bl},0.30)`; ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',()=>resize(),{passive:true}); resize(); draw();
+})();
+
+/* Section micro-canvases */
+document.querySelectorAll('.section-canvas-wrap canvas[data-neural-tint]').forEach(c => {
+  const t = c.dataset.neuralTint.split(',').map(Number);
+  makeNeural(c, t, 40, 140, 0.22, 0.12);
+});
+
+/* ── Belief cards: scroll-activate left accent line ── */
+const beliefIO = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold: 0.25});
+document.querySelectorAll('.belief-card').forEach(c => beliefIO.observe(c));
+
+/* ── Craft feature accordion — scroll-driven ── */
+(function() {
+  const rows = Array.from(document.querySelectorAll('[data-craft]'));
+  let active = 0;
+  function openRow(idx) {
+    if (idx === active && rows[idx].classList.contains('is-open')) return;
+    active = idx;
+    rows.forEach((r, i) => r.classList.toggle('is-open', i === idx));
+  }
+  openRow(0);
+
+  function onScroll() {
+    const mid = window.innerHeight / 2;
+    let best = 0, bestDist = Infinity;
+    rows.forEach((r, i) => {
+      const rect = r.getBoundingClientRect();
+      // Only consider rows whose top has entered the viewport
+      if (rect.top > window.innerHeight || rect.bottom < 0) return;
+      const dist = Math.abs(rect.top + rect.height / 2 - mid);
+      if (dist < bestDist) { bestDist = dist; best = i; }
+    });
+    openRow(best);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ── WHATIF card mouse glow + pulse on hover ── */
+document.querySelectorAll('.whatif-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+    card.style.setProperty('--my', ((e.clientY - r.top)  / r.height * 100) + '%');
+  });
+  card.addEventListener('mouseenter', () => {
+    const pulse = card.querySelector('.whatif-pulse');
+    if (!pulse) return;
+    pulse.style.animation = 'none';
+    pulse.offsetWidth; // reflow
+    pulse.style.animation = 'pulsate 0.8s ease-out forwards';
+  });
+});
+</script>
+<script>
+/* ── Custom cursor ── */
+(function(){
+  var dot=document.getElementById('cursorDot');
+  var ring=document.getElementById('cursorRing');
+  if(!dot||!ring) return;
+  var mx=window.innerWidth/2, my=window.innerHeight/2;
+  var rx=mx, ry=my;
+  document.addEventListener('mousemove',function(e){
+    mx=e.clientX; my=e.clientY;
+    dot.style.transform='translate('+(mx-3)+'px,'+(my-3)+'px)';
+    ring.style.opacity='1'; dot.style.opacity='1';
+  });
+  function lerp(a,b,t){return a+(b-a)*t;}
+  function tick(){
+    rx=lerp(rx,mx,0.18); ry=lerp(ry,my,0.18);
+    var hw=document.body.classList.contains('c-hover')?26:17;ring.style.transform='translate('+(rx-hw)+'px,'+(ry-hw)+'px)';
+    requestAnimationFrame(tick);
+  }
+  tick();
+  var hoverable='a,button,input,textarea,label,[role="button"],select';
+  document.querySelectorAll(hoverable).forEach(function(el){
+    el.addEventListener('mouseenter',function(){document.body.classList.add('c-hover');});
+    el.addEventListener('mouseleave',function(){document.body.classList.remove('c-hover');});
+  });
+  document.addEventListener('mouseleave',function(){dot.style.opacity='0';ring.style.opacity='0';});
+  document.addEventListener('mouseenter',function(){dot.style.opacity='1';ring.style.opacity='1';});
+})();
+</script>
+</body>
+</html>

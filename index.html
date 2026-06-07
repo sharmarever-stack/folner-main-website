@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Folner — What If?</title>
+
+  <!-- SEO & Social -->
+  <meta name="description" content="Folner — Challenging the status quo of digital product design. What if everything worked better?">
+  <meta name="keywords" content="Folner, design, product, digital, innovation">
+  <meta name="author" content="Folner">
+  <meta name="theme-color" content="#030405">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Folner — What If?">
+  <meta property="og:description" content="Challenging the status quo of digital product design. What if everything worked better?">
+  <meta property="og:image" content="assets/images/Folner_Wordmark_Dark_Logo.png">
+  <meta property="og:url" content="https://folner.com">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Folner — What If?">
+  <meta name="twitter:description" content="Challenging the status quo of digital product design. What if everything worked better?">
+  <meta name="twitter:image" content="assets/images/Folner_Wordmark_Dark_Logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/Folner_Icon_Dark_Logo-final.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Page Load Overlay -->
+  <div class="page-loader" id="pageLoader"></div>
+
+  <!-- ─── Announcement Bar ─────────────────────────────────────────────── -->
+  <div class="announce-bar" id="announceBar" role="banner">
+    <span class="announce-dot" aria-hidden="true"></span>
+    <span class="announce-text">Folner is now hiring — we are building something remarkable — <a href="../folner-careers-2.html" class="announce-link">See open roles →</a></span>
+    <button class="announce-close" id="announceClose" aria-label="Dismiss announcement">✕</button>
+  </div>
+
+  <!-- Global Neural Canvas -->
+  <canvas id="globalNeural" aria-hidden="true"></canvas>
+
+  <!-- Global grain overlay -->
+  <div class="global-grain" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <!-- Left: Icon logo -->
+    <a class="header-icon" href="/" aria-label="Folner home">
+      <img src="assets/images/Folner_Icon_Dark_Logo-final.png" alt="Folner icon">
+    </a>
+
+    <!-- Center: Wordmark logo -->
+    <a class="header-wordmark" href="/" aria-label="Folner">
+      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner">
+    </a>
+
+    <!-- Right: Burger menu -->
+    <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Burger Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <nav class="menu-nav" aria-label="Site navigation">
+      <a href="index.html" class="menu-link">Home</a>
+      <a href="../folner-about-us.html" class="menu-link">About</a>
+      <a href="../folner-careers-2.html" class="menu-link">Careers</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- ─── Hero ─────────────────────────────────────────────────────────── -->
+    <section class="hero">
+      <canvas class="neural-surface" id="neuralSurface" aria-hidden="true"></canvas>
+      <div class="vignette"></div>
+      <div class="grain-overlay"></div>
+      <div class="bubble-layer" id="bubbleLayer" aria-hidden="true"></div>
+
+      <div class="hero-text">
+        <h1 class="line-static">WHAT IF?</h1>
+        <p class="line-typing">
+          <span id="typedText"></span><span class="cursor"></span>
+        </p>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="scroll-arrow">↓</span>
+      </div>
+    </section>
+
+    <!-- ─── Technology Act — Effortless is engineered. ───────────────────── -->
+    <section class="ie2-section" id="techAct" aria-label="Innovation Engineering">
+      <canvas class="ie2-neural" id="ie2Neural" aria-hidden="true"></canvas>
+
+      <div class="ie2-header">
+        <div class="ie2-prism-strip" aria-hidden="true"></div>
+        <h2 class="ie2-heading">Effortless is engineered.</h2>
+        <p class="ie2-sub">
+          Engineering should reduce complexity, not create it.
+        </p>
+      </div>
+
+      <div class="ie2-body" id="ie2Body">
+
+        <div class="ie2-spine" id="ie2Spine" aria-hidden="true">
+          <div class="ie2-tracker" id="ie2Tracker"></div>
+        </div>
+
+        <!-- Card 01 — LEFT -->
+        <div class="ie2-row ie2-row--left" data-ie2-row>
+          <div class="ie2-card">
+            <div class="ie2-card-head">
+              <span class="ie2-card-num">01</span>
+              <span class="ie2-card-title">IDENTITY &amp; ACCESS MANAGEMENT</span>
+            </div>
+            <canvas class="ie2-card-canvas" data-ie2-canvas="iam" aria-hidden="true"></canvas>
+            <div class="ie2-card-foot">
+              <div class="ie2-card-badge" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="5" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M6 5V4a3 3 0 0 1 6 0v1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="9" cy="10" r="1.5" fill="currentColor"/></svg>
+              </div>
+              <span class="ie2-card-tags">Auth · RBAC · SSO · Permissions</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 03 — RIGHT -->
+        <div class="ie2-row ie2-row--right" data-ie2-row>
+          <div class="ie2-card">
+            <div class="ie2-card-head">
+              <span class="ie2-card-num">03</span>
+              <span class="ie2-card-title">AI ORCHESTRATION</span>
+            </div>
+            <canvas class="ie2-card-canvas" data-ie2-canvas="aio" aria-hidden="true"></canvas>
+            <div class="ie2-card-foot">
+              <div class="ie2-card-badge" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M3 9h2M13 9h2M6.17 6.17 4.76 4.76M13.24 13.24l-1.41-1.41M9 3v2M9 13v2M11.83 6.17l1.41-1.41M4.76 13.24l1.41-1.41" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              </div>
+              <span class="ie2-card-tags">Agents · Inference · Pipelines</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 04 — LEFT -->
+        <div class="ie2-row ie2-row--left" data-ie2-row>
+          <div class="ie2-card">
+            <div class="ie2-card-head">
+              <span class="ie2-card-num">04</span>
+              <span class="ie2-card-title">DISTRIBUTED ARCHITECTURE</span>
+            </div>
+            <canvas class="ie2-card-canvas" data-ie2-canvas="dist" aria-hidden="true"></canvas>
+            <div class="ie2-card-foot">
+              <div class="ie2-card-badge" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="7" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="13" y="7" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="7" y="1" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="7" y="13" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M5 9h2M11 9h2M9 5v2M9 11v2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              </div>
+              <span class="ie2-card-tags">Microservices · Scale · Resilience</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 05 — RIGHT -->
+        <div class="ie2-row ie2-row--right" data-ie2-row>
+          <div class="ie2-card">
+            <div class="ie2-card-head">
+              <span class="ie2-card-num">05</span>
+              <span class="ie2-card-title">WORKFLOW AUTOMATION</span>
+            </div>
+            <canvas class="ie2-card-canvas" data-ie2-canvas="wfa" aria-hidden="true"></canvas>
+            <div class="ie2-card-foot">
+              <div class="ie2-card-badge" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 5h12M3 9h8M3 13h5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><polyline points="13,7 16,9 13,11" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <span class="ie2-card-tags">Pipelines · BPA · Orchestration</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 06 — LEFT -->
+        <div class="ie2-row ie2-row--left" data-ie2-row>
+          <div class="ie2-card">
+            <div class="ie2-card-head">
+              <span class="ie2-card-num">06</span>
+              <span class="ie2-card-title">EVENT-DRIVEN SYSTEMS</span>
+            </div>
+            <canvas class="ie2-card-canvas" data-ie2-canvas="evd" aria-hidden="true"></canvas>
+            <div class="ie2-card-foot">
+              <div class="ie2-card-badge" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2v4M5 4l2 3M13 4l-2 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="9" cy="9" r="2" stroke="currentColor" stroke-width="1.2"/><path d="M3 14c0-2.2 2.7-4 6-4s6 1.8 6 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              </div>
+              <span class="ie2-card-tags">Streams · Async · Events</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 07 — RIGHT -->
+        <div class="ie2-row ie2-row--right" data-ie2-row>
+          <div class="ie2-card">
+            <div class="ie2-card-head">
+              <span class="ie2-card-num">07</span>
+              <span class="ie2-card-title">EDGE &amp; CLOUD INFRASTRUCTURE</span>
+            </div>
+            <canvas class="ie2-card-canvas" data-ie2-canvas="edge" aria-hidden="true"></canvas>
+            <div class="ie2-card-foot">
+              <div class="ie2-card-badge" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 11a4 4 0 1 1 7.9-.9A3 3 0 1 1 15 13H4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 13v3M7 15h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              </div>
+              <span class="ie2-card-tags">CDN · Deploy · Global</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /ie2-body -->
+    </section>
+
+
+    <!-- ─── Capability Wall — Raycast-style ──────────────────────────────────── -->
+    <section class="rcw-section" id="cwSection" aria-label="* Softwares, rebuilt for modern consumers.">
+      <!-- Section-scoped atmospheric background -->
+      <canvas class="rcw-bg" id="cwBg" aria-hidden="true"></canvas>
+
+      <div class="rcw-inner" id="cwInner">
+
+        <div class="rcw-body">
+
+          <!-- LEFT — heading + flowing capability wall + badge -->
+          <div class="rcw-left">
+            <div class="rcw-eyebrow" aria-hidden="true">
+              <span class="rcw-eyebrow-dot"></span>
+              <span class="rcw-eyebrow-line"></span>
+            </div>
+            <h2 class="rcw-heading">Softwares, rebuilt for<br>modern consumers.</h2>
+            <div class="rcw-para" id="rcwPara" aria-live="polite">
+              <!-- Brick tiles injected by JS -->
+            </div>
+            <div class="rcw-badge-row" id="rcwBadge">
+              <div class="rcw-badge-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <circle cx="8" cy="8" r="2.5" fill="rgba(86,194,255,0.9)"/>
+                  <circle cx="8" cy="8" r="5" stroke="rgba(86,194,255,0.35)" stroke-width="1"/>
+                  <line x1="8" y1="1" x2="8" y2="4" stroke="rgba(86,194,255,0.6)" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="8" y1="12" x2="8" y2="15" stroke="rgba(86,194,255,0.6)" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="1" y1="8" x2="4" y2="8" stroke="rgba(86,194,255,0.6)" stroke-width="1" stroke-linecap="round"/>
+                  <line x1="12" y1="8" x2="15" y2="8" stroke="rgba(86,194,255,0.6)" stroke-width="1" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span class="rcw-badge-name" id="rcwBadgeName">Adaptive orchestration.</span>
+            </div>
+            <p class="rcw-badge-desc" id="rcwBadgeDesc">Coordinate systems intelligently, remove friction, and let your product think ahead.</p>
+          </div>
+
+          <!-- RIGHT — floating glass panel preview -->
+          <div class="rcw-right" aria-hidden="true">
+            <div class="rcw-panel" id="rcwPanel">
+              <canvas class="rcw-canvas" id="cwCanvas"></canvas>
+            </div>
+          </div>
+
+        </div><!-- /rcw-body -->
+      </div><!-- /rcw-inner -->
+    </section>
+
+    <!-- ─── Section 06 — Built to stay operational. ───────────────────────── -->
+    <section class="so-section" id="soSection" aria-label="Built to stay operational.">
+      <div class="so-grid">
+
+        <!-- Panel 0: Title -->
+        <div class="so-panel so-panel--title" id="soTitle">
+          <div class="so-panel-label" aria-hidden="true">01 / INFRASTRUCTURE</div>
+          <h2 class="so-heading">Built to stay<br>operational.</h2>
+          <p class="so-desc">Resilience is not a feature. It's the architecture.</p>
+        </div>
+
+        <!-- Panel 1: Security Architecture — large, top-right, spans 2 rows -->
+        <div class="so-panel so-panel--security" id="soSecurity">
+          <div class="so-panel-label" aria-hidden="true">SECURITY ARCHITECTURE <span class="so-stat">0 BREACHES / QTR</span></div>
+          <canvas class="so-canvas" data-so-panel="security" data-so-color="86,194,255" aria-hidden="true"></canvas>
+        </div>
+
+        <!-- Panel 2: System Reliability -->
+        <div class="so-panel so-panel--reliability" id="soReliability">
+          <div class="so-panel-label" aria-hidden="true">SYSTEM RELIABILITY <span class="so-stat">99.95% SLA</span></div>
+          <canvas class="so-canvas" data-so-panel="reliability" data-so-color="198,121,196" aria-hidden="true"></canvas>
+        </div>
+
+        <!-- Panel 3: Global Uptime -->
+        <div class="so-panel so-panel--uptime" id="soUptime">
+          <div class="so-panel-label" aria-hidden="true">GLOBAL UPTIME <span class="so-stat">99.9% · 8.76H/YR</span></div>
+          <canvas class="so-canvas" data-so-panel="uptime" data-so-color="255,180,0" aria-hidden="true"></canvas>
+        </div>
+
+        <!-- Panel 4: Failover Systems -->
+        <div class="so-panel so-panel--failover" id="soFailover">
+          <div class="so-panel-label" aria-hidden="true">FAILOVER SYSTEMS <span class="so-stat">&lt;30S RTO</span></div>
+          <canvas class="so-canvas" data-so-panel="failover" data-so-color="255,100,80" aria-hidden="true"></canvas>
+        </div>
+
+        <!-- Panel 5: Observability -->
+        <div class="so-panel so-panel--observability" id="soObservability">
+          <div class="so-panel-label" aria-hidden="true">OBSERVABILITY <span class="so-stat">&lt;1MIN MTTD</span></div>
+          <canvas class="so-canvas" data-so-panel="observability" data-so-color="0,220,255" aria-hidden="true"></canvas>
+        </div>
+
+        <!-- Panel 6: Scalability -->
+        <div class="so-panel so-panel--scalability" id="soScalability">
+          <div class="so-panel-label" aria-hidden="true">SCALABILITY <span class="so-stat">10× BURST</span></div>
+          <canvas class="so-canvas" data-so-panel="scalability" data-so-color="120,220,120" aria-hidden="true"></canvas>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Section 07 — One experience. Everywhere. ────────────────────── -->
+    <!-- LOGO KEY: all SVG paths are exact SimpleIcons / official brand paths -->
+    <section class="oe-section" id="oeSection" data-od-id="section-07" aria-label="One experience. Everywhere.">
+
+      <!-- TOP: Headline -->
+      <div class="oe-headline-wrap">
+        <h2 class="oe-headline">One experience. Everywhere.</h2>
+      </div>
+
+      <!-- CENTER: Cinematic stage — 3 platform rows + logo overlay -->
+      <div class="oe-stage" aria-hidden="true">
+
+        <!-- Purple bloom + signal blue pulsing brand light -->
+        <div class="oe-brand-light"></div>
+        <!-- Grain texture (scoped to stage) -->
+        <div class="oe-grain" aria-hidden="true"></div>
+
+        <!-- Left+right edge vignette -->
+        <div class="oe-vignette"></div>
+
+        <!-- ROW 0: Digital Platforms — L→R — farthest / dimmest / fastest -->
+        <div class="oe-marquee-row oe-row-0">
+          <div class="oe-track oe-track--ltr" style="--dur:22s">
+            <!-- Shopify: bag with S -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.337 23.979l6.15-1.33S18.948 7.496 18.928 7.327a.268.268 0 0 0-.264-.23c-.12 0-2.24-.044-2.24-.044s-1.49-1.452-1.66-1.618v18.544zM12.73 5.09s-.96-.287-2.533-.287c-4.06 0-6.026 2.544-6.026 5.05 0 2.778 1.944 4.123 3.745 5.237 1.447.892 1.933 1.49 1.933 2.3 0 .95-.76 1.47-1.885 1.47-1.623 0-3.23-.858-3.23-.858l-.574 2.7s1.44.807 3.814.807c3.576 0 5.863-1.768 5.863-4.938 0-2.652-1.99-4.165-3.758-5.23-1.24-.762-2.07-1.266-2.07-2.157 0-.76.636-1.435 2.073-1.435 1.29 0 2.49.437 2.49.437zM16.5 3.5c-.08 0-1.76.048-1.76.048S13.526 2.22 13.35 2.046V22.08l2.814-.61S17.63 5.4 17.65 5.23c.02-.16-.02-.262-.14-.262-.08 0-.99-.07-1.01-.07V3.5z"/></svg><span>Shopify</span></span>
+            <!-- Framer: F chevron -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z"/></svg><span>Framer</span></span>
+            <!-- WordPress: W in circle -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM3.904 12c0-.84.13-1.65.367-2.412l2.56 7.01A8.115 8.115 0 0 1 3.904 12zm8.096 8.096a8.115 8.115 0 0 1-2.41-.368l2.555-7.42 2.617 7.173a7.965 7.965 0 0 1-.266.044A8.13 8.13 0 0 1 12 20.096zm1.124-10.965c.49-.026.932-.077.932-.077.44-.052.388-.7-.052-.675 0 0-1.318.104-2.17.104-.8 0-2.147-.104-2.147-.104-.44-.026-.492.648-.052.675 0 0 .417.05.86.077l1.277 3.497-1.795 5.38-2.987-8.877c.49-.026.932-.077.932-.077.44-.052.388-.7-.052-.675 0 0-1.318.104-2.17.104a11.58 11.58 0 0 0-.44-.009A8.097 8.097 0 0 1 12 3.904c2.12 0 4.054.81 5.498 2.135a3.571 3.571 0 0 0-.076-.002c-.8 0-1.367.697-1.367 1.445 0 .673.388 1.242.8 1.913.31.543.673 1.24.673 2.247 0 .698-.268 1.508-.62 2.637l-.81 2.713zm4.468 7.314L20.09 12a8.073 8.073 0 0 0 .012-.155 8.095 8.095 0 0 1-1.495 4.6z"/></svg><span>WordPress</span></span>
+            <!-- Webflow: W shape -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.457 0L14.13 10.297 11.57 2.393A1.857 1.857 0 0 0 9.79 1.137H6.543L3.2 14.49h3.527l2.047-7.884 2.703 8.408a1.57 1.57 0 0 0 1.493 1.086h1.92L17.457 0zM24 0l-3.343 13.35h-3.527L20.473 0z"/></svg><span>Webflow</span></span>
+            <!-- Next.js: N wordmark triangle -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 0 0-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 0 0-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.919-2.592-2.404-3.558a338.739 338.739 0 0 0-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 0 1-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 0 1-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 0 1 .174-.143c.096-.047.134-.052.54-.052.478 0 .558.018.682.154.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 0 0 4.735 7.17l1.9 2.879.096-.063a12.317 12.317 0 0 0 2.466-2.163 11.944 11.944 0 0 0 2.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747-.652-4.506-3.859-8.292-8.208-9.695a12.597 12.597 0 0 0-2.499-.523A33.119 33.119 0 0 0 11.573 0zm4.069 7.217c.347 0 .408.005.486.047a.473.473 0 0 1 .237.277c.018.06.023 1.365.018 4.304l-.006 4.218-.744-1.14-.746-1.14v-3.066c0-1.982.01-3.097.023-3.15a.478.478 0 0 1 .233-.296c.096-.05.13-.054.5-.054z"/></svg><span>Next.js</span></span>
+            <!-- React: atom -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.36-.034-.47 0-.92.014-1.36.034.44-.572.895-1.096 1.36-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.387zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.15-1.315.283-2.015.386.24-.375.48-.762.705-1.158.225-.39.435-.782.634-1.176zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.36.034.47 0 .92-.014 1.36-.034-.44.572-.895 1.095-1.36 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg><span>React</span></span>
+            <!-- Tailwind CSS: two waves -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg><span>Tailwind</span></span>
+            <!-- DUPLICATE set for seamless loop -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.337 23.979l6.15-1.33S18.948 7.496 18.928 7.327a.268.268 0 0 0-.264-.23c-.12 0-2.24-.044-2.24-.044s-1.49-1.452-1.66-1.618v18.544zM12.73 5.09s-.96-.287-2.533-.287c-4.06 0-6.026 2.544-6.026 5.05 0 2.778 1.944 4.123 3.745 5.237 1.447.892 1.933 1.49 1.933 2.3 0 .95-.76 1.47-1.885 1.47-1.623 0-3.23-.858-3.23-.858l-.574 2.7s1.44.807 3.814.807c3.576 0 5.863-1.768 5.863-4.938 0-2.652-1.99-4.165-3.758-5.23-1.24-.762-2.07-1.266-2.07-2.157 0-.76.636-1.435 2.073-1.435 1.29 0 2.49.437 2.49.437zM16.5 3.5c-.08 0-1.76.048-1.76.048S13.526 2.22 13.35 2.046V22.08l2.814-.61S17.63 5.4 17.65 5.23c.02-.16-.02-.262-.14-.262-.08 0-.99-.07-1.01-.07V3.5z"/></svg><span>Shopify</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z"/></svg><span>Framer</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM3.904 12c0-.84.13-1.65.367-2.412l2.56 7.01A8.115 8.115 0 0 1 3.904 12zm8.096 8.096a8.115 8.115 0 0 1-2.41-.368l2.555-7.42 2.617 7.173a7.965 7.965 0 0 1-.266.044A8.13 8.13 0 0 1 12 20.096zm1.124-10.965c.49-.026.932-.077.932-.077.44-.052.388-.7-.052-.675 0 0-1.318.104-2.17.104-.8 0-2.147-.104-2.147-.104-.44-.026-.492.648-.052.675 0 0 .417.05.86.077l1.277 3.497-1.795 5.38-2.987-8.877c.49-.026.932-.077.932-.077.44-.052.388-.7-.052-.675 0 0-1.318.104-2.17.104a11.58 11.58 0 0 0-.44-.009A8.097 8.097 0 0 1 12 3.904c2.12 0 4.054.81 5.498 2.135a3.571 3.571 0 0 0-.076-.002c-.8 0-1.367.697-1.367 1.445 0 .673.388 1.242.8 1.913.31.543.673 1.24.673 2.247 0 .698-.268 1.508-.62 2.637l-.81 2.713zm4.468 7.314L20.09 12a8.073 8.073 0 0 0 .012-.155 8.095 8.095 0 0 1-1.495 4.6z"/></svg><span>WordPress</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.457 0L14.13 10.297 11.57 2.393A1.857 1.857 0 0 0 9.79 1.137H6.543L3.2 14.49h3.527l2.047-7.884 2.703 8.408a1.57 1.57 0 0 0 1.493 1.086h1.92L17.457 0zM24 0l-3.343 13.35h-3.527L20.473 0z"/></svg><span>Webflow</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 0 0-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 0 0-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.919-2.592-2.404-3.558a338.739 338.739 0 0 0-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 0 1-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 0 1-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 0 1 .174-.143c.096-.047.134-.052.54-.052.478 0 .558.018.682.154.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 0 0 4.735 7.17l1.9 2.879.096-.063a12.317 12.317 0 0 0 2.466-2.163 11.944 11.944 0 0 0 2.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747-.652-4.506-3.859-8.292-8.208-9.695a12.597 12.597 0 0 0-2.499-.523A33.119 33.119 0 0 0 11.573 0zm4.069 7.217c.347 0 .408.005.486.047a.473.473 0 0 1 .237.277c.018.06.023 1.365.018 4.304l-.006 4.218-.744-1.14-.746-1.14v-3.066c0-1.982.01-3.097.023-3.15a.478.478 0 0 1 .233-.296c.096-.05.13-.054.5-.054z"/></svg><span>Next.js</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.36-.034-.47 0-.92.014-1.36.034.44-.572.895-1.096 1.36-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.387zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.15-1.315.283-2.015.386.24-.375.48-.762.705-1.158.225-.39.435-.782.634-1.176zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.36.034.47 0 .92-.014 1.36-.034-.44.572-.895 1.095-1.36 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg><span>React</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg><span>Tailwind</span></span>
+          </div>
+        </div>
+
+        <!-- ROW 1: Infrastructure Systems — R→L — middle depth -->
+        <div class="oe-marquee-row oe-row-1">
+          <div class="oe-track oe-track--rtl" style="--dur:30s">
+            <!-- Vercel: upward triangle -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 22.525H0l12-21.05z"/></svg><span>Vercel</span></span>
+            <!-- Cloudflare: two-hump cloud -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.67 15.333c.137-.5.137-.833-.138-1.25-.276-.416-.69-.625-1.242-.694l-7.932-.069c-.069 0-.137-.034-.172-.103a.258.258 0 0 1 0-.207c.069-.138.207-.207.345-.207l8-.069c.966-.069 2.001-.83 2.346-1.796l.483-1.243c.035-.069.035-.138 0-.207C17.798 6.87 15.704 5 13.161 5c-2.277 0-4.209 1.45-4.968 3.504-.483-.346-1.07-.553-1.726-.553-1.346 0-2.416 1.07-2.416 2.416 0 .207.035.415.07.622C2.484 11.23 1 12.784 1 14.68c0 .207.035.415.07.553.034.138.138.207.276.207H16.325c.138 0 .276-.069.345-.207z"/></svg><span>Cloudflare</span></span>
+            <!-- AWS: arch wordmark shape -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.064.056.128.056.184 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687c-.151 0-.255-.024-.32-.08-.063-.056-.119-.16-.15-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32-.065.056-.177.08-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.063-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.654.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.263v.375c0 .168-.063.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.99.44 1.237.767.247.327.367.702.367 1.117 0 .343-.07.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.743.167-1.167.167zM21.698 16.207c-2.626 1.94-6.442 2.969-9.722 2.969-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.025-.527.27-.351 3.384 1.963 7.559 3.147 11.877 3.147 2.914 0 6.115-.607 9.066-1.858.439-.2.814.287.38.619z"/><path d="M22.792 14.961c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.565.695-2.994z"/></svg><span>AWS</span></span>
+            <!-- Supabase: S bolt -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C.131 12.876.726 14.065 1.762 14.065h9.947l.191 8.899c.015.986 1.26 1.41 1.874.637l9.262-11.651c.633-.826.038-2.015-.998-2.015h-9.947L11.9 1.036z"/></svg><span>Supabase</span></span>
+            <!-- Stripe: S wordmark -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z"/></svg><span>Stripe</span></span>
+            <!-- Sanity: S mark -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.027 4.917c1.813 0 3.523.676 4.838 1.888l2.92-2.92C17.786 1.754 15.023.571 12.027.571 7.59.571 3.773 3.126 1.957 6.848l3.406 2.644c.858-2.6 3.275-4.575 6.664-4.575z"/><path d="M.576 12.002c0 .75.083 1.48.24 2.182l3.611-2.847a7.476 7.476 0 0 1-.17-1.335c0-.453.052-.895.15-1.319L.792 6.15A11.437 11.437 0 0 0 .576 12z"/><path d="M12.027 19.086c-3.19 0-5.488-1.758-6.48-4.128L2.024 17.41C3.84 20.932 7.54 23.43 12.027 23.43c2.997 0 5.676-1.085 7.728-2.875l-3.234-2.513a7.37 7.37 0 0 1-4.494 1.044z"/><path d="M23.424 12.002c0-.628-.056-1.24-.165-1.833H12.027v3.666h6.48a5.918 5.918 0 0 1-2.367 3.157l3.234 2.513c1.93-1.798 3.05-4.432 3.05-7.503z"/></svg><span>Sanity</span></span>
+            <!-- MongoDB: leaf -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0 1 11.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 0 0 3.639-8.464c.01-.814-.114-1.62-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"/></svg><span>MongoDB</span></span>
+            <!-- DUPLICATE -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 22.525H0l12-21.05z"/></svg><span>Vercel</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.67 15.333c.137-.5.137-.833-.138-1.25-.276-.416-.69-.625-1.242-.694l-7.932-.069c-.069 0-.137-.034-.172-.103a.258.258 0 0 1 0-.207c.069-.138.207-.207.345-.207l8-.069c.966-.069 2.001-.83 2.346-1.796l.483-1.243c.035-.069.035-.138 0-.207C17.798 6.87 15.704 5 13.161 5c-2.277 0-4.209 1.45-4.968 3.504-.483-.346-1.07-.553-1.726-.553-1.346 0-2.416 1.07-2.416 2.416 0 .207.035.415.07.622C2.484 11.23 1 12.784 1 14.68c0 .207.035.415.07.553.034.138.138.207.276.207H16.325c.138 0 .276-.069.345-.207z"/></svg><span>Cloudflare</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.064.056.128.056.184 0 .08-.048.16-.152.24l-.503.335a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.239-.112a2.47 2.47 0 0 1-.287-.375 6.18 6.18 0 0 1-.248-.471c-.622.734-1.405 1.101-2.347 1.101-.67 0-1.205-.191-1.596-.574-.391-.384-.59-.894-.59-1.533 0-.678.239-1.23.726-1.644.487-.415 1.133-.623 1.955-.623.272 0 .551.024.846.064.296.04.6.104.918.176v-.583c0-.607-.127-1.03-.375-1.277-.255-.248-.686-.367-1.3-.367-.28 0-.568.031-.863.103-.295.072-.583.16-.862.272a2.287 2.287 0 0 1-.28.104.488.488 0 0 1-.127.023c-.112 0-.168-.08-.168-.247v-.391c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.167c.279-.144.614-.264 1.005-.36a4.84 4.84 0 0 1 1.246-.151c.95 0 1.644.216 2.091.647.439.43.662 1.085.662 1.963v2.586zm-3.24 1.214c.263 0 .534-.048.822-.144.287-.096.543-.271.758-.51.128-.152.224-.32.272-.512.047-.191.08-.423.08-.694v-.335a6.66 6.66 0 0 0-.735-.136 6.02 6.02 0 0 0-.75-.048c-.535 0-.926.104-1.19.32-.263.215-.39.518-.39.917 0 .375.095.655.295.846.191.2.47.296.838.296zm6.41.862c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.311L7.586 5.55a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.191-.2h.783c.151 0 .255.025.31.08.065.048.113.16.16.312l1.342 5.284 1.245-5.284c.04-.16.088-.264.151-.312a.549.549 0 0 1 .32-.08h.638c.152 0 .256.025.32.08.063.048.12.16.151.312l1.261 5.348 1.381-5.348c.048-.16.104-.264.16-.312a.52.52 0 0 1 .311-.08h.743c.127 0 .2.065.2.2 0 .04-.009.08-.017.128a1.137 1.137 0 0 1-.056.2l-1.923 6.17c-.048.16-.104.263-.168.311a.51.51 0 0 1-.303.08h-.687c-.151 0-.255-.024-.32-.08-.063-.056-.119-.16-.15-.32l-1.238-5.148-1.23 5.14c-.04.16-.087.264-.15.32-.065.056-.177.08-.32.08zm10.256.215c-.415 0-.83-.048-1.229-.143-.399-.096-.71-.2-.918-.32-.128-.071-.215-.151-.247-.223a.563.563 0 0 1-.048-.224v-.407c0-.167.063-.247.183-.247.048 0 .096.008.144.024.048.016.12.048.2.08.271.12.566.215.878.279.319.064.63.096.95.096.502 0 .894-.088 1.165-.264a.86.86 0 0 0 .415-.758.777.777 0 0 0-.215-.559c-.144-.151-.416-.287-.807-.415l-1.157-.36c-.583-.183-1.014-.454-1.277-.813a1.902 1.902 0 0 1-.4-1.158c0-.335.073-.63.216-.886.144-.255.335-.479.575-.654.24-.184.51-.32.83-.415.32-.096.655-.136 1.006-.136.175 0 .359.008.535.032.183.024.35.056.518.088.16.04.312.08.455.127.144.048.256.096.336.144a.69.69 0 0 1 .24.2.43.43 0 0 1 .071.263v.375c0 .168-.063.256-.184.256a.83.83 0 0 1-.303-.096 3.652 3.652 0 0 0-1.532-.311c-.455 0-.815.071-1.062.223-.248.152-.375.383-.375.71 0 .224.08.416.24.567.159.152.454.304.877.44l1.134.358c.574.184.99.44 1.237.767.247.327.367.702.367 1.117 0 .343-.07.655-.207.926-.144.272-.336.511-.583.703-.248.2-.543.343-.886.447-.36.111-.743.167-1.167.167zM21.698 16.207c-2.626 1.94-6.442 2.969-9.722 2.969-4.598 0-8.74-1.7-11.87-4.526-.247-.223-.025-.527.27-.351 3.384 1.963 7.559 3.147 11.877 3.147 2.914 0 6.115-.607 9.066-1.858.439-.2.814.287.38.619z"/><path d="M22.792 14.961c-.336-.43-2.22-.207-3.074-.103-.255.032-.295-.192-.063-.36 1.5-1.053 3.967-.75 4.254-.399.287.36-.08 2.826-1.485 4.007-.215.184-.423.088-.327-.151.32-.79 1.03-2.565.695-2.994z"/></svg><span>AWS</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C.131 12.876.726 14.065 1.762 14.065h9.947l.191 8.899c.015.986 1.26 1.41 1.874.637l9.262-11.651c.633-.826.038-2.015-.998-2.015h-9.947L11.9 1.036z"/></svg><span>Supabase</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z"/></svg><span>Stripe</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.027 4.917c1.813 0 3.523.676 4.838 1.888l2.92-2.92C17.786 1.754 15.023.571 12.027.571 7.59.571 3.773 3.126 1.957 6.848l3.406 2.644c.858-2.6 3.275-4.575 6.664-4.575z"/><path d="M.576 12.002c0 .75.083 1.48.24 2.182l3.611-2.847a7.476 7.476 0 0 1-.17-1.335c0-.453.052-.895.15-1.319L.792 6.15A11.437 11.437 0 0 0 .576 12z"/><path d="M12.027 19.086c-3.19 0-5.488-1.758-6.48-4.128L2.024 17.41C3.84 20.932 7.54 23.43 12.027 23.43c2.997 0 5.676-1.085 7.728-2.875l-3.234-2.513a7.37 7.37 0 0 1-4.494 1.044z"/><path d="M23.424 12.002c0-.628-.056-1.24-.165-1.833H12.027v3.666h6.48a5.918 5.918 0 0 1-2.367 3.157l3.234 2.513c1.93-1.798 3.05-4.432 3.05-7.503z"/></svg><span>Sanity</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0 1 11.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 0 0 3.639-8.464c.01-.814-.114-1.62-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"/></svg><span>MongoDB</span></span>
+          </div>
+        </div>
+
+        <!-- ROW 2: Development Ecosystems — L→R — closest / brightest / slowest -->
+        <div class="oe-marquee-row oe-row-2">
+          <div class="oe-track oe-track--ltr" style="--dur:38s">
+            <!-- Tailwind CSS: two arcs -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg><span>Tailwind</span></span>
+            <!-- GraphQL: hexagon with G -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM9.008 16.8L4.8 12l4.208-4.8.792.888L5.976 12l3.824 3.912-.792.888zm6 0l-.792-.888L18.024 12l-3.808-3.912.792-.888L19.2 12l-4.192 4.8z"/></svg><span>GraphQL</span></span>
+            <!-- TypeScript: TS square -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg><span>TypeScript</span></span>
+            <!-- Node.js: hex with N -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.998 24c-.321 0-.641-.084-.922-.247l-2.936-1.737c-.438-.245-.224-.332-.08-.383.584-.203.703-.249 1.328-.603.065-.037.151-.023.218.017l2.256 1.339c.082.045.198.045.275 0l8.795-5.076c.082-.047.134-.141.134-.238V6.921c0-.099-.052-.19-.137-.24l-8.791-5.073a.272.272 0 0 0-.277 0L3.075 6.68c-.086.05-.140.145-.140.241v10.15c0 .097.054.189.139.236l2.409 1.392c1.307.654 2.108-.116 2.108-.891V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.111.255.253v10.021c0 1.745-.95 2.745-2.604 2.745-.508 0-.909 0-2.026-.551l-2.304-1.326A1.851 1.851 0 0 1 1 17.07V6.921c0-.66.353-1.273.922-1.6l8.795-5.082a1.86 1.86 0 0 1 1.852 0l8.795 5.082c.57.327.922.94.922 1.6v10.149c0 .659-.353 1.272-.922 1.6l-8.795 5.082A1.86 1.86 0 0 1 11.998 24z"/></svg><span>Node.js</span></span>
+            <!-- Prisma: triangle -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.205 17.203L12.3.568a.4.4 0 0 0-.347-.23.4.4 0 0 0-.364.205L3.795 17.21a.4.4 0 0 0 .016.404l4.07 6.494a.4.4 0 0 0 .467.159l11.7-4.07a.4.4 0 0 0 .157-.994zM12.005 4.25l6.09 13.05-9.63 3.35 3.54-16.4z"/></svg><span>Prisma</span></span>
+            <!-- tRPC: T mark -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12C24 5.373 18.627 0 12 0S0 5.373 0 12s5.373 12 12 12 12-5.373 12-12zm-12 8.485L4.515 13 12 5.515 19.485 13z"/></svg><span>tRPC</span></span>
+            <!-- Vite: V lightning -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 0L14.5 18 12 13.5 21.5 0zM0 0l10.5 18L12 13.5 1.5 0zm12 22L7 13h10z"/></svg><span>Vite</span></span>
+            <!-- DUPLICATE -->
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg><span>Tailwind</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM9.008 16.8L4.8 12l4.208-4.8.792.888L5.976 12l3.824 3.912-.792.888zm6 0l-.792-.888L18.024 12l-3.808-3.912.792-.888L19.2 12l-4.192 4.8z"/></svg><span>GraphQL</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg><span>TypeScript</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.998 24c-.321 0-.641-.084-.922-.247l-2.936-1.737c-.438-.245-.224-.332-.08-.383.584-.203.703-.249 1.328-.603.065-.037.151-.023.218.017l2.256 1.339c.082.045.198.045.275 0l8.795-5.076c.082-.047.134-.141.134-.238V6.921c0-.099-.052-.19-.137-.24l-8.791-5.073a.272.272 0 0 0-.277 0L3.075 6.68c-.086.05-.140.145-.140.241v10.15c0 .097.054.189.139.236l2.409 1.392c1.307.654 2.108-.116 2.108-.891V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.111.255.253v10.021c0 1.745-.95 2.745-2.604 2.745-.508 0-.909 0-2.026-.551l-2.304-1.326A1.851 1.851 0 0 1 1 17.07V6.921c0-.66.353-1.273.922-1.6l8.795-5.082a1.86 1.86 0 0 1 1.852 0l8.795 5.082c.57.327.922.94.922 1.6v10.149c0 .659-.353 1.272-.922 1.6l-8.795 5.082A1.86 1.86 0 0 1 11.998 24z"/></svg><span>Node.js</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.205 17.203L12.3.568a.4.4 0 0 0-.347-.23.4.4 0 0 0-.364.205L3.795 17.21a.4.4 0 0 0 .016.404l4.07 6.494a.4.4 0 0 0 .467.159l11.7-4.07a.4.4 0 0 0 .157-.994zM12.005 4.25l6.09 13.05-9.63 3.35 3.54-16.4z"/></svg><span>Prisma</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12C24 5.373 18.627 0 12 0S0 5.373 0 12s5.373 12 12 12 12-5.373 12-12zm-12 8.485L4.515 13 12 5.515 19.485 13z"/></svg><span>tRPC</span></span>
+            <span class="oe-logo-img"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 0L14.5 18 12 13.5 21.5 0zM0 0l10.5 18L12 13.5 1.5 0zm12 22L7 13h10z"/></svg><span>Vite</span></span>
+          </div>
+        </div>
+
+        <!-- Folner Icon — centered, static, dominant -->
+        <div class="oe-logo-center">
+          <img
+            src="assets/images/Folner_Icon_Dark_Logo-final.png"
+            alt="Folner"
+            draggable="false"
+          >
+        </div>
+
+      </div><!-- /oe-stage -->
+
+      <!-- BELOW: AI Platform Row -->
+      <div class="oe-ai-section">
+        <div class="oe-prism-strip" aria-hidden="true"></div>
+        <p class="oe-ai-label">Powered by most loved AI platforms. All in one place.</p>
+
+        <div class="oe-ai-marquee" aria-hidden="true">
+          <div class="oe-ai-track">
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" d="M14.077 6.73a3.447 3.447 0 0 0-.304-2.865 3.593 3.593 0 0 0-3.85-1.692A3.557 3.557 0 0 0 7.257 1a3.571 3.571 0 0 0-3.41 2.442 3.534 3.534 0 0 0-2.364 1.692 3.492 3.492 0 0 0 .44 4.136 3.447 3.447 0 0 0 .303 2.865 3.593 3.593 0 0 0 3.85 1.692A3.554 3.554 0 0 0 8.744 15a3.571 3.571 0 0 0 3.411-2.444 3.533 3.533 0 0 0 2.364-1.692 3.492 3.492 0 0 0-.44-4.135l-.001.001Zm-5.333 7.355a2.671 2.671 0 0 1-1.702-.607c.021-.011.059-.032.083-.047l2.826-1.61a.452.452 0 0 0 .232-.397v-3.93l1.194.68a.041.041 0 0 1 .023.033v3.254c-.002 1.448-1.19 2.621-2.656 2.624ZM3.03 11.677a2.583 2.583 0 0 1-.317-1.757l.084.049 2.825 1.61c.143.083.32.083.464 0l3.45-1.965v1.36a.043.043 0 0 1-.017.037l-2.856 1.627c-1.272.723-2.897.293-3.632-.96Zm-.743-6.085c.31-.532.8-.939 1.383-1.15V7.758c-.002.164.087.316.231.397l3.45 1.965-1.195.68a.043.043 0 0 1-.04.004L3.26 9.175a2.608 2.608 0 0 1-.973-3.582Zm9.81 2.253L8.648 5.88l1.195-.68a.043.043 0 0 1 .04-.004l2.857 1.627a2.606 2.606 0 0 1 .972 3.585c-.31.531-.8.938-1.383 1.15V8.241a.452.452 0 0 0-.23-.396h-.001Zm1.188-1.765a4.119 4.119 0 0 0-.083-.05l-2.826-1.61a.465.465 0 0 0-.464 0l-3.45 1.966v-1.36c0-.015.007-.028.018-.037l2.856-1.626c1.272-.724 2.898-.293 3.631.963.31.53.422 1.15.317 1.754h.001ZM5.815 8.505l-1.195-.68a.041.041 0 0 1-.023-.033V4.538c.001-1.45 1.192-2.624 2.661-2.623a2.68 2.68 0 0 1 1.7.608 1.987 1.987 0 0 0-.084.046L6.05 4.18a.451.451 0 0 0-.232.397l-.002 3.928v.001Zm.648-1.38L8 6.25l1.536.875v1.75L8 9.75l-1.537-.875v-1.75Z"/></svg><span>OpenAI</span></span>
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M12.454 1.709h-1.272v2.545h1.272V1.71Zm-10.181 0H1V14.436h1.273V1.71Zm6.364 2.545h1.272V6.8H8.637V4.254ZM7.363 9.345H6.091v2.546h1.272V9.345Zm3.82 0h1.271V14.436h-1.272V9.345Z" clip-rule="evenodd" opacity="0.25"/><path fill="currentColor" d="M12.455 11.89H15v2.546h-2.545v-2.545Zm-10.182 0h2.545v2.546H2.273v-2.545Z" opacity="0.4"/><path fill="currentColor" fill-rule="evenodd" d="M4.818 9.346H2.273v2.545h2.545V9.346Zm2.545 0H9.91v2.545H7.363V9.346Zm5.091 0H15v2.545h-2.546V9.346Z" clip-rule="evenodd" opacity="0.55"/><path fill="currentColor" fill-rule="evenodd" d="M15 6.8h-2.545v2.545H15V6.8Zm-10.182 0H2.273v2.545h10.181V6.8H4.818Z" clip-rule="evenodd" opacity="0.7"/><path fill="currentColor" fill-rule="evenodd" d="M15 4.255h-2.545V6.8H15V4.255Zm-10.182 0H2.273V6.8h5.09V4.255H4.818Zm7.636 0H9.91V6.8h2.545V4.255Z" clip-rule="evenodd" opacity="0.85"/><path fill="currentColor" fill-rule="evenodd" d="M4.818 1.709H2.273v2.545h2.545V1.71Zm10.182 0h-2.546v2.545H15V1.71Z" clip-rule="evenodd"/></svg><span>Mistral</span></span>
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M8.5.188V4.03l3.003-2.92.848-.826v4.43h1.608v6.558h-1.608V15.745l-.855-.861L8.5 11.866v3.947h-1v-3.947l-2.996 3.018-.855.86v-4.471h-1.61V4.715h1.61V.285l.848.825L7.5 4.031V.188h1Zm.205 10.464 2.646 2.666v-2.514a.451.451 0 0 1 0-.062V9.333l-2.85-2.897v4.008l.206.206-.002.002Zm.488-4.937 3.014 3.063.144.146v1.349h.608V5.715H9.193Zm2.158-3.062v2.062h-2.12l2.12-2.062Zm-6.702 0 2.12 2.062h-2.12V2.653Zm-1 3.062h-.61v4.558h.61V8.924l.143-.146 3.015-3.063H3.649Zm3.851.72v4.011L4.65 13.318V9.334L7.5 6.436Z" clip-rule="evenodd"/></svg><span>Perplexity</span></span>
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" d="M2.12 9.57c0 .573.126 1.013.29 1.279a.989.989 0 0 0 .865.496c.422 0 .809-.105 1.553-1.135.597-.826 1.3-1.985 1.773-2.712l.802-1.23c.556-.855 1.2-1.806 1.94-2.45C9.944 3.292 10.594 3 11.25 3c1.1 0 2.146.637 2.947 1.831.877 1.309 1.303 2.956 1.303 4.657 0 1.01-.2 1.754-.538 2.34-.328.568-.966 1.135-2.04 1.135v-1.618c.92 0 1.149-.845 1.149-1.812 0-1.378-.322-2.908-1.03-4-.502-.776-1.153-1.25-1.869-1.25-.775 0-1.398.585-2.099 1.627-.372.553-.754 1.228-1.184 1.989l-.472.837c-.95 1.683-1.19 2.066-1.665 2.7-.832 1.107-1.542 1.527-2.477 1.527-1.11 0-1.812-.48-2.246-1.204C.674 11.169.5 10.395.5 9.513l1.62.057Z"/><path fill="currentColor" d="M1.778 4.946C2.52 3.8 3.592 3 4.822 3c.712 0 1.42.21 2.159.814.808.66 1.67 1.747 2.745 3.537l.386.643c.93 1.55 1.46 2.348 1.77 2.724.398.483.677.627 1.04.627.92 0 1.149-.845 1.149-1.812l1.429-.045c0 1.01-.2 1.754-.538 2.34-.328.568-.966 1.135-2.04 1.135-.668 0-1.26-.145-1.914-.762-.502-.474-1.09-1.315-1.543-2.071L8.12 7.882c-.675-1.127-1.294-1.968-1.652-2.349-.386-.41-.881-.904-1.672-.904-.64 0-1.184.45-1.639 1.136l-1.38-.82Z"/><path fill="currentColor" d="M4.796 4.629c-.64 0-1.184.45-1.639 1.136-.643.97-1.037 2.417-1.037 3.805 0 .573.126 1.013.29 1.279l-1.381.91C.674 11.169.5 10.395.5 9.513c0-1.605.44-3.276 1.278-4.567C2.52 3.8 3.592 3 4.822 3l-.026 1.629Z"/></svg><span>Meta</span></span>
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" d="M10.961 3.13H8.848l3.854 9.74h2.114L10.96 3.13Zm-6.106 0L1 12.87h2.155l.789-2.046h4.032l.789 2.046h2.155L7.065 3.13h-2.21ZM4.64 9.016 5.96 5.593l1.319 3.423H4.641Z"/></svg><span>Anthropic</span></span>
+            <span class="oe-ai-logo-img"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scale(0.9);"><path d="M5.79395 0.910599C4.27755 1.43666 2.9698 2.43514 2.06281 3.75938C1.15581 5.08362 0.697362 6.66382 0.75481 8.26787C0.812258 9.87191 1.38257 11.4153 2.38198 12.6712C3.38138 13.9272 4.75721 14.8296 6.30736 15.2458C7.5641 15.5701 8.8808 15.5843 10.1443 15.2873C11.2888 15.0302 12.347 14.4803 13.2152 13.6913C14.1188 12.8451 14.7747 11.7687 15.1123 10.5777C15.4792 9.28246 15.5445 7.92042 15.3032 6.59606H8.24597V9.52357H12.3331C12.2514 9.99049 12.0763 10.4361 11.8184 10.8338C11.5605 11.2315 11.225 11.5731 10.832 11.8381C10.3329 12.1683 9.77033 12.3905 9.18029 12.4902C8.58857 12.6003 7.98162 12.6003 7.3899 12.4902C6.79012 12.3663 6.22275 12.1188 5.724 11.7634C4.92265 11.1961 4.32094 10.3902 4.00474 9.46073C3.68329 8.5138 3.68329 7.48726 4.00474 6.54033C4.22982 5.87659 4.6019 5.27226 5.09321 4.77244C5.65546 4.18996 6.36727 3.7736 7.15057 3.56904C7.93387 3.36448 8.75838 3.37963 9.53363 3.61282C10.1393 3.79865 10.6931 4.12348 11.1509 4.56139C11.6118 4.10292 12.0718 3.64326 12.5311 3.18241C12.7682 2.9346 13.0267 2.69864 13.2603 2.4449C12.5613 1.79457 11.741 1.28849 10.8462 0.955656C9.2167 0.363977 7.43374 0.348076 5.79395 0.910599Z" fill="currentColor"/></svg><span>Google</span></span>
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14.006 1 7.895 9.727 6.418 7.62 11.053 1h2.953ZM5.68 12.891 4.203 15H1.25l2.953-4.218 1.477 2.11ZM7.895 15h2.953L4.203 5.51H1.25L7.895 15Zm3.692-9.49 2.419-3.455L13.764 15h-1.935l-.242-9.49Z" clip-rule="evenodd"/></svg><span>xAI</span></span>
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="m1.614 10.868 5.564 1.488c-.007.396.004.792.035 1.186l3.474.93a6.999 6.999 0 0 1-3.258.504l-.105-.01-.026-.002-.049-.005-.055-.006a7.046 7.046 0 0 1-.091-.011l-.063-.008-.064-.01a6.914 6.914 0 0 1-.186-.03l-.025-.004-.044-.008-.062-.011-.04-.01-.055-.01-.044-.01-.055-.011-.057-.014-.055-.013-.04-.01-.05-.012-.053-.014-.056-.015-.047-.013-.064-.018-.036-.011-.05-.015-.053-.016-.062-.02-.034-.011-.046-.015-.053-.018-.038-.014a25.43 25.43 0 0 1-.026-.01l-.04-.014-.058-.021-.034-.013-.046-.018-.051-.02-.051-.02-.047-.02-.055-.023-.037-.016-.036-.016a1.165 1.165 0 0 1-.024-.01l-.039-.018-.06-.027-.03-.014-.056-.027-.036-.017-.05-.024-.05-.025-.054-.028-.03-.016-.06-.032-.034-.017-.033-.019a2.839 2.839 0 0 1-.027-.015l-.055-.03-.035-.02-.03-.018-.042-.024-.048-.03-.054-.032-.03-.019-.05-.03-.035-.023-.046-.03-.04-.027-.032-.02-.031-.021-.026-.018-.025-.017a2.588 2.588 0 0 1-.024-.017l-.033-.023-.044-.031-.04-.03-.044-.031-.032-.025-.045-.033-.044-.034-.05-.04-.027-.02-.037-.03-.043-.035-.052-.043-.027-.022-.027-.023a9.327 9.327 0 0 1-.025-.022l-.026-.023-.036-.031-.04-.036-.04-.035-.036-.034-.04-.036-.03-.03-.052-.048a7.706 7.706 0 0 1-.057-.057l-.017-.016-.024-.025-.04-.04-.03-.03-.029-.031a3.816 3.816 0 0 1-.098-.105l-.046-.051-.037-.04-.041-.048-.024-.028-.031-.036-.034-.04-.027-.033a6.647 6.647 0 0 1-.016-.019l-.026-.032-.039-.048-.023-.03-.03-.037-.011-.015a6.995 6.995 0 0 1-.84-1.401Zm-.595-3.38L7.64 9.26c-.11.386-.202.777-.273 1.173l6.31 1.688c-.314.429-.675.821-1.077 1.17L1.383 10.288l-.01-.027-.02-.061-.029-.09-.004-.013a6.925 6.925 0 0 1-.12-.432l-.018-.073-.01-.047-.013-.057-.01-.047-.01-.052-.01-.05-.011-.054a6.886 6.886 0 0 1-.042-.249l-.01-.069-.006-.048-.007-.06a7.047 7.047 0 0 1-.012-.093l-.002-.028a7.07 7.07 0 0 1-.02-1.251Zm.929-3.004 6.97 1.864c-.215.353-.412.718-.59 1.094l6.59 1.763c-.084.478-.215.94-.39 1.38L7.79 8.781 1.072 6.985l.01-.058.004-.029.006-.039.008-.05.01-.058c.016-.086.034-.172.052-.258l.017-.072.011-.05.014-.056c.013-.053.026-.105.041-.156l.016-.06.014-.048.017-.059.015-.048.017-.056.016-.047.018-.056a6.94 6.94 0 0 1 .589-1.302Zm2.591-2.567 6.583 1.76c-.347.316-.676.651-.985 1.005l4.564 1.22c.155.497.258 1.018.299 1.555L2.229 4.041l.026-.038.016-.023.023-.032.027-.038.032-.045.031-.042.038-.05.029-.038.033-.042.032-.041.035-.043.032-.04.038-.045.032-.039.038-.045.031-.035.042-.048.03-.035.04-.043.032-.034.042-.045.034-.035.037-.04.098-.098.058-.058.034-.032.045-.042a7.048 7.048 0 0 1 1.325-.978ZM8.01 1H8.115l.04.001.032.001.04.002h.027l.044.002.027.001.035.002.032.001.05.003.062.004.084.006.051.005.026.002.045.005.048.004.027.003.06.007.029.004.063.008.047.006.024.003.038.006.121.019.04.007.039.006.082.015.053.01.064.014.027.005.044.01.024.006.036.007.025.006.037.009.029.007.041.01.056.014.066.017.066.018.066.018.029.009.04.012.046.014.043.013.029.01.029.009.044.014.058.02.06.02.028.01.037.014.054.02.064.024.068.026.058.023.028.012.035.014.024.01.036.016.024.01.033.015.064.028.059.027.043.02.043.02.035.017.054.027.053.026.06.03.03.017.03.015.026.014.035.02.024.012.03.017.052.03.061.034.051.03.033.02.031.019.056.034.052.032.057.036.02.014.038.024.05.033.023.016.036.024.036.025.013.01.094.067.049.035.037.028.033.025.05.038.048.037.024.017.029.024.05.04.046.039.05.04c.415.35.789.75 1.113 1.186L5.213 1.58l.036-.016.038-.016.047-.02.05-.02c.066-.027.133-.053.2-.077l.055-.02.055-.02.049-.017.056-.018c.05-.018.102-.034.154-.05l.053-.015.05-.015.06-.017.049-.014.058-.015.05-.014.053-.013.053-.013.055-.013.053-.012.057-.012.053-.012.056-.01.053-.01.059-.011.053-.01.057-.01.053-.008.057-.008.054-.008.06-.008.052-.007.062-.007.052-.005.061-.006c.055-.006.109-.01.164-.014l.061-.005.053-.003.064-.003.054-.003.059-.002.056-.001L7.895 1 8.01 1Z" clip-rule="evenodd"/></svg><span>Moonshot AI</span></span>
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" d="M14.077 6.73a3.447 3.447 0 0 0-.304-2.865 3.593 3.593 0 0 0-3.85-1.692A3.557 3.557 0 0 0 7.257 1a3.571 3.571 0 0 0-3.41 2.442 3.534 3.534 0 0 0-2.364 1.692 3.492 3.492 0 0 0 .44 4.136 3.447 3.447 0 0 0 .303 2.865 3.593 3.593 0 0 0 3.85 1.692A3.554 3.554 0 0 0 8.744 15a3.571 3.571 0 0 0 3.411-2.444 3.533 3.533 0 0 0 2.364-1.692 3.492 3.492 0 0 0-.44-4.135l-.001.001Zm-5.333 7.355a2.671 2.671 0 0 1-1.702-.607c.021-.011.059-.032.083-.047l2.826-1.61a.452.452 0 0 0 .232-.397v-3.93l1.194.68a.041.041 0 0 1 .023.033v3.254c-.002 1.448-1.19 2.621-2.656 2.624ZM3.03 11.677a2.583 2.583 0 0 1-.317-1.757l.084.049 2.825 1.61c.143.083.32.083.464 0l3.45-1.965v1.36a.043.043 0 0 1-.017.037l-2.856 1.627c-1.272.723-2.897.293-3.632-.96Zm-.743-6.085c.31-.532.8-.939 1.383-1.15V7.758c-.002.164.087.316.231.397l3.45 1.965-1.195.68a.043.043 0 0 1-.04.004L3.26 9.175a2.608 2.608 0 0 1-.973-3.582Zm9.81 2.253L8.648 5.88l1.195-.68a.043.043 0 0 1 .04-.004l2.857 1.627a2.606 2.606 0 0 1 .972 3.585c-.31.531-.8.938-1.383 1.15V8.241a.452.452 0 0 0-.23-.396h-.001Zm1.188-1.765a4.119 4.119 0 0 0-.083-.05l-2.826-1.61a.465.465 0 0 0-.464 0l-3.45 1.966v-1.36c0-.015.007-.028.018-.037l2.856-1.626c1.272-.724 2.898-.293 3.631.963.31.53.422 1.15.317 1.754h.001ZM5.815 8.505l-1.195-.68a.041.041 0 0 1-.023-.033V4.538c.001-1.45 1.192-2.624 2.661-2.623a2.68 2.68 0 0 1 1.7.608 1.987 1.987 0 0 0-.084.046L6.05 4.18a.451.451 0 0 0-.232.397l-.002 3.928v.001Zm.648-1.38L8 6.25l1.536.875v1.75L8 9.75l-1.537-.875v-1.75Z"/></svg><span>OpenAI</span></span>
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M12.454 1.709h-1.272v2.545h1.272V1.71Zm-10.181 0H1V14.436h1.273V1.71Zm6.364 2.545h1.272V6.8H8.637V4.254ZM7.363 9.345H6.091v2.546h1.272V9.345Zm3.82 0h1.271V14.436h-1.272V9.345Z" clip-rule="evenodd" opacity="0.25"/><path fill="currentColor" d="M12.455 11.89H15v2.546h-2.545v-2.545Zm-10.182 0h2.545v2.546H2.273v-2.545Z" opacity="0.4"/><path fill="currentColor" fill-rule="evenodd" d="M4.818 9.346H2.273v2.545h2.545V9.346Zm2.545 0H9.91v2.545H7.363V9.346Zm5.091 0H15v2.545h-2.546V9.346Z" clip-rule="evenodd" opacity="0.55"/><path fill="currentColor" fill-rule="evenodd" d="M15 6.8h-2.545v2.545H15V6.8Zm-10.182 0H2.273v2.545h10.181V6.8H4.818Z" clip-rule="evenodd" opacity="0.7"/><path fill="currentColor" fill-rule="evenodd" d="M15 4.255h-2.545V6.8H15V4.255Zm-10.182 0H2.273V6.8h5.09V4.255H4.818Zm7.636 0H9.91V6.8h2.545V4.255Z" clip-rule="evenodd" opacity="0.85"/><path fill="currentColor" fill-rule="evenodd" d="M4.818 1.709H2.273v2.545h2.545V1.71Zm10.182 0h-2.546v2.545H15V1.71Z" clip-rule="evenodd"/></svg><span>Mistral</span></span>
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M8.5.188V4.03l3.003-2.92.848-.826v4.43h1.608v6.558h-1.608V15.745l-.855-.861L8.5 11.866v3.947h-1v-3.947l-2.996 3.018-.855.86v-4.471h-1.61V4.715h1.61V.285l.848.825L7.5 4.031V.188h1Zm.205 10.464 2.646 2.666v-2.514a.451.451 0 0 1 0-.062V9.333l-2.85-2.897v4.008l.206.206-.002.002Zm.488-4.937 3.014 3.063.144.146v1.349h.608V5.715H9.193Zm2.158-3.062v2.062h-2.12l2.12-2.062Zm-6.702 0 2.12 2.062h-2.12V2.653Zm-1 3.062h-.61v4.558h.61V8.924l.143-.146 3.015-3.063H3.649Zm3.851.72v4.011L4.65 13.318V9.334L7.5 6.436Z" clip-rule="evenodd"/></svg><span>Perplexity</span></span>
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" d="M2.12 9.57c0 .573.126 1.013.29 1.279a.989.989 0 0 0 .865.496c.422 0 .809-.105 1.553-1.135.597-.826 1.3-1.985 1.773-2.712l.802-1.23c.556-.855 1.2-1.806 1.94-2.45C9.944 3.292 10.594 3 11.25 3c1.1 0 2.146.637 2.947 1.831.877 1.309 1.303 2.956 1.303 4.657 0 1.01-.2 1.754-.538 2.34-.328.568-.966 1.135-2.04 1.135v-1.618c.92 0 1.149-.845 1.149-1.812 0-1.378-.322-2.908-1.03-4-.502-.776-1.153-1.25-1.869-1.25-.775 0-1.398.585-2.099 1.627-.372.553-.754 1.228-1.184 1.989l-.472.837c-.95 1.683-1.19 2.066-1.665 2.7-.832 1.107-1.542 1.527-2.477 1.527-1.11 0-1.812-.48-2.246-1.204C.674 11.169.5 10.395.5 9.513l1.62.057Z"/><path fill="currentColor" d="M1.778 4.946C2.52 3.8 3.592 3 4.822 3c.712 0 1.42.21 2.159.814.808.66 1.67 1.747 2.745 3.537l.386.643c.93 1.55 1.46 2.348 1.77 2.724.398.483.677.627 1.04.627.92 0 1.149-.845 1.149-1.812l1.429-.045c0 1.01-.2 1.754-.538 2.34-.328.568-.966 1.135-2.04 1.135-.668 0-1.26-.145-1.914-.762-.502-.474-1.09-1.315-1.543-2.071L8.12 7.882c-.675-1.127-1.294-1.968-1.652-2.349-.386-.41-.881-.904-1.672-.904-.64 0-1.184.45-1.639 1.136l-1.38-.82Z"/><path fill="currentColor" d="M4.796 4.629c-.64 0-1.184.45-1.639 1.136-.643.97-1.037 2.417-1.037 3.805 0 .573.126 1.013.29 1.279l-1.381.91C.674 11.169.5 10.395.5 9.513c0-1.605.44-3.276 1.278-4.567C2.52 3.8 3.592 3 4.822 3l-.026 1.629Z"/></svg><span>Meta</span></span>
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" d="M10.961 3.13H8.848l3.854 9.74h2.114L10.96 3.13Zm-6.106 0L1 12.87h2.155l.789-2.046h4.032l.789 2.046h2.155L7.065 3.13h-2.21ZM4.64 9.016 5.96 5.593l1.319 3.423H4.641Z"/></svg><span>Anthropic</span></span>
+            <span class="oe-ai-logo-img"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: scale(0.9);"><path d="M5.79395 0.910599C4.27755 1.43666 2.9698 2.43514 2.06281 3.75938C1.15581 5.08362 0.697362 6.66382 0.75481 8.26787C0.812258 9.87191 1.38257 11.4153 2.38198 12.6712C3.38138 13.9272 4.75721 14.8296 6.30736 15.2458C7.5641 15.5701 8.8808 15.5843 10.1443 15.2873C11.2888 15.0302 12.347 14.4803 13.2152 13.6913C14.1188 12.8451 14.7747 11.7687 15.1123 10.5777C15.4792 9.28246 15.5445 7.92042 15.3032 6.59606H8.24597V9.52357H12.3331C12.2514 9.99049 12.0763 10.4361 11.8184 10.8338C11.5605 11.2315 11.225 11.5731 10.832 11.8381C10.3329 12.1683 9.77033 12.3905 9.18029 12.4902C8.58857 12.6003 7.98162 12.6003 7.3899 12.4902C6.79012 12.3663 6.22275 12.1188 5.724 11.7634C4.92265 11.1961 4.32094 10.3902 4.00474 9.46073C3.68329 8.5138 3.68329 7.48726 4.00474 6.54033C4.22982 5.87659 4.6019 5.27226 5.09321 4.77244C5.65546 4.18996 6.36727 3.7736 7.15057 3.56904C7.93387 3.36448 8.75838 3.37963 9.53363 3.61282C10.1393 3.79865 10.6931 4.12348 11.1509 4.56139C11.6118 4.10292 12.0718 3.64326 12.5311 3.18241C12.7682 2.9346 13.0267 2.69864 13.2603 2.4449C12.5613 1.79457 11.741 1.28849 10.8462 0.955656C9.2167 0.363977 7.43374 0.348076 5.79395 0.910599Z" fill="currentColor"/></svg><span>Google</span></span>
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M14.006 1 7.895 9.727 6.418 7.62 11.053 1h2.953ZM5.68 12.891 4.203 15H1.25l2.953-4.218 1.477 2.11ZM7.895 15h2.953L4.203 5.51H1.25L7.895 15Zm3.692-9.49 2.419-3.455L13.764 15h-1.935l-.242-9.49Z" clip-rule="evenodd"/></svg><span>xAI</span></span>
+            <span class="oe-ai-logo-img"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="m1.614 10.868 5.564 1.488c-.007.396.004.792.035 1.186l3.474.93a6.999 6.999 0 0 1-3.258.504l-.105-.01-.026-.002-.049-.005-.055-.006a7.046 7.046 0 0 1-.091-.011l-.063-.008-.064-.01a6.914 6.914 0 0 1-.186-.03l-.025-.004-.044-.008-.062-.011-.04-.01-.055-.01-.044-.01-.055-.011-.057-.014-.055-.013-.04-.01-.05-.012-.053-.014-.056-.015-.047-.013-.064-.018-.036-.011-.05-.015-.053-.016-.062-.02-.034-.011-.046-.015-.053-.018-.038-.014a25.43 25.43 0 0 1-.026-.01l-.04-.014-.058-.021-.034-.013-.046-.018-.051-.02-.051-.02-.047-.02-.055-.023-.037-.016-.036-.016a1.165 1.165 0 0 1-.024-.01l-.039-.018-.06-.027-.03-.014-.056-.027-.036-.017-.05-.024-.05-.025-.054-.028-.03-.016-.06-.032-.034-.017-.033-.019a2.839 2.839 0 0 1-.027-.015l-.055-.03-.035-.02-.03-.018-.042-.024-.048-.03-.054-.032-.03-.019-.05-.03-.035-.023-.046-.03-.04-.027-.032-.02-.031-.021-.026-.018-.025-.017a2.588 2.588 0 0 1-.024-.017l-.033-.023-.044-.031-.04-.03-.044-.031-.032-.025-.045-.033-.044-.034-.05-.04-.027-.02-.037-.03-.043-.035-.052-.043-.027-.022-.027-.023a9.327 9.327 0 0 1-.025-.022l-.026-.023-.036-.031-.04-.036-.04-.035-.036-.034-.04-.036-.03-.03-.052-.048a7.706 7.706 0 0 1-.057-.057l-.017-.016-.024-.025-.04-.04-.03-.03-.029-.031a3.816 3.816 0 0 1-.098-.105l-.046-.051-.037-.04-.041-.048-.024-.028-.031-.036-.034-.04-.027-.033a6.647 6.647 0 0 1-.016-.019l-.026-.032-.039-.048-.023-.03-.03-.037-.011-.015a6.995 6.995 0 0 1-.84-1.401Zm-.595-3.38L7.64 9.26c-.11.386-.202.777-.273 1.173l6.31 1.688c-.314.429-.675.821-1.077 1.17L1.383 10.288l-.01-.027-.02-.061-.029-.09-.004-.013a6.925 6.925 0 0 1-.12-.432l-.018-.073-.01-.047-.013-.057-.01-.047-.01-.052-.01-.05-.011-.054a6.886 6.886 0 0 1-.042-.249l-.01-.069-.006-.048-.007-.06a7.047 7.047 0 0 1-.012-.093l-.002-.028a7.07 7.07 0 0 1-.02-1.251Zm.929-3.004 6.97 1.864c-.215.353-.412.718-.59 1.094l6.59 1.763c-.084.478-.215.94-.39 1.38L7.79 8.781 1.072 6.985l.01-.058.004-.029.006-.039.008-.05.01-.058c.016-.086.034-.172.052-.258l.017-.072.011-.05.014-.056c.013-.053.026-.105.041-.156l.016-.06.014-.048.017-.059.015-.048.017-.056.016-.047.018-.056a6.94 6.94 0 0 1 .589-1.302Zm2.591-2.567 6.583 1.76c-.347.316-.676.651-.985 1.005l4.564 1.22c.155.497.258 1.018.299 1.555L2.229 4.041l.026-.038.016-.023.023-.032.027-.038.032-.045.031-.042.038-.05.029-.038.033-.042.032-.041.035-.043.032-.04.038-.045.032-.039.038-.045.031-.035.042-.048.03-.035.04-.043.032-.034.042-.045.034-.035.037-.04.098-.098.058-.058.034-.032.045-.042a7.048 7.048 0 0 1 1.325-.978ZM8.01 1H8.115l.04.001.032.001.04.002h.027l.044.002.027.001.035.002.032.001.05.003.062.004.084.006.051.005.026.002.045.005.048.004.027.003.06.007.029.004.063.008.047.006.024.003.038.006.121.019.04.007.039.006.082.015.053.01.064.014.027.005.044.01.024.006.036.007.025.006.037.009.029.007.041.01.056.014.066.017.066.018.066.018.029.009.04.012.046.014.043.013.029.01.029.009.044.014.058.02.06.02.028.01.037.014.054.02.064.024.068.026.058.023.028.012.035.014.024.01.036.016.024.01.033.015.064.028.059.027.043.02.043.02.035.017.054.027.053.026.06.03.03.017.03.015.026.014.035.02.024.012.03.017.052.03.061.034.051.03.033.02.031.019.056.034.052.032.057.036.02.014.038.024.05.033.023.016.036.024.036.025.013.01.094.067.049.035.037.028.033.025.05.038.048.037.024.017.029.024.05.04.046.039.05.04c.415.35.789.75 1.113 1.186L5.213 1.58l.036-.016.038-.016.047-.02.05-.02c.066-.027.133-.053.2-.077l.055-.02.055-.02.049-.017.056-.018c.05-.018.102-.034.154-.05l.053-.015.05-.015.06-.017.049-.014.058-.015.05-.014.053-.013.053-.013.055-.013.053-.012.057-.012.053-.012.056-.01.053-.01.059-.011.053-.01.057-.01.053-.008.057-.008.054-.008.06-.008.052-.007.062-.007.052-.005.061-.006c.055-.006.109-.01.164-.014l.061-.005.053-.003.064-.003.054-.003.059-.002.056-.001L7.895 1 8.01 1Z" clip-rule="evenodd"/></svg><span>Moonshot AI</span></span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="siteFooter">
+
+    <canvas class="footer-canvas" id="footerCanvas" aria-hidden="true"></canvas>
+    <div class="footer-prism-bar" aria-hidden="true"></div>
+
+    <div class="footer-inner">
+
+      <!-- Brand wordmark -->
+      <div class="footer-logo-wrap">
+        <img src="Folner_Logo/Final_Logos/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" class="footer-wordmark-logo">
+      </div>
+
+      <!-- Center: logo + statement + CTA -->
+      <div class="footer-center">
+        <a href="folner-careers-2.html" class="footer-cta">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h8M7 3l4 4-4 4"/></svg>
+          See open roles
+        </a>
+      </div>
+
+      <!-- Bottom: nav + copyright -->
+      <div class="footer-bottom">
+        <nav class="footer-nav-row" aria-label="Footer">
+          <a href="folner-about-us.html" class="footer-link">About</a>
+          <div class="footer-nav-sep" aria-hidden="true"></div>
+          <a href="folner-careers-2.html" class="footer-link">Careers</a>
+          <div class="footer-nav-sep" aria-hidden="true"></div>
+          <a href="privacy.html" class="footer-link">Privacy</a>
+          <div class="footer-nav-sep" aria-hidden="true"></div>
+          <a href="terms.html" class="footer-link">Terms</a>
+          <div class="footer-nav-sep" aria-hidden="true"></div>
+          <a href="cookies.html" class="footer-link">Cookies</a>
+        </nav>
+        <p class="footer-copy">&copy; 2026 Folner, Inc. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SVG refraction filter -->
+  <svg width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true">
+    <filter id="folnor-refraction" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="8" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="18" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </svg>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
