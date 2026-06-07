@@ -184,213 +184,25 @@ html, body {
 /* ─────────────────────────────────────────────
    ANNOUNCEMENT BAR
 ───────────────────────────────────────────── */
-.announce-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 22;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 20px;
-  background: rgba(10,10,12,0.92);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  font-size: 13px;
-  overflow: hidden;
-  max-height: 56px;
-  transition: max-height 300ms ease, padding 300ms ease, opacity 300ms ease;
-}
-.announce-bar.dismissed {
-  max-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  pointer-events: none;
-  opacity: 0;
-}
-.announce-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgb(var(--emit-mint));
-  box-shadow: 0 0 6px rgba(var(--emit-mint), 0.8), 0 0 12px rgba(var(--emit-mint), 0.4);
-  flex-shrink: 0;
-  animation: announcePulse 1.5s ease-in-out infinite;
-}
-@keyframes announcePulse {
-  0%, 100% { opacity: 1; }
+
   50% { opacity: 0.35; }
 }
-.announce-text {
-  font-size: 12px;
-  color: rgba(255,255,255,0.60);
-}
-.announce-link {
-  color: rgba(255,255,255,0.90);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 160ms ease;
-}
-.announce-link:hover { color: #fff; }
-.announce-close {
-  background: none;
-  border: none;
-  color: rgba(255,255,255,0.38);
-  font-size: 16px;
-  cursor: pointer;
-  padding: 4px 8px;
-  line-height: 1;
-  transition: color 160ms ease;
-  min-width: 44px;
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 8px;
-}
-.announce-close:hover { color: #fff; }
 
 /* ─────────────────────────────────────────────
    SITE HEADER
 ───────────────────────────────────────────── */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 20;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  padding: 20px 28px;
-  transition: background 300ms ease, backdrop-filter 300ms ease;
-}
-.site-header.scrolled {
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(24px) saturate(1.4);
-  -webkit-backdrop-filter: blur(24px) saturate(1.4);
-}
+
 @supports not (backdrop-filter: blur(1px)) {
-  .site-header.scrolled {
-    background: rgba(0,0,0,0.92);
-  }
-  .menu-overlay {
-    background: rgba(4,5,6,0.98) !important;
-  }
-}
-.header-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-self: start;
-  text-decoration: none;
-}
-.header-icon img {
-  height: 32px;
-  width: auto;
-  display: block;
-  object-fit: contain;
-}
-.header-wordmark {
-  display: inline-flex;
-  align-items: center;
-  justify-self: center;
-  text-decoration: none;
-}
-.header-wordmark img {
-  height: 22px;
-  width: auto;
-  display: block;
-  object-fit: contain;
-}
-.burger-btn {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  justify-self: end;
-  width: 44px;
-  height: 44px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  outline: none;
-}
-.burger-btn span {
-  display: block;
-  width: 22px;
-  height: 1.5px;
-  background: #fff;
-  border-radius: 999px;
-  transform-origin: center;
-  transition: transform 300ms var(--ease-snap), opacity 200ms ease, width 300ms ease;
-}
-.burger-btn[aria-expanded="true"] span:nth-child(1) {
-  transform: translateY(6.5px) rotate(45deg);
-}
-.burger-btn[aria-expanded="true"] span:nth-child(2) {
-  opacity: 0;
-  width: 0;
-}
-.burger-btn[aria-expanded="true"] span:nth-child(3) {
-  transform: translateY(-6.5px) rotate(-45deg);
+  
+  
 }
 
 /* ─────────────────────────────────────────────
    MENU OVERLAY
 ───────────────────────────────────────────── */
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 18;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(4,5,6,0.94);
-  backdrop-filter: blur(28px) saturate(1.2);
-  -webkit-backdrop-filter: blur(28px) saturate(1.2);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 400ms var(--ease-snap);
-}
-.menu-overlay.open {
-  opacity: 1;
-  pointer-events: all;
-}
-.menu-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 36px;
-  position: relative;
-  z-index: 1;
-}
-.menu-link {
-  color: rgba(255,255,255,0.65);
-  text-decoration: none;
-  font-size: clamp(32px, 6vw, 64px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  transform: translateY(24px);
-  opacity: 0;
-  transition: transform 500ms var(--ease-snap), opacity 500ms var(--ease-snap), color 200ms ease, text-shadow 200ms ease;
-}
-.menu-overlay.open .menu-link {
-  transform: translateY(0);
-  opacity: 1;
-}
-.menu-overlay.open .menu-link:nth-child(1) { transition-delay: 60ms; }
-.menu-overlay.open .menu-link:nth-child(2) { transition-delay: 120ms; }
-.menu-overlay.open .menu-link:nth-child(3) { transition-delay: 180ms; }
-.menu-overlay.open .menu-link:nth-child(4) { transition-delay: 240ms; }
-.menu-overlay.open .menu-link:nth-child(5) { transition-delay: 300ms; }
-.menu-link:hover {
-  color: #fff;
-  text-shadow: 0 0 20px rgba(198,121,196,0.4), 0 0 40px rgba(198,121,196,0.18);
-}
+
+.menu-overlay.open 
+
 .menu-link[aria-current="page"] {
   color: rgba(255,255,255,0.90);
   background: var(--gradient-prism);
@@ -1199,39 +1011,8 @@ section { position: relative; z-index: 2; }
 <div id="cursorGlow" aria-hidden="true"></div>
 
 <!-- ── Announcement Bar ─────────────────────────────────────── -->
-<aside id="announceBar" role="complementary" aria-label="Announcement" class="announce-bar">
-  <span class="announce-dot" aria-hidden="true"></span>
-  <span class="announce-text">Folner is now hiring — we are building something remarkable — <a href="folner-careers-2.html" class="announce-link">See open roles →</a></span>
-  <button class="announce-close" id="announceClose" aria-label="Dismiss announcement">✕</button>
-</aside>
-
-<!-- ── Site Header ──────────────────────────────────────────── -->
-<header class="site-header" id="siteHeader">
-  <a class="header-icon" href="index.html" aria-label="Folner home">
-    <img src="assets/images/Folner_Icon_Dark_Logo-final.png" alt="Folner icon"
-         height="32" fetchpriority="high" decoding="async">
-  </a>
-  <a class="header-wordmark" href="index.html" aria-label="Folner">
-    <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner"
-         height="22" fetchpriority="high" decoding="async">
-  </a>
-  <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-</header>
 
 <!-- ── Menu Overlay ─────────────────────────────────────────── -->
-<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
-  <nav class="menu-nav" aria-label="Site navigation">
-    <a href="index.html"                      class="menu-link">Home</a>
-    <a href="folner-about-us.html"            class="menu-link">About</a>
-    <a href="platforms-protocols.html"        class="menu-link" aria-current="page">Platforms &amp; Protocols</a>
-    <a href="folner-careers-2.html"           class="menu-link">Careers</a>
-    <a href="folner-contact.html"             class="menu-link">Contact</a>
-  </nav>
-</div>
 
 <!-- ═══════════════════════════════════════════════════════════
      MAIN CONTENT
@@ -1591,241 +1372,8 @@ section { position: relative; z-index: 2; }
 </main>
 
 <!-- ── SITE FOOTER ──────────────────────────────────────────── -->
-<!-- Footer -->
-  <footer class="site-footer" id="siteFooter">
-    <canvas class="footer-canvas" id="footerCanvas" aria-hidden="true"></canvas>
-    <div class="footer-prism-bar" aria-hidden="true"></div>
-    <div class="footer-inner">
-      <div class="footer-logo-wrap">
-        <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" class="footer-wordmark-logo" loading="lazy" decoding="async">
-      </div>
-      <div class="footer-center">
-        <a href="folner-careers-2.html" class="footer-cta">
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7 3l4 4-4 4"/></svg>
-          See open roles
-        </a>
-      </div>
-      <div class="footer-bottom">
-        <nav class="footer-nav-row" aria-label="Footer">
-          <a href="folner-about-us.html" class="footer-link">About</a>
-          <div class="footer-nav-sep" aria-hidden="true"></div>
-          <a href="platforms-protocols.html" class="footer-link">Platforms</a>
-          <div class="footer-nav-sep" aria-hidden="true"></div>
-          <a href="folner-careers-2.html" class="footer-link">Careers</a>
-          <div class="footer-nav-sep" aria-hidden="true"></div>
-          <a href="folner-contact.html" class="footer-link">Contact</a>
-          <div class="footer-nav-sep" aria-hidden="true"></div>
-          <a href="privacy.html" class="footer-link">Privacy</a>
-          <div class="footer-nav-sep" aria-hidden="true"></div>
-          <a href="terms.html" class="footer-link">Terms</a>
-          <div class="footer-nav-sep" aria-hidden="true"></div>
-          <a href="cookies.html" class="footer-link">Cookies</a>
-          <div class="footer-nav-sep" aria-hidden="true"></div>
-          <a href="security.html" class="footer-link">Security</a>
-        </nav>
-        <p class="footer-copy">&copy; 2026 Folner, Inc. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
 
-<!-- ═══════════════════════════════════════════════════════════
-     SCRIPT 1 — Core interactions
-     Header scroll · Burger menu · Announce bar · Cursor glow · Reveal IO
-═══════════════════════════════════════════════════════════ -->
-<script>
-(function () {
-  'use strict';
-  try {
 
-    /* ── Header scroll ── */
-    var header = document.getElementById('siteHeader');
-    var announceBar = document.getElementById('announceBar');
-    var headerOffset = 80; // announce bar height approx
-
-    function updateHeaderOffset() {
-      if (announceBar && !announceBar.classList.contains('dismissed')) {
-        headerOffset = announceBar.offsetHeight || 56;
-      } else {
-        headerOffset = 0;
-      }
-    }
-
-    window.addEventListener('scroll', function () {
-      if (!header) return;
-      if (window.scrollY > 40) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-      // Scroll indicator hide
-      var si = document.getElementById('scrollIndicator');
-      if (si) {
-        if (window.scrollY > window.innerHeight * 0.20) {
-          si.classList.add('hidden');
-        } else {
-          si.classList.remove('hidden');
-        }
-      }
-    }, { passive: true });
-
-    /* ── Menu overlay ── */
-    var burgerBtn = document.getElementById('burgerBtn');
-    var menuOverlay = document.getElementById('menuOverlay');
-    var menuLinks = menuOverlay ? menuOverlay.querySelectorAll('.menu-link') : [];
-    var menuOpen = false;
-
-    function openMenu() {
-      if (!menuOverlay || !burgerBtn) return;
-      menuOpen = true;
-      menuOverlay.classList.add('open');
-      menuOverlay.setAttribute('aria-hidden', 'false');
-      burgerBtn.setAttribute('aria-expanded', 'true');
-      burgerBtn.setAttribute('aria-label', 'Close menu');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-      if (!menuOverlay || !burgerBtn) return;
-      menuOpen = false;
-      menuOverlay.classList.remove('open');
-      menuOverlay.setAttribute('aria-hidden', 'true');
-      burgerBtn.setAttribute('aria-expanded', 'false');
-      burgerBtn.setAttribute('aria-label', 'Open menu');
-      document.body.style.overflow = '';
-    }
-
-    if (burgerBtn) {
-      burgerBtn.addEventListener('click', function () {
-        if (menuOpen) { closeMenu(); } else { openMenu(); }
-      });
-    }
-
-    menuLinks.forEach(function (link) {
-      link.addEventListener('click', function () { closeMenu(); });
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && menuOpen) { closeMenu(); }
-    });
-
-    /* ── Announcement bar ── */
-    var announceClose = document.getElementById('announceClose');
-
-    (function initAnnounce() {
-      if (!announceBar) return;
-      if (sessionStorage.getItem('announceDismissed') === 'true') {
-        announceBar.classList.add('dismissed');
-      }
-    })();
-
-    if (announceClose && announceBar) {
-      announceClose.addEventListener('click', function () {
-        announceBar.classList.add('dismissed');
-        sessionStorage.setItem('announceDismissed', 'true');
-        updateHeaderOffset();
-      });
-    }
-
-    /* ── Cursor glow ── */
-    (function initCursor() {
-      if (window.matchMedia('(pointer: coarse)').matches) return;
-      var glow = document.getElementById('cursorGlow');
-      if (!glow) return;
-      var firstMove = true;
-      window.addEventListener('mousemove', function (e) {
-        if (firstMove) {
-          glow.style.opacity = '0.07';
-          firstMove = false;
-        }
-        glow.style.left = e.clientX + 'px';
-        glow.style.top = e.clientY + 'px';
-      }, { passive: true });
-    })();
-
-    /* ── Reveal IntersectionObserver ── */
-    (function initReveal() {
-      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (prefersReduced) {
-        // Make everything immediately visible
-        document.querySelectorAll('.reveal-up, .reveal-fade, .feature-row').forEach(function (el) {
-          el.classList.add('visible');
-          el.style.opacity = '1';
-          el.style.transform = 'none';
-          el.style.transition = 'none';
-        });
-        return;
-      }
-
-      if (!('IntersectionObserver' in window)) {
-        document.querySelectorAll('.reveal-up, .reveal-fade').forEach(function (el) {
-          el.classList.add('visible');
-        });
-        return;
-      }
-
-      var revealIO = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealIO.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-
-      document.querySelectorAll('.reveal-up, .reveal-fade').forEach(function (el) {
-        revealIO.observe(el);
-      });
-
-      /* Feature matrix rows observer */
-      var matrixIO = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            matrixIO.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12 });
-
-      document.querySelectorAll('.feature-row').forEach(function (el) {
-        matrixIO.observe(el);
-      });
-
-      /* Accordion accent lines observer */
-      var accentIO = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('accent-visible');
-            accentIO.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.20 });
-
-      document.querySelectorAll('.protocol-item').forEach(function (el) {
-        accentIO.observe(el);
-      });
-
-      /* Split-h2 observer */
-      var splitIO = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            splitIO.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.20 });
-
-      document.querySelectorAll('.split-h2').forEach(function (el) {
-        splitIO.observe(el);
-      });
-
-    })();
-
-  } catch (e) {
-    console.warn('[Folner] Core interactions failed:', e);
-  }
-})();
-</script>
 
 <!-- ═══════════════════════════════════════════════════════════
      SCRIPT 2 — Neural canvas particle network
@@ -2097,5 +1645,6 @@ section { position: relative; z-index: 2; }
 })();
 </script>
 
+<script src="assets/js/components.js"></script>
 </body>
 </html>
