@@ -268,11 +268,19 @@ body.pg-enter{animation:pgIn 500ms var(--spring) both;}
 .burger-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
 .site-header.header--hidden{transform:translateY(-100%);opacity:0;}
 
-.menu-overlay{position:fixed;inset:0;z-index:18;display:flex;align-items:center;justify-content:center;background:rgba(4,5,6,0.92);backdrop-filter:blur(24px);opacity:0;pointer-events:none;transition:opacity 400ms ease;}
+.menu-overlay{position:fixed;inset:0;z-index:18;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.96);backdrop-filter:blur(40px) saturate(1.4);-webkit-backdrop-filter:blur(40px) saturate(1.4);opacity:0;pointer-events:none;transition:opacity 400ms ease;}
 .menu-overlay.open{opacity:1;pointer-events:all;}
-.menu-nav{display:flex;flex-direction:column;align-items:center;gap:8px;}
-.menu-link{font-size:clamp(32px,5vw,52px);font-weight:700;color:rgba(255,255,255,0.55);text-decoration:none;letter-spacing:-0.04em;transition:color 200ms ease;}
-.menu-link:hover{color:#fff;}
+.menu-overlay::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:1px;background:linear-gradient(90deg,transparent,rgba(198,121,196,0.4) 20%,rgba(86,194,255,0.35) 50%,rgba(89,212,153,0.3) 80%,transparent);opacity:0;transition:opacity 600ms ease 300ms;pointer-events:none;margin-top:180px;}
+.menu-overlay.open::before{opacity:1;}
+.menu-overlay::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(198,121,196,0.04) 0%,transparent 70%);pointer-events:none;}
+.menu-nav{display:flex;flex-direction:column;align-items:center;gap:36px;position:relative;z-index:1;}
+.menu-link{font-size:clamp(32px,6vw,64px);font-weight:700;color:rgba(255,255,255,0.65);text-decoration:none;letter-spacing:-0.03em;transform:translateY(24px);opacity:0;transition:transform 500ms ease,opacity 500ms ease,color 200ms ease,text-shadow 200ms ease;}
+.menu-overlay.open .menu-link{transform:translateY(0);opacity:1;}
+.menu-overlay.open .menu-link:nth-child(1){transition-delay:80ms;}
+.menu-overlay.open .menu-link:nth-child(2){transition-delay:140ms;}
+.menu-overlay.open .menu-link:nth-child(3){transition-delay:200ms;}
+.menu-overlay.open .menu-link:nth-child(4){transition-delay:260ms;}
+.menu-link:hover{color:#fff;text-shadow:0 0 20px rgba(198,121,196,0.5),0 0 40px rgba(198,121,196,0.2);}
 
 /* ── Standard site footer ── */
 .site-footer{position:relative;background:#000;overflow:hidden;}
@@ -311,27 +319,37 @@ body.pg-enter{animation:pgIn 500ms var(--spring) both;}
 <div id="sp"></div>
 <div class="grain" aria-hidden="true"></div>
 <canvas id="bgN" aria-hidden="true"></canvas>
+  <!-- ─── Announcement Bar ─────────────────────────────────────────────── -->
+  <div class="announce-bar" id="announceBar" role="complementary" aria-label="Announcement">
+    <span class="announce-dot" aria-hidden="true"></span>
+    <span class="announce-text">Folner is now hiring — we are building something remarkable — <a href="folner-careers-2.html" class="announce-link">See open roles →</a></span>
+    <button class="announce-close" id="announceClose" aria-label="Dismiss announcement">✕</button>
+  </div>
 
-<header class="site-header" id="siteHeader">
-  <a class="header-icon" href="index.html" aria-label="Folner home">
-    <img src="Folner_Logo/Final_Logos/Folner_Icon_Dark_Logo-final.png" alt="Folner icon" fetchpriority="high" decoding="async">
-  </a>
-  <a class="header-wordmark" href="index.html" aria-label="Folner">
-    <img src="Folner_Logo/Final_Logos/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" fetchpriority="high" decoding="async">
-  </a>
-  <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</header>
-<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
-  <nav class="menu-nav" aria-label="Site navigation">
-    <a href="index.html" class="menu-link">Home</a>
-    <a href="folner-about-us.html" class="menu-link">About</a>
-    <a href="folner-careers-2.html" class="menu-link">Careers</a>
-    <a href="folner-contact.html" class="menu-link">Contact</a>
-  </nav>
-</div>
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <a class="header-icon" href="index.html" aria-label="Folner home">
+      <img src="assets/images/Folner_Icon_Dark_Logo-final.png" alt="Folner icon" fetchpriority="high" decoding="async">
+    </a>
+    <a class="header-wordmark" href="index.html" aria-label="Folner">
+      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" fetchpriority="high" decoding="async">
+    </a>
+    <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
 
+  <!-- Burger Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <nav class="menu-nav" aria-label="Site navigation">
+      <a href="index.html" class="menu-link">Home</a>
+      <a href="folner-about-us.html" class="menu-link">About</a>
+      <a href="folner-careers-2.html" class="menu-link">Careers</a>
+      <a href="folner-contact.html" class="menu-link">Contact</a>
+    </nav>
+  </div>
 <main id="main-content">
 
 <!-- HERO -->
@@ -526,17 +544,17 @@ body.pg-enter{animation:pgIn 500ms var(--spring) both;}
 
 </main>
 
-<!-- FOOTER -->
+<!-- Footer -->
 <footer class="site-footer" id="siteFooter">
   <canvas class="footer-canvas" id="footerCanvas" aria-hidden="true"></canvas>
   <div class="footer-prism-bar" aria-hidden="true"></div>
   <div class="footer-inner">
     <div class="footer-logo-wrap">
-      <img src="Folner_Logo/Final_Logos/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" class="footer-wordmark-logo" loading="lazy" decoding="async">
+      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" class="footer-wordmark-logo" loading="lazy" decoding="async">
     </div>
     <div class="footer-center">
       <a href="folner-careers-2.html" class="footer-cta">
-        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><rect x="1" y="1" width="12" height="12" rx="2"/><path d="M4.5 7h5M7 4.5v5"/></svg>
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h8M7 3l4 4-4 4"/></svg>
         See open roles
       </a>
     </div>
@@ -551,6 +569,8 @@ body.pg-enter{animation:pgIn 500ms var(--spring) both;}
         <a href="privacy.html" class="footer-link">Privacy</a>
         <div class="footer-nav-sep" aria-hidden="true"></div>
         <a href="terms.html" class="footer-link">Terms</a>
+        <div class="footer-nav-sep" aria-hidden="true"></div>
+        <a href="security.html" class="footer-link">Security</a>
         <div class="footer-nav-sep" aria-hidden="true"></div>
         <a href="cookies.html" class="footer-link">Cookies</a>
       </nav>
@@ -584,30 +604,41 @@ window.addEventListener('scroll',function(){
   sp.style.width=Math.min(pct,100)+'%';
 },{passive:true});
 
-/* ── Header ── */
-var hdr=document.getElementById('hdr');
-var prevY=0;
-window.addEventListener('scroll',function(){
-  var y=window.scrollY;
-  hdr.classList.toggle('scrolled',y>40);
-  if(y>200){hdr.style.transform=y>prevY?'translateY(-100%)':'translateY(0)';}
-  prevY=y;
-},{passive:true});
+/* ── Header hide on scroll ── */
+var header=document.getElementById('siteHeader');
+var announce=document.getElementById('announceBar');
+var announceClose=document.getElementById('announceClose');
+if(header){
+  window.addEventListener('scroll',function(){
+    var pastHero=window.scrollY>window.innerHeight*0.85;
+    header.classList.toggle('header--hidden',pastHero);
+    if(announce&&!announce.classList.contains('hidden')){
+      announce.classList.toggle('announce--hero-only',pastHero);
+    }
+  },{passive:true});
+}
+if(announceClose&&announce){
+  announceClose.addEventListener('click',function(){
+    announce.classList.add('hidden');announce.style.display='none';
+  });
+}
 
 /* ── Burger ── */
-var burger=document.getElementById('burger'),menuOv=document.getElementById('menuOv');
-burger.addEventListener('click',function(){
-  var open=menuOv.classList.toggle('open');
-  burger.setAttribute('aria-expanded',open);
-  menuOv.setAttribute('aria-hidden',!open);
-  document.body.style.overflow=open?'hidden':'';
-});
-menuOv.querySelectorAll('.menu-lnk').forEach(function(l){
-  l.addEventListener('click',function(){
-    menuOv.classList.remove('open');burger.setAttribute('aria-expanded',false);
-    menuOv.setAttribute('aria-hidden',true);document.body.style.overflow='';
+var burger=document.getElementById('burgerBtn'),menuOv=document.getElementById('menuOverlay');
+if(burger&&menuOv){
+  burger.addEventListener('click',function(){
+    var open=menuOv.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+    menuOv.setAttribute('aria-hidden',!open);
+    document.body.style.overflow=open?'hidden':'';
   });
-});
+  menuOv.querySelectorAll('.menu-link').forEach(function(l){
+    l.addEventListener('click',function(){
+      menuOv.classList.remove('open');burger.setAttribute('aria-expanded','false');
+      menuOv.setAttribute('aria-hidden','true');document.body.style.overflow='';
+    });
+  });
+}
 
 /* ── Reveal observer ── */
 var io=new IntersectionObserver(function(entries){

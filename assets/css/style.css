@@ -187,9 +187,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(4, 5, 6, 0.92);
-  backdrop-filter: blur(24px) saturate(1.2);
-  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  background: rgba(0, 0, 0, 0.96);
+  backdrop-filter: blur(40px) saturate(1.4);
+  -webkit-backdrop-filter: blur(40px) saturate(1.4);
   opacity: 0;
   pointer-events: none;
   transition: opacity 400ms var(--ease-smooth);
@@ -200,22 +200,58 @@ body {
   pointer-events: all;
 }
 
+/* Prism accent strip in menu */
+.menu-overlay::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(198,121,196,0.4) 20%, rgba(86,194,255,0.35) 50%, rgba(89,212,153,0.3) 80%, transparent);
+  opacity: 0;
+  transition: opacity 600ms ease 300ms;
+  pointer-events: none;
+  margin-top: 180px;
+}
+
+.menu-overlay.open::before {
+  opacity: 1;
+}
+
+/* Subtle radial emission glow behind menu */
+.menu-overlay::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(198,121,196,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
 .menu-nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 36px;
+  position: relative;
+  z-index: 1;
 }
 
 .menu-link {
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.65);
   text-decoration: none;
   font-size: clamp(32px, 6vw, 64px);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  transform: translateY(20px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  transform: translateY(24px);
   opacity: 0;
-  transition: transform 400ms var(--ease-smooth), opacity 400ms var(--ease-smooth), color 160ms ease;
+  transition: transform 500ms var(--ease-smooth), opacity 500ms var(--ease-smooth), color 200ms ease, text-shadow 200ms ease;
 }
 
 .menu-overlay.open .menu-link {
@@ -226,9 +262,11 @@ body {
 .menu-overlay.open .menu-link:nth-child(1) { transition-delay: 80ms; }
 .menu-overlay.open .menu-link:nth-child(2) { transition-delay: 140ms; }
 .menu-overlay.open .menu-link:nth-child(3) { transition-delay: 200ms; }
+.menu-overlay.open .menu-link:nth-child(4) { transition-delay: 260ms; }
 
 .menu-link:hover {
   color: #fff;
+  text-shadow: 0 0 20px rgba(198,121,196,0.5), 0 0 40px rgba(198,121,196,0.2);
 }
 
 .hero {
