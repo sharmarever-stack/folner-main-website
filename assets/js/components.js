@@ -176,88 +176,256 @@ body.announce-visible .folner-site-header {
   transform: translateY(-6.5px) rotate(-45deg);
 }
 
-/* ── Menu Overlay ── */
+/* ── Visual Menu Overlay ── */
 .folner-menu-overlay {
   position: fixed;
   inset: 0;
-  z-index: 18;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.96);
-  backdrop-filter: blur(40px) saturate(1.4);
-  -webkit-backdrop-filter: blur(40px) saturate(1.4);
+  z-index: 500;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  background: #000;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 400ms cubic-bezier(0.22,1,0.36,1);
+  transition: opacity 380ms cubic-bezier(0.22,1,0.36,1);
   will-change: opacity;
+  overflow: hidden;
 }
 .folner-menu-overlay.open {
   opacity: 1;
   pointer-events: all;
 }
-.folner-menu-overlay::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200px; height: 1px;
-  background: linear-gradient(90deg, transparent,
-    rgba(198,121,196,0.4) 20%,
-    rgba(86,194,255,0.35) 50%,
-    rgba(89,212,153,0.3) 80%,
-    transparent);
-  opacity: 0;
-  transition: opacity 600ms ease 300ms;
-  pointer-events: none;
-  margin-top: 180px;
+/* Left panel — navigation */
+.folner-menu-left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 72px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
 }
-.folner-menu-overlay.open::before { opacity: 1; }
-.folner-menu-overlay::after {
+/* Atmospheric glow behind nav */
+.folner-menu-left::before {
   content: '';
   position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
+  top: 50%; left: -100px;
+  transform: translateY(-50%);
   width: 500px; height: 500px;
   border-radius: 50%;
   background: radial-gradient(ellipse at center,
-    rgba(198,121,196,0.04) 0%, transparent 70%);
+    rgba(198,121,196,0.08) 0%,
+    rgba(86,194,255,0.04) 40%,
+    transparent 70%);
   pointer-events: none;
 }
+/* Right panel — visual canvas */
+.folner-menu-right {
+  position: relative;
+  background: #07080a;
+  overflow: hidden;
+}
+.folner-menu-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  display: block;
+}
+/* Close button */
+.folner-menu-close {
+  position: absolute;
+  top: 28px; right: 28px;
+  z-index: 10;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.55);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background 180ms, border-color 180ms, color 180ms;
+}
+.folner-menu-close:hover {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.28);
+  color: #fff;
+}
+/* Eyebrow */
+.folner-menu-eyebrow {
+  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.20);
+  margin-bottom: 48px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+.folner-menu-overlay.open .folner-menu-eyebrow {
+  opacity: 1; transform: translateY(0);
+  transition-delay: 60ms;
+}
+/* Primary nav items */
 .folner-menu-nav {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 36px;
-  position: relative;
-  z-index: 1;
+  gap: 2px;
+  margin-bottom: 56px;
 }
-.folner-menu-link {
-  color: rgba(255, 255, 255, 0.65);
+.folner-menu-item {
+  display: block;
   text-decoration: none;
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  font-size: clamp(32px, 6vw, 64px);
+  padding: 14px 0;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 500ms cubic-bezier(0.34,1.56,0.64,1),
+              transform 500ms cubic-bezier(0.34,1.56,0.64,1);
+  cursor: pointer;
+}
+.folner-menu-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.04); }
+.folner-menu-overlay.open .folner-menu-item { opacity: 1; transform: translateX(0); }
+.folner-menu-overlay.open .folner-menu-item:nth-child(1) { transition-delay: 100ms; }
+.folner-menu-overlay.open .folner-menu-item:nth-child(2) { transition-delay: 150ms; }
+.folner-menu-overlay.open .folner-menu-item:nth-child(3) { transition-delay: 200ms; }
+.folner-menu-overlay.open .folner-menu-item:nth-child(4) { transition-delay: 250ms; }
+.folner-menu-overlay.open .folner-menu-item:nth-child(5) { transition-delay: 300ms; }
+/* Hover sweep */
+.folner-menu-item::before {
+  content: '';
+  position: absolute;
+  left: -100%; top: 0; bottom: 0;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(198,121,196,0.04), transparent);
+  transition: left 400ms ease;
+}
+.folner-menu-item:hover::before { left: 100%; }
+/* Prism left edge on hover */
+.folner-menu-item::after {
+  content: '';
+  position: absolute;
+  left: -3px; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg,#C679C4,#56C2FF,#59D499,#FFB005);
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: opacity 200ms, transform 300ms cubic-bezier(0.34,1.56,0.64,1);
+}
+.folner-menu-item:hover::after { opacity: 1; transform: scaleY(1); }
+.folner-menu-item-label {
+  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-size: clamp(28px, 4.5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: rgba(255,255,255,0.65);
+  transition: color 180ms ease;
+  display: block;
+}
+.folner-menu-item:hover .folner-menu-item-label { color: #fff; }
+.folner-menu-item-desc {
+  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.22);
+  margin-top: 4px;
+  transition: color 180ms ease;
+  display: block;
+  letter-spacing: 0.01em;
+}
+.folner-menu-item:hover .folner-menu-item-desc { color: rgba(255,255,255,0.45); }
+/* Bottom utility row */
+.folner-menu-bottom {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+.folner-menu-overlay.open .folner-menu-bottom {
+  opacity: 1; transform: translateY(0);
+  transition-delay: 380ms;
+}
+.folner-menu-util-link {
+  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.28);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 150ms;
+}
+.folner-menu-util-link:hover { color: rgba(255,255,255,0.65); }
+.folner-menu-util-sep {
+  width: 1px; height: 10px;
+  background: rgba(255,255,255,0.12);
+}
+/* Right panel content */
+.folner-menu-right-inner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 48px 40px;
+}
+.folner-menu-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.50);
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+.folner-menu-badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: conic-gradient(#C679C4,#56C2FF,#59D499,#FFB005,#C679C4);
+  animation: cDotSpin 4s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes cDotSpin { to { transform: rotate(360deg); } }
+.folner-menu-overlay.open .folner-menu-badge {
+  opacity: 1; transform: translateY(0);
+  transition-delay: 340ms;
+}
+.folner-menu-right-label {
+  font-family: 'Inter', ui-sans-serif, sans-serif;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.03em;
-  transform: translateY(24px);
+  line-height: 1.2;
+  color: rgba(255,255,255,0.70);
   opacity: 0;
-  transition: transform 500ms cubic-bezier(0.22,1,0.36,1),
-              opacity 500ms cubic-bezier(0.22,1,0.36,1),
-              color 200ms ease,
-              text-shadow 200ms ease;
+  transform: translateY(12px);
+  transition: opacity 400ms ease, transform 400ms ease;
 }
-.folner-menu-overlay.open .folner-menu-link {
-  transform: translateY(0);
-  opacity: 1;
+.folner-menu-overlay.open .folner-menu-right-label {
+  opacity: 1; transform: translateY(0);
+  transition-delay: 380ms;
 }
-.folner-menu-overlay.open .folner-menu-link:nth-child(1) { transition-delay: 80ms; }
-.folner-menu-overlay.open .folner-menu-link:nth-child(2) { transition-delay: 140ms; }
-.folner-menu-overlay.open .folner-menu-link:nth-child(3) { transition-delay: 200ms; }
-.folner-menu-overlay.open .folner-menu-link:nth-child(4) { transition-delay: 260ms; }
-.folner-menu-overlay.open .folner-menu-link:nth-child(5) { transition-delay: 320ms; }
-.folner-menu-link:hover {
-  color: #fff;
-  text-shadow: 0 0 20px rgba(198,121,196,0.5), 0 0 40px rgba(198,121,196,0.2);
+/* Responsive */
+@media (max-width: 768px) {
+  .folner-menu-overlay { grid-template-columns: 1fr; }
+  .folner-menu-right { display: none; }
+  .folner-menu-left { padding: 80px 32px 60px; }
+  .folner-menu-close { top: 20px; right: 20px; }
 }
 
 /* ── Site Footer ── */
@@ -295,11 +463,6 @@ body.announce-visible .folner-site-header {
   margin: 0 auto;
   padding: 80px 64px 52px;
 }
-.folner-footer-logo-wrap {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 48px;
-}
 .folner-footer-wordmark-logo {
   height: 32px;
   width: auto;
@@ -310,15 +473,6 @@ body.announce-visible .folner-site-header {
   transition: opacity 300ms ease;
 }
 .folner-footer-wordmark-logo:hover { opacity: 1; }
-.folner-footer-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  padding-bottom: 64px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  text-align: center;
-}
 .folner-footer-cta {
   display: inline-flex;
   align-items: center;
@@ -342,33 +496,64 @@ body.announce-visible .folner-site-header {
   border-color: rgba(255,255,255,0.22);
   color: #fff;
 }
+/* ── Footer Multi-Column Layout ── */
+.folner-footer-top {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 80px;
+  align-items: start;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 36px;
+}
+.folner-footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.folner-footer-tagline {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.32);
+  line-height: 1.65;
+  max-width: 220px;
+}
+.folner-footer-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.folner-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.folner-footer-col-label {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.22);
+  margin-bottom: 4px;
+}
+.folner-footer-link {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.50);
+  text-decoration: none;
+  letter-spacing: -0.005em;
+  transition: color 150ms ease;
+  width: fit-content;
+}
+.folner-footer-link:hover { color: rgba(255,255,255,0.90); }
 .folner-footer-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 36px;
-  gap: 24px;
+  gap: 16px;
   flex-wrap: wrap;
-}
-.folner-footer-nav-row {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  flex-wrap: wrap;
-}
-.folner-footer-link {
-  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.62);
-  text-decoration: none;
-  letter-spacing: -0.01em;
-  transition: color 150ms ease;
-}
-.folner-footer-link:hover { color: #fff; }
-.folner-footer-nav-sep {
-  width: 1px; height: 12px;
-  background: rgba(255,255,255,0.18);
 }
 .folner-footer-copy {
   font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -377,17 +562,41 @@ body.announce-visible .folner-site-header {
   letter-spacing: 0.01em;
   white-space: nowrap;
 }
+.folner-footer-legal-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.folner-footer-legal-link {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.30);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+.folner-footer-legal-link:hover { color: rgba(255,255,255,0.65); }
+.folner-footer-dot {
+  width: 2px; height: 2px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.20);
+  display: inline-block;
+}
+@media (max-width: 900px) {
+  .folner-footer-top { grid-template-columns: 1fr; gap: 48px; }
+  .folner-footer-cols { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+}
+@media (max-width: 600px) {
+  .folner-footer-cols { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .folner-footer-inner { padding: 40px 24px 32px; }
+}
 
 @media (max-width: 768px) {
-  .folner-footer-inner { padding: 60px 28px 40px; }
-  .folner-footer-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .folner-footer-nav-row { gap: 18px; }
   .folner-site-header { padding: 16px 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .folner-announce-dot { animation: none; }
-  .folner-menu-link { transition: none; }
+  .folner-menu-item { transition: none; }
   .folner-site-header { transition: none; }
 }
 `;
@@ -415,14 +624,60 @@ body.announce-visible .folner-site-header {
     <span></span><span></span><span></span>
   </button>
 </header>
-<div class="folner-menu-overlay" id="menuOverlay" aria-hidden="true">
-  <nav class="folner-menu-nav" aria-label="Site navigation">
-    <a href="index.html" class="folner-menu-link">Home</a>
-    <a href="folner-about-us.html" class="folner-menu-link">About</a>
-    <a href="platforms-protocols.html" class="folner-menu-link">Platforms</a>
-    <a href="folner-careers-2.html" class="folner-menu-link">Careers</a>
-    <a href="folner-contact.html" class="folner-menu-link">Contact</a>
-  </nav>
+<div class="folner-menu-overlay" id="menuOverlay" role="dialog" aria-modal="true" aria-label="Site navigation" aria-hidden="true">
+  <!-- Left: Navigation -->
+  <div class="folner-menu-left">
+    <button class="folner-menu-close" id="menuClose" aria-label="Close menu">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/>
+      </svg>
+    </button>
+    <p class="folner-menu-eyebrow">Folner Navigation</p>
+    <nav class="folner-menu-nav" aria-label="Site navigation">
+      <a href="index.html" class="folner-menu-item">
+        <span class="folner-menu-item-label">Home</span>
+        <span class="folner-menu-item-desc">What if everything worked better?</span>
+      </a>
+      <a href="folner-about-us.html" class="folner-menu-item">
+        <span class="folner-menu-item-label">About</span>
+        <span class="folner-menu-item-desc">A small team with unreasonably high standards</span>
+      </a>
+      <a href="platforms-protocols.html" class="folner-menu-item">
+        <span class="folner-menu-item-label">Platforms</span>
+        <span class="folner-menu-item-desc">Every environment. Every standard.</span>
+      </a>
+      <a href="folner-careers-2.html" class="folner-menu-item">
+        <span class="folner-menu-item-label">Careers</span>
+        <span class="folner-menu-item-desc">We hire for impact, very carefully</span>
+      </a>
+      <a href="folner-contact.html" class="folner-menu-item">
+        <span class="folner-menu-item-label">Contact</span>
+        <span class="folner-menu-item-desc">We read every message personally</span>
+      </a>
+    </nav>
+    <div class="folner-menu-bottom">
+      <a href="privacy.html" class="folner-menu-util-link">Privacy</a>
+      <span class="folner-menu-util-sep" aria-hidden="true"></span>
+      <a href="terms.html" class="folner-menu-util-link">Terms</a>
+      <span class="folner-menu-util-sep" aria-hidden="true"></span>
+      <a href="support.html" class="folner-menu-util-link">Support</a>
+      <span class="folner-menu-util-sep" aria-hidden="true"></span>
+      <a href="gdpr.html" class="folner-menu-util-link">GDPR</a>
+      <span class="folner-menu-util-sep" aria-hidden="true"></span>
+      <a href="data-deletion.html" class="folner-menu-util-link">Data Deletion</a>
+    </div>
+  </div>
+  <!-- Right: Visual panel -->
+  <div class="folner-menu-right" aria-hidden="true">
+    <canvas class="folner-menu-canvas" id="menuCanvas"></canvas>
+    <div class="folner-menu-right-inner">
+      <div class="folner-menu-badge">
+        <span class="folner-menu-badge-dot"></span>
+        Folner is hiring
+      </div>
+      <p class="folner-menu-right-label">Building software<br>that feels alive.</p>
+    </div>
+  </div>
 </div>`;
 
   var FOOTER_HTML = `
@@ -430,42 +685,51 @@ body.announce-visible .folner-site-header {
   <canvas class="folner-footer-canvas" id="footerCanvas" aria-hidden="true"></canvas>
   <div class="folner-footer-prism-bar" aria-hidden="true"></div>
   <div class="folner-footer-inner">
-    <div class="folner-footer-logo-wrap">
-      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" class="folner-footer-wordmark-logo" loading="lazy" decoding="async">
-    </div>
-    <div class="folner-footer-center">
-      <a href="folner-careers-2.html" class="folner-footer-cta">
-        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7 3l4 4-4 4"/></svg>
-        See open roles
-      </a>
+    <div class="folner-footer-top">
+      <!-- Brand column -->
+      <div class="folner-footer-brand">
+        <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" class="folner-footer-wordmark-logo" loading="lazy" decoding="async">
+        <p class="folner-footer-tagline">Challenging the status quo of digital product design.</p>
+        <a href="folner-careers-2.html" class="folner-footer-cta">
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8M7 3l4 4-4 4"/></svg>
+          See open roles
+        </a>
+      </div>
+      <!-- Nav columns -->
+      <div class="folner-footer-cols">
+        <div class="folner-footer-col">
+          <p class="folner-footer-col-label">Company</p>
+          <a href="index.html" class="folner-footer-link">Home</a>
+          <a href="folner-about-us.html" class="folner-footer-link">About</a>
+          <a href="platforms-protocols.html" class="folner-footer-link">Platforms</a>
+          <a href="folner-careers-2.html" class="folner-footer-link">Careers</a>
+          <a href="folner-contact.html" class="folner-footer-link">Contact</a>
+        </div>
+        <div class="folner-footer-col">
+          <p class="folner-footer-col-label">Legal</p>
+          <a href="privacy.html" class="folner-footer-link">Privacy Policy</a>
+          <a href="terms.html" class="folner-footer-link">Terms of Service</a>
+          <a href="cookies.html" class="folner-footer-link">Cookie Policy</a>
+          <a href="security.html" class="folner-footer-link">Security</a>
+          <a href="eula.html" class="folner-footer-link">EULA</a>
+        </div>
+        <div class="folner-footer-col">
+          <p class="folner-footer-col-label">Compliance</p>
+          <a href="gdpr.html" class="folner-footer-link">GDPR</a>
+          <a href="data-deletion.html" class="folner-footer-link">Data Deletion</a>
+          <a href="support.html" class="folner-footer-link">Support</a>
+        </div>
+      </div>
     </div>
     <div class="folner-footer-bottom">
-      <nav class="folner-footer-nav-row" aria-label="Footer navigation">
-        <a href="folner-about-us.html" class="folner-footer-link">About</a>
-        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
-        <a href="platforms-protocols.html" class="folner-footer-link">Platforms</a>
-        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
-        <a href="folner-careers-2.html" class="folner-footer-link">Careers</a>
-        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
-        <a href="folner-contact.html" class="folner-footer-link">Contact</a>
-        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
-        <a href="privacy.html" class="folner-footer-link">Privacy</a>
-        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
-        <a href="terms.html" class="folner-footer-link">Terms</a>
-        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
-        <a href="cookies.html" class="folner-footer-link">Cookies</a>
-        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
-        <a href="security.html" class="folner-footer-link">Security</a>
-        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
-        <a href="eula.html" class="folner-footer-link">EULA</a>
-        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
-        <a href="gdpr.html" class="folner-footer-link">GDPR</a>
-        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
-        <a href="data-deletion.html" class="folner-footer-link">Data Deletion</a>
-        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
-        <a href="support.html" class="folner-footer-link">Support</a>
-      </nav>
       <p class="folner-footer-copy">&copy; 2026 Folner, Inc. All rights reserved.</p>
+      <div class="folner-footer-legal-row">
+        <a href="privacy.html" class="folner-footer-legal-link">Privacy</a>
+        <span class="folner-footer-dot" aria-hidden="true"></span>
+        <a href="terms.html" class="folner-footer-legal-link">Terms</a>
+        <span class="folner-footer-dot" aria-hidden="true"></span>
+        <a href="support.html" class="folner-footer-legal-link">Support</a>
+      </div>
     </div>
   </div>
 </footer>`;
@@ -553,7 +817,19 @@ body.announce-visible .folner-site-header {
         document.body.style.overflow = open ? 'hidden' : '';
       });
 
-      overlay.querySelectorAll('.folner-menu-link').forEach(function (link) {
+      // Wire close button
+      var closeBtn = document.getElementById('menuClose');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          overlay.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+          overlay.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        });
+      }
+
+      // Close on nav item click
+      overlay.querySelectorAll('.folner-menu-item').forEach(function (link) {
         link.addEventListener('click', function () {
           overlay.classList.remove('open');
           burger.setAttribute('aria-expanded', 'false');
@@ -570,6 +846,12 @@ body.announce-visible .folner-site-header {
           document.body.style.overflow = '';
         }
       });
+
+      // Animate menu canvas
+      var menuCanvas = document.getElementById('menuCanvas');
+      if (menuCanvas) {
+        animateMenuCanvas(menuCanvas);
+      }
     }
 
     // ── Footer neural canvas ──
@@ -580,7 +862,7 @@ body.announce-visible .folner-site-header {
 
     // ── Highlight active nav link ──
     var currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.folner-footer-link, .folner-menu-link').forEach(function (link) {
+    document.querySelectorAll('.folner-footer-link, .folner-menu-item').forEach(function (link) {
       var href = link.getAttribute('href');
       if (href === currentPage || (currentPage === '' && href === 'index.html')) {
         link.style.color = '#ffffff';
@@ -649,7 +931,105 @@ body.announce-visible .folner-site-header {
   }
 
   /* ─────────────────────────────────────────────────────────────────
-     INIT — run on DOMContentLoaded
+     MENU NEURAL CANVAS (ambient neural network animation for menu panel)
+  ───────────────────────────────────────────────────────────────── */
+  function animateMenuCanvas(canvas) {
+    var ctx = canvas.getContext('2d');
+    var W, H, nodes = [], t = 0;
+    var COLORS = [[198,121,196],[86,194,255],[89,212,153],[255,176,5],[160,80,255]];
+
+    function resize() {
+      W = canvas.width  = canvas.offsetWidth  || 420;
+      H = canvas.height = canvas.offsetHeight || window.innerHeight;
+      if (!nodes.length) init();
+    }
+
+    function init() {
+      nodes = [];
+      for (var i = 0; i < 55; i++) {
+        var c = COLORS[Math.floor(Math.random() * COLORS.length)];
+        nodes.push({
+          x: Math.random() * W, y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
+          r: Math.random() * 1.8 + 0.5,
+          p: Math.random() * Math.PI * 2,
+          ps: Math.random() * 0.012 + 0.006,
+          color: c
+        });
+      }
+    }
+
+    function draw() {
+      t++;
+      ctx.clearRect(0, 0, W, H);
+      // Atmospheric gradient
+      var grd = ctx.createRadialGradient(W*0.5, H*0.4, 0, W*0.5, H*0.4, W*0.8);
+      grd.addColorStop(0, 'rgba(198,121,196,0.06)');
+      grd.addColorStop(0.5, 'rgba(86,194,255,0.03)');
+      grd.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = grd;
+      ctx.fillRect(0, 0, W, H);
+
+      nodes.forEach(function(n) {
+        n.x += n.vx; n.y += n.vy; n.p += n.ps;
+        if (n.x < 0 || n.x > W) n.vx *= -1;
+        if (n.y < 0 || n.y > H) n.vy *= -1;
+      });
+
+      for (var i = 0; i < nodes.length; i++) {
+        for (var j = i+1; j < nodes.length; j++) {
+          var a = nodes[i], b = nodes[j];
+          var dx = a.x-b.x, dy = a.y-b.y, d = Math.sqrt(dx*dx+dy*dy);
+          if (d < 130) {
+            var alpha = (1 - d/130) * 0.18;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+            ctx.strokeStyle = 'rgba('+a.color[0]+','+a.color[1]+','+a.color[2]+','+alpha+')';
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+
+      nodes.forEach(function(n) {
+        var pulse = 0.5 + 0.5*Math.sin(n.p);
+        var alpha = 0.3 + 0.4*pulse;
+        var r = n.r * (1 + 0.3*pulse);
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, r, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba('+n.color[0]+','+n.color[1]+','+n.color[2]+','+alpha+')';
+        ctx.fill();
+      });
+
+      // Traveling orbs
+      var orbs = [
+        {cx: W*0.3, cy: H*0.25, r: 180, c: '198,121,196'},
+        {cx: W*0.7, cy: H*0.65, r: 220, c: '86,194,255'},
+        {cx: W*0.5, cy: H*0.5,  r: 160, c: '160,80,255'}
+      ];
+      orbs.forEach(function(o, i) {
+        var ox = o.cx + Math.sin(t/300 + i*1.8)*60;
+        var oy = o.cy + Math.cos(t/400 + i*1.4)*40;
+        var breathe = 0.10 + 0.06*Math.sin(t/200 + i);
+        var og = ctx.createRadialGradient(ox, oy, 0, ox, oy, o.r);
+        og.addColorStop(0, 'rgba('+o.c+','+breathe+')');
+        og.addColorStop(0.5, 'rgba('+o.c+','+(breathe*0.4)+')');
+        og.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.beginPath();
+        ctx.arc(ox, oy, o.r, 0, Math.PI*2);
+        ctx.fillStyle = og;
+        ctx.fill();
+      });
+
+      requestAnimationFrame(draw);
+    }
+
+    new ResizeObserver(resize).observe(canvas.parentElement || canvas);
+    resize();
+    draw();
+  }
+
+  /* ─────────────────────────────────────────────────────────────────
   ───────────────────────────────────────────────────────────────── */
   function init() {
     injectCSS();
