@@ -456,6 +456,14 @@ body.announce-visible .folner-site-header {
         <a href="cookies.html" class="folner-footer-link">Cookies</a>
         <div class="folner-footer-nav-sep" aria-hidden="true"></div>
         <a href="security.html" class="folner-footer-link">Security</a>
+        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
+        <a href="eula.html" class="folner-footer-link">EULA</a>
+        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
+        <a href="gdpr.html" class="folner-footer-link">GDPR</a>
+        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
+        <a href="data-deletion.html" class="folner-footer-link">Data Deletion</a>
+        <div class="folner-footer-nav-sep" aria-hidden="true"></div>
+        <a href="support.html" class="folner-footer-link">Support</a>
       </nav>
       <p class="folner-footer-copy">&copy; 2026 Folner, Inc. All rights reserved.</p>
     </div>

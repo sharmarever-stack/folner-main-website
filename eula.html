@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+<title>EULA — Folner</title>
+
+<!-- SEO -->
+<link rel="canonical" href="https://folner.com/eula">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Folner End User License Agreement. Clear terms for using Folner applications. No surprises.">
+<meta name="theme-color" content="#000000">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="EULA — Folner">
+<meta property="og:description" content="Folner End User License Agreement. Clear terms for using Folner applications. No surprises.">
+<meta property="og:image" content="https://folner.com/assets/images/Folner_Wordmark_Dark_Logo-final.png">
+<meta property="og:url" content="https://folner.com/eula">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EULA — Folner">
+<meta name="twitter:description" content="Folner End User License Agreement. Clear terms for using Folner applications. No surprises.">
+<meta name="twitter:image" content="https://folner.com/assets/images/Folner_Wordmark_Dark_Logo-final.png">
+
+<!-- Favicon & Icons -->
+<link rel="icon" type="image/png" href="assets/images/Folner_Icon_Light_Logo.png">
+<link rel="apple-touch-icon" href="assets/images/Folner_Icon_Light_Logo.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose: 198,121,196;
+  --orion: 123,51,125;
+  --blue: 3,88,247;
+  --font: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidden; }
+
+.hero { position: relative; width: 100%; height: 100vh; min-height: 680px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding-top: 60px; }
+#nc { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+.hero-vignette { position: absolute; inset: 0; pointer-events: none; z-index: 2; background: radial-gradient(ellipse 60% 50% at 50% 50%, transparent 30%, rgba(0,0,0,0.60) 100%), linear-gradient(to bottom, rgba(0,0,0,0.30) 0%, transparent 20%, transparent 75%, #000 100%); }
+.hero-body { position: relative; z-index: 10; text-align: center; display: flex; flex-direction: column; align-items: center; padding: 0 24px; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 600; letter-spacing: 0.20em; text-transform: uppercase; color: rgba(var(--rose), 0.80); margin-bottom: 28px; font-family: ui-monospace, 'SF Mono', monospace; }
+.hero-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: rgba(var(--rose), 0.60); }
+.hero-eyebrow::after  { content: ''; display: block; width: 24px; height: 1px; background: rgba(var(--rose), 0.60); }
+.hero-title { font-size: clamp(64px, 10vw, 140px); font-weight: 900; letter-spacing: -0.05em; line-height: 0.90; color: #fff; text-shadow: 0 0 60px rgba(var(--rose),0.35), 0 0 120px rgba(var(--rose),0.18), 0 0 240px rgba(var(--orion),0.22); animation: title-breathe 4s ease-in-out infinite; }
+@keyframes title-breathe { 0%,100% { text-shadow: 0 0 60px rgba(var(--rose),0.35), 0 0 120px rgba(var(--rose),0.18), 0 0 240px rgba(var(--orion),0.22); } 50% { text-shadow: 0 0 80px rgba(var(--rose),0.55), 0 0 160px rgba(var(--rose),0.28), 0 0 320px rgba(var(--orion),0.35); } }
+.hero-sub { margin-top: 20px; font-size: clamp(16px, 2.2vw, 22px); font-weight: 300; letter-spacing: -0.01em; line-height: 1.4; color: rgba(255,255,255,0.38); font-style: italic; }
+.hero-sub em { color: rgba(255,255,255,0.65); font-style: normal; font-weight: 400; }
+.hero-meta { margin-top: 36px; display: flex; align-items: center; gap: 16px; font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.22); font-family: ui-monospace, monospace; }
+.hero-meta span + span::before { content: '·'; margin-right: 16px; }
+.hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.20); animation: scroll-cue 2.6s ease-in-out infinite; }
+@keyframes scroll-cue { 0%,100% { opacity: 0.4; transform: translateX(-50%) translateY(0); } 50% { opacity: 0.8; transform: translateX(-50%) translateY(7px); } }
+
+.prism { width: 100%; height: 1.5px; background: linear-gradient(90deg, transparent 0%, rgba(198,121,196,0.55) 12%, rgba(250,61,29,0.50) 28%, rgba(255,176,5,0.50) 50%, rgba(225,225,254,0.45) 68%, rgba(3,88,247,0.52) 85%, transparent 100%); }
+
+.stat-band { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.stat-item { padding: 60px 48px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); opacity: 0; transform: translateY(32px); transition: opacity 700ms ease, transform 700ms ease; }
+.stat-item:last-child { border-right: none; }
+.stat-item.visible { opacity: 1; transform: translateY(0); }
+.stat-num { font-size: clamp(52px, 7vw, 88px); font-weight: 900; letter-spacing: -0.05em; line-height: 1; background: linear-gradient(135deg, #fff 30%, rgba(var(--rose),0.85) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: num-glow 3s ease-in-out infinite; }
+@keyframes num-glow { 0%,100% { filter: drop-shadow(0 0 12px rgba(var(--rose),0.28)); } 50% { filter: drop-shadow(0 0 28px rgba(var(--rose),0.50)); } }
+.stat-label { margin-top: 10px; font-size: 13px; font-weight: 500; letter-spacing: 0.01em; color: rgba(255,255,255,0.40); line-height: 1.5; }
+
+.flow-section { position: relative; padding: 120px 0; overflow: hidden; }
+.flow-bg { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(var(--rose),0.05) 0%, transparent 65%); }
+.flow-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.flow-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(var(--rose),0.70); font-family: ui-monospace, monospace; margin-bottom: 20px; }
+.flow-headline { font-size: clamp(32px, 4vw, 52px); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; color: #fff; margin-bottom: 24px; }
+.flow-body { font-size: 16px; font-weight: 400; line-height: 1.75; color: rgba(255,255,255,0.48); max-width: 440px; }
+.flow-body strong { color: rgba(255,255,255,0.80); font-weight: 600; }
+.flow-graphic { position: relative; height: 380px; }
+#flowCanvas { width: 100%; height: 100%; display: block; }
+
+.principles { padding: 0; }
+.principle-row { display: grid; grid-template-columns: 1fr 1fr; max-width: 1400px; margin-left: auto; margin-right: auto; padding: 0 80px; min-height: 480px; border-top: 1px solid rgba(255,255,255,0.06); opacity: 0; transform: translateY(48px); transition: opacity 800ms cubic-bezier(0.23,1,0.32,1), transform 800ms cubic-bezier(0.23,1,0.32,1); }
+.principle-row.visible { opacity: 1; transform: translateY(0); }
+.principle-row.flip { direction: rtl; }
+.principle-row.flip > * { direction: ltr; }
+.p-text { padding: 72px 40px; text-align: left; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid rgba(255,255,255,0.06); }
+.principle-row.flip .p-text { border-right: none; border-left: 1px solid rgba(255,255,255,0.06); }
+.p-num { font-size: clamp(80px, 12vw, 160px); font-weight: 900; letter-spacing: -0.07em; line-height: 0.85; color: rgba(255,255,255,0.04); margin-bottom: 0; pointer-events: none; user-select: none; }
+.p-title { font-size: clamp(24px, 3.2vw, 38px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; color: #fff; margin-top: -12px; margin-bottom: 20px; }
+.p-desc { text-align: left; font-size: 15px; line-height: 1.78; color: rgba(255,255,255,0.45); max-width: 440px; }
+.p-desc strong { color: rgba(255,255,255,0.75); font-weight: 600; }
+.p-pill { margin-top: 24px; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 6px; background: rgba(var(--rose),0.06); border: 1px solid rgba(var(--rose),0.16); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(var(--rose),0.85); font-family: ui-monospace, monospace; width: fit-content; }
+.p-pill.blue { background: rgba(var(--blue),0.06); border-color: rgba(var(--blue),0.16); color: rgba(var(--blue),1); }
+.p-pill.amber { background: rgba(255,176,5,0.06); border-color: rgba(255,176,5,0.16); color: rgba(255,176,5,0.80); }
+.p-graphic { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.015); }
+
+.rights-section { padding: 120px 0; border-top: 1px solid rgba(255,255,255,0.06); position: relative; overflow: hidden; }
+.rights-bg { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(var(--orion),0.08) 0%, transparent 60%); }
+.rights-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+.rights-head { margin-bottom: 64px; }
+.rights-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(var(--rose),0.70); font-family: ui-monospace, monospace; margin-bottom: 16px; }
+.rights-title { font-size: clamp(36px, 5vw, 64px); font-weight: 900; letter-spacing: -0.045em; line-height: 0.95; color: #fff; }
+.rights-title em { font-style: normal; background: linear-gradient(90deg, #c679c4, #7b337d); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.rights-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; }
+.right-item { background: #000; padding: 36px 32px; opacity: 0; transform: translateY(24px); transition: opacity 600ms ease, transform 600ms ease; }
+.right-item.visible { opacity: 1; transform: translateY(0); }
+.right-item:hover { background: rgba(255,255,255,0.025); }
+.right-icon { width: 40px; height: 40px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: rgba(198,121,196,0.07); border: 1px solid rgba(198,121,196,0.16); }
+.right-icon svg { stroke: rgba(198,121,196,0.80); }
+.right-name { font-size: 15px; font-weight: 700; letter-spacing: -0.02em; color: #fff; margin-bottom: 10px; }
+.right-desc { font-size: 13px; line-height: 1.65; color: rgba(255,255,255,0.38); }
+
+.cta-section { padding: 120px 48px; text-align: center; position: relative; border-top: 1px solid rgba(255,255,255,0.06); }
+.cta-title { font-size: clamp(32px, 5vw, 64px); font-weight: 900; letter-spacing: -0.04em; line-height: 1; color: #fff; margin-bottom: 20px; }
+.cta-sub { font-size: 16px; color: rgba(255,255,255,0.38); margin-bottom: 36px; line-height: 1.6; }
+.cta-link { display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border-radius: 8px; background: rgba(var(--rose),0.10); border: 1px solid rgba(var(--rose),0.28); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; color: rgba(var(--rose),1); text-decoration: none; transition: background 200ms, border-color 200ms, box-shadow 200ms; }
+.cta-link:hover { background: rgba(var(--rose),0.18); border-color: rgba(var(--rose),0.50); box-shadow: 0 0 32px rgba(var(--rose),0.22); }
+
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 700ms ease, transform 700ms ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;scroll-behavior:auto!important;}}
+
+.announce-bar{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;justify-content:center;gap:10px;padding:9px 48px 9px 20px;background:rgba(3,88,247,0.18);backdrop-filter:blur(12px) saturate(1.3);-webkit-backdrop-filter:blur(12px) saturate(1.3);border-bottom:1px solid rgba(3,88,247,0.3);font-size:13px;font-weight:500;color:rgba(255,255,255,0.88);letter-spacing:0.01em;transition:transform 300ms cubic-bezier(0.22,1,0.36,1),opacity 300ms ease;height:40px;}
+.announce-bar.hidden{transform:translateY(-100%);opacity:0;pointer-events:none;}.announce-bar.announce--hero-only{opacity:0;transform:translateY(-100%);pointer-events:none;}
+.announce-dot{width:6px;height:6px;border-radius:50%;background:#56C2FF;box-shadow:0 0 8px rgba(86,194,255,0.8);flex-shrink:0;animation:announcePulse 2s ease-in-out infinite;}
+@keyframes announcePulse{0%,100%{opacity:1;box-shadow:0 0 8px rgba(86,194,255,0.8);}50%{opacity:0.6;box-shadow:0 0 16px rgba(86,194,255,0.4);}}
+.announce-text{flex:1;text-align:center;}.announce-link{color:#56C2FF;text-decoration:none;font-weight:600;transition:color 150ms ease;}.announce-link:hover{color:#fff;}
+.announce-close{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.45);font-size:14px;padding:4px;line-height:1;transition:color 150ms ease;}.announce-close:hover{color:rgba(255,255,255,0.9);}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 28px;transition:opacity 400ms ease,transform 400ms cubic-bezier(0.22,1,0.36,1);}
+.site-header.header--hidden{opacity:0;transform:translateY(-8px);pointer-events:none;}
+.header-icon{display:inline-flex;align-items:center;justify-self:start;text-decoration:none;}.header-icon img{height:32px;width:32px;display:block;object-fit:contain;}
+.header-wordmark{display:inline-flex;align-items:center;justify-self:center;text-decoration:none;}.header-wordmark img{height:32px;width:auto;display:block;object-fit:contain;}
+.burger-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;justify-self:end;width:32px;height:32px;background:none;border:none;cursor:pointer;padding:4px;outline:none;}
+.burger-btn span{display:block;width:22px;height:1.5px;background:#fff;border-radius:999px;transform-origin:center;transition:transform 300ms ease,opacity 200ms ease,width 300ms ease;}
+.burger-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.burger-btn[aria-expanded="true"] span:nth-child(2){opacity:0;width:0;}
+.burger-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.menu-overlay{position:fixed;inset:0;z-index:18;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.96);backdrop-filter:blur(40px) saturate(1.4);-webkit-backdrop-filter:blur(40px) saturate(1.4);opacity:0;pointer-events:none;transition:opacity 400ms ease;}
+.menu-overlay.open{opacity:1;pointer-events:all;}
+.menu-overlay::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:200px;height:1px;background:linear-gradient(90deg,transparent,rgba(198,121,196,0.4) 20%,rgba(86,194,255,0.35) 50%,rgba(89,212,153,0.3) 80%,transparent);opacity:0;transition:opacity 600ms ease 300ms;pointer-events:none;margin-top:180px;}.menu-overlay.open::before{opacity:1;}
+.menu-overlay::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(198,121,196,0.04) 0%,transparent 70%);pointer-events:none;}
+.menu-nav{display:flex;flex-direction:column;align-items:center;gap:36px;position:relative;z-index:1;}
+.menu-link{color:rgba(255,255,255,0.65);text-decoration:none;font-size:clamp(32px,6vw,64px);font-weight:700;letter-spacing:-0.03em;transform:translateY(24px);opacity:0;transition:transform 500ms ease,opacity 500ms ease,color 200ms ease,text-shadow 200ms ease;}
+.menu-overlay.open .menu-link{transform:translateY(0);opacity:1;}
+.menu-overlay.open .menu-link:nth-child(1){transition-delay:80ms;}.menu-overlay.open .menu-link:nth-child(2){transition-delay:140ms;}.menu-overlay.open .menu-link:nth-child(3){transition-delay:200ms;}.menu-overlay.open .menu-link:nth-child(4){transition-delay:260ms;}
+.menu-link:hover{color:#fff;text-shadow:0 0 20px rgba(198,121,196,0.5),0 0 40px rgba(198,121,196,0.2);}
+body{cursor:none;}a,button,input,textarea,select,label,[role="button"]{cursor:none;}
+#cDot{position:fixed;z-index:99999;pointer-events:none;width:6px;height:6px;border-radius:50%;background:conic-gradient(#C679C4,#56C2FF,#59D499,#FFB005,#C679C4);animation:cDotSpin 4s linear infinite;top:0;left:0;transition:opacity 120ms;will-change:transform;}
+@keyframes cDotSpin{to{filter:hue-rotate(360deg);}}
+#cRing{position:fixed;pointer-events:none;z-index:99998;width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.85);top:0;left:0;transition:width 220ms cubic-bezier(0.34,1.56,0.64,1),height 220ms cubic-bezier(0.34,1.56,0.64,1),opacity 180ms ease;opacity:0;will-change:transform;}
+body.c-hover #cRing{width:52px;height:52px;opacity:.90;}
+
+@media(max-width:900px){.flow-inner{grid-template-columns:1fr;}.flow-graphic{height:280px;}.principle-row{grid-template-columns:1fr;min-height:auto;}.principle-row.flip{direction:ltr;}.p-text{padding:48px 28px;border-right:none;border-left:none;border-bottom:1px solid rgba(255,255,255,0.06);}.principle-row.flip .p-text{border-left:none;border-right:none;}.p-graphic{min-height:260px;}.rights-grid{grid-template-columns:1fr 1fr;}.stat-band{grid-template-columns:1fr;}.stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.06);padding:40px 28px;}}
+@media(max-width:600px){.rights-grid{grid-template-columns:1fr;}.p-text{padding:36px 20px;}.flow-inner{padding:0 20px;}.rights-inner{padding:0 20px;}.cta-section{padding:80px 20px;}}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#fff;color:#000;padding:8px 16px;z-index:10000;font-size:14px;transition:top 200ms;">Skip to content</a>
+<div id="cDot" aria-hidden="true"></div>
+<div id="cRing" aria-hidden="true"></div>
+
+<div class="announce-bar" id="announceBar" role="complementary" aria-label="Announcement">
+  <span class="announce-dot" aria-hidden="true"></span>
+  <span class="announce-text">Folner is now hiring. We are building something remarkable. <a href="folner-careers-2.html" class="announce-link">See open roles</a></span>
+  <button class="announce-close" id="announceClose" aria-label="Dismiss announcement">&#x2715;</button>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <a class="header-icon" href="index.html" aria-label="Folner home">
+    <img src="assets/images/Folner_Icon_Dark_Logo-final.png" alt="Folner icon" fetchpriority="high" decoding="async">
+  </a>
+  <a class="header-wordmark" href="index.html" aria-label="Folner">
+    <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" fetchpriority="high" decoding="async">
+  </a>
+  <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <nav class="menu-nav" aria-label="Site navigation">
+    <a href="index.html" class="menu-link">Home</a>
+    <a href="folner-about-us.html" class="menu-link">About</a>
+    <a href="platforms-protocols.html" class="menu-link">Platforms</a>
+    <a href="folner-careers-2.html" class="menu-link">Careers</a>
+    <a href="folner-contact.html" class="menu-link">Contact</a>
+  </nav>
+</div>
+
+<main id="main-content">
+<section class="hero" aria-label="EULA hero">
+  <canvas id="nc" aria-hidden="true"></canvas>
+  <div class="hero-vignette" aria-hidden="true"></div>
+  <div class="hero-body">
+    <p class="hero-eyebrow">Legal &#xB7; License Agreement</p>
+    <h1 class="hero-title">EULA</h1>
+    <p class="hero-sub">Clear terms. <em>No surprises.</em></p>
+    <div class="hero-meta">
+      <span>Effective Jan 2026</span>
+      <span>Updated Jun 2026</span>
+      <span>v 1.0</span>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <svg width="14" height="18" viewBox="0 0 14 18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v12M3 10l4 4 4-4"/></svg>
+    Scroll
+  </div>
+</section>
+
+<div class="prism" aria-hidden="true"></div>
+
+<div class="stat-band" aria-label="License at a glance">
+  <div class="stat-item reveal">
+    <div class="stat-num">Indian</div>
+    <div class="stat-label">Governing law<br>Mumbai courts</div>
+  </div>
+  <div class="stat-item reveal" style="transition-delay:120ms">
+    <div class="stat-num">Personal</div>
+    <div class="stat-label">Non-transferable<br>license grant</div>
+  </div>
+  <div class="stat-item reveal" style="transition-delay:240ms">
+    <div class="stat-num">100%</div>
+    <div class="stat-label">Your content<br>stays yours</div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="flow-section" aria-label="License grant overview">
+  <div class="flow-bg" aria-hidden="true"></div>
+  <div class="flow-inner">
+    <div class="reveal">
+      <p class="flow-tag">01: Grant of License</p>
+      <h2 class="flow-headline">What this<br>license covers</h2>
+      <p class="flow-body">
+        Folner grants you a limited, non-exclusive, non-transferable, revocable license to install and use our applications for personal or internal business use. <strong>You may not sublicense, sell, or redistribute.</strong>
+      </p>
+      <p class="flow-body" style="margin-top:16px">
+        This license is personal to you. It does not transfer to another person or entity without written consent from Folner. Using the software constitutes acceptance of these terms.
+      </p>
+    </div>
+    <div class="flow-graphic">
+      <canvas id="flowCanvas" aria-hidden="true"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLE ROWS -->
+<section class="principles" aria-label="License terms">
+
+  <!-- ROW 1: Restrictions -->
+  <div class="principle-row flip">
+    <div class="p-text">
+      <div class="p-num">02</div>
+      <h2 class="p-title">What you<br>may not do</h2>
+      <p class="p-desc">
+        You may not reverse engineer, decompile, or disassemble the software. You may not use our platform to build a competing product. <strong>You may not remove any proprietary notices</strong> or trademarks from any copy of the software.
+      </p>
+      <div class="p-pill">No Reverse Engineering</div>
+    </div>
+    <div class="p-graphic">
+      <svg viewBox="0 0 460 300" width="460" height="300" aria-hidden="true" style="max-width:100%">
+        <!-- Three blocked actions -->
+        <rect x="40" y="90" width="110" height="64" rx="8" fill="rgba(250,61,29,0.05)" stroke="rgba(250,61,29,0.22)" stroke-width="1" stroke-dasharray="3 2"/>
+        <text x="95" y="118" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="9" font-family="ui-monospace,monospace">REVERSE</text>
+        <text x="95" y="132" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="9" font-family="ui-monospace,monospace">ENGINEER</text>
+        <line x1="44" y1="94" x2="146" y2="150" stroke="rgba(250,61,29,0.50)" stroke-width="1.5"/>
+        <line x1="146" y1="94" x2="44" y2="150" stroke="rgba(250,61,29,0.50)" stroke-width="1.5"/>
+        <rect x="175" y="90" width="110" height="64" rx="8" fill="rgba(250,61,29,0.05)" stroke="rgba(250,61,29,0.22)" stroke-width="1" stroke-dasharray="3 2"/>
+        <text x="230" y="118" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="9" font-family="ui-monospace,monospace">COMPETE</text>
+        <text x="230" y="132" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="9" font-family="ui-monospace,monospace">WITH US</text>
+        <line x1="179" y1="94" x2="281" y2="150" stroke="rgba(250,61,29,0.50)" stroke-width="1.5"/>
+        <line x1="281" y1="94" x2="179" y2="150" stroke="rgba(250,61,29,0.50)" stroke-width="1.5"/>
+        <rect x="310" y="90" width="110" height="64" rx="8" fill="rgba(250,61,29,0.05)" stroke="rgba(250,61,29,0.22)" stroke-width="1" stroke-dasharray="3 2"/>
+        <text x="365" y="118" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="9" font-family="ui-monospace,monospace">REMOVE</text>
+        <text x="365" y="132" text-anchor="middle" fill="rgba(255,255,255,0.28)" font-size="9" font-family="ui-monospace,monospace">NOTICES</text>
+        <line x1="314" y1="94" x2="416" y2="150" stroke="rgba(250,61,29,0.50)" stroke-width="1.5"/>
+        <line x1="416" y1="94" x2="314" y2="150" stroke="rgba(250,61,29,0.50)" stroke-width="1.5"/>
+        <text x="230" y="220" text-anchor="middle" fill="rgba(255,255,255,0.18)" font-size="10" font-family="ui-monospace,monospace" letter-spacing="0.10em">LICENSE RESTRICTIONS</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ROW 2: IP ownership -->
+  <div class="principle-row">
+    <div class="p-text">
+      <div class="p-num">03</div>
+      <h2 class="p-title">Who owns<br>what</h2>
+      <p class="p-desc">
+        All code, design, trademarks, and content are the exclusive property of Folner. <strong>Your content and data remain yours.</strong> We claim no rights to anything you create using our tools. Your IP is your IP, full stop.
+      </p>
+      <div class="p-pill blue">Your Content Stays Yours</div>
+    </div>
+    <div class="p-graphic">
+      <svg viewBox="0 0 460 300" width="460" height="300" aria-hidden="true" style="max-width:100%">
+        <defs>
+          <radialGradient id="ip1" cx="30%" cy="50%" r="40%">
+            <stop offset="0%" stop-color="rgba(198,121,196,0.15)"/>
+            <stop offset="100%" stop-color="rgba(198,121,196,0)"/>
+          </radialGradient>
+          <radialGradient id="ip2" cx="70%" cy="50%" r="40%">
+            <stop offset="0%" stop-color="rgba(3,88,247,0.15)"/>
+            <stop offset="100%" stop-color="rgba(3,88,247,0)"/>
+          </radialGradient>
+        </defs>
+        <!-- Folner side -->
+        <circle cx="150" cy="150" r="70" fill="url(#ip1)" stroke="rgba(198,121,196,0.28)" stroke-width="1.2"/>
+        <text x="150" y="142" text-anchor="middle" fill="rgba(198,121,196,0.75)" font-size="10" font-family="ui-monospace,monospace">FOLNER</text>
+        <text x="150" y="157" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="8" font-family="ui-monospace,monospace">CODE · DESIGN</text>
+        <text x="150" y="170" text-anchor="middle" fill="rgba(255,255,255,0.20)" font-size="8" font-family="ui-monospace,monospace">TRADEMARKS</text>
+        <!-- User side -->
+        <circle cx="310" cy="150" r="70" fill="url(#ip2)" stroke="rgba(3,88,247,0.35)" stroke-width="1.2"/>
+        <text x="310" y="142" text-anchor="middle" fill="rgba(3,88,247,0.85)" font-size="10" font-family="ui-monospace,monospace">YOU</text>
+        <text x="310" y="157" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="8" font-family="ui-monospace,monospace">YOUR CONTENT</text>
+        <text x="310" y="170" text-anchor="middle" fill="rgba(255,255,255,0.22)" font-size="8" font-family="ui-monospace,monospace">YOUR DATA</text>
+        <!-- Divider -->
+        <line x1="230" y1="80" x2="230" y2="220" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        <text x="230" y="255" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="10" font-family="ui-monospace,monospace" letter-spacing="0.10em">IP OWNERSHIP</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ROW 3: Updates -->
+  <div class="principle-row flip">
+    <div class="p-text">
+      <div class="p-num">04</div>
+      <h2 class="p-title">Updates and<br>changes</h2>
+      <p class="p-desc">
+        We may update applications automatically. Material changes to this EULA will be communicated with <strong>30 days notice</strong>. Continued use after the notice period constitutes acceptance of the revised terms.
+      </p>
+      <div class="p-pill amber">30 Days Notice</div>
+    </div>
+    <div class="p-graphic">
+      <svg viewBox="0 0 460 300" width="460" height="300" aria-hidden="true" style="max-width:100%">
+        <!-- Update flow diagram -->
+        <circle cx="100" cy="150" r="36" fill="rgba(255,176,5,0.08)" stroke="rgba(255,176,5,0.30)" stroke-width="1.2"/>
+        <text x="100" y="147" text-anchor="middle" fill="rgba(255,176,5,0.70)" font-size="9" font-family="ui-monospace,monospace">MATERIAL</text>
+        <text x="100" y="161" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="8" font-family="ui-monospace,monospace">CHANGE</text>
+        <!-- Arrow 1 -->
+        <line x1="136" y1="150" x2="170" y2="150" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="3 2"><animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/></line>
+        <!-- 30 day notice -->
+        <rect x="172" y="122" width="116" height="56" rx="8" fill="rgba(255,176,5,0.06)" stroke="rgba(255,176,5,0.22)" stroke-width="1"/>
+        <text x="230" y="147" text-anchor="middle" fill="rgba(255,176,5,0.75)" font-size="11" font-family="ui-monospace,monospace">30 DAYS</text>
+        <text x="230" y="162" text-anchor="middle" fill="rgba(255,255,255,0.30)" font-size="8" font-family="ui-monospace,monospace">ADVANCE NOTICE</text>
+        <!-- Arrow 2 -->
+        <line x1="288" y1="150" x2="322" y2="150" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="3 2"><animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/></line>
+        <!-- Acceptance -->
+        <circle cx="360" cy="150" r="36" fill="rgba(89,212,153,0.06)" stroke="rgba(89,212,153,0.28)" stroke-width="1.2"/>
+        <text x="360" y="147" text-anchor="middle" fill="rgba(89,212,153,0.70)" font-size="9" font-family="ui-monospace,monospace">CONTINUED</text>
+        <text x="360" y="161" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="8" font-family="ui-monospace,monospace">USE = ACCEPT</text>
+        <text x="230" y="225" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="10" font-family="ui-monospace,monospace" letter-spacing="0.10em">UPDATE PROCESS</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ROW 4: Termination -->
+  <div class="principle-row">
+    <div class="p-text">
+      <div class="p-num">05</div>
+      <h2 class="p-title">Termination<br>of license</h2>
+      <p class="p-desc">
+        This license terminates immediately if you breach any term. Upon termination, delete all copies of the software. Folner may terminate or suspend access at any time with <strong>reasonable notice</strong>, unless the breach is severe.
+      </p>
+      <div class="p-pill">Immediate on Breach</div>
+    </div>
+    <div class="p-graphic">
+      <svg viewBox="0 0 460 300" width="460" height="300" aria-hidden="true" style="max-width:100%">
+        <defs>
+          <radialGradient id="tr1" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(250,61,29,0.12)"/>
+            <stop offset="100%" stop-color="rgba(250,61,29,0)"/>
+          </radialGradient>
+        </defs>
+        <circle cx="230" cy="150" r="80" fill="url(#tr1)" stroke="rgba(250,61,29,0.18)" stroke-width="1"/>
+        <!-- Power off symbol -->
+        <path d="M230 100 L230 150" fill="none" stroke="rgba(250,61,29,0.60)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M200 118 Q175 135 175 158 Q175 193 230 193 Q285 193 285 158 Q285 135 260 118" fill="none" stroke="rgba(250,61,29,0.45)" stroke-width="2" stroke-linecap="round"/>
+        <!-- Pulse -->
+        <circle cx="230" cy="150" r="80" fill="none" stroke="rgba(250,61,29,0.10)" stroke-width="0.8">
+          <animate attributeName="r" values="70;95;70" dur="3s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <text x="230" y="248" text-anchor="middle" fill="rgba(255,255,255,0.18)" font-size="10" font-family="ui-monospace,monospace" letter-spacing="0.12em">LICENSE TERMINATION</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ROW 5: Liability -->
+  <div class="principle-row flip">
+    <div class="p-text">
+      <div class="p-num">06</div>
+      <h2 class="p-title">Limitation<br>of liability</h2>
+      <p class="p-desc">
+        To the maximum extent permitted by Indian law, Folner is not liable for indirect, incidental, or consequential damages. <strong>Total liability is limited to amounts paid in the prior 12 months.</strong> This does not affect statutory rights.
+      </p>
+      <div class="p-pill">Indian Law Governed</div>
+    </div>
+    <div class="p-graphic">
+      <svg viewBox="0 0 460 300" width="460" height="300" aria-hidden="true" style="max-width:100%">
+        <!-- Balance scale metaphor -->
+        <line x1="230" y1="80" x2="230" y2="200" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+        <line x1="130" y1="130" x2="330" y2="130" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+        <!-- Left pan (limited) -->
+        <path d="M90 130 Q130 145 170 130" fill="none" stroke="rgba(198,121,196,0.45)" stroke-width="1.5"/>
+        <text x="130" y="172" text-anchor="middle" fill="rgba(198,121,196,0.60)" font-size="9" font-family="ui-monospace,monospace">LIMITED</text>
+        <text x="130" y="185" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="8" font-family="ui-monospace,monospace">TO 12 MONTHS</text>
+        <!-- Right pan (no indirect) -->
+        <path d="M290 130 Q330 145 370 130" fill="none" stroke="rgba(255,176,5,0.45)" stroke-width="1.5"/>
+        <text x="330" y="172" text-anchor="middle" fill="rgba(255,176,5,0.60)" font-size="9" font-family="ui-monospace,monospace">NO INDIRECT</text>
+        <text x="330" y="185" text-anchor="middle" fill="rgba(255,255,255,0.25)" font-size="8" font-family="ui-monospace,monospace">DAMAGES</text>
+        <!-- Fulcrum -->
+        <polygon points="230,200 220,218 240,218" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <text x="230" y="255" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="10" font-family="ui-monospace,monospace" letter-spacing="0.10em">INDIAN LAW</text>
+      </svg>
+    </div>
+  </div>
+
+</section>
+
+<!-- RIGHTS GRID -->
+<section class="rights-section" aria-label="License summary">
+  <div class="rights-bg" aria-hidden="true"></div>
+  <div class="rights-inner">
+    <div class="rights-head reveal">
+      <p class="rights-tag">07: License Summary</p>
+      <h2 class="rights-title">Clear terms,<br><em>fair license</em></h2>
+    </div>
+    <div class="rights-grid">
+      <div class="right-item" style="transition-delay:0ms">
+        <div class="right-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="12" height="12" rx="2"/><path d="M7 9h4M9 7v4"/></svg>
+        </div>
+        <div class="right-name">Personal Use</div>
+        <div class="right-desc">Licensed for personal and internal business use. Non-transferable and non-exclusive.</div>
+      </div>
+      <div class="right-item" style="transition-delay:80ms">
+        <div class="right-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="7"/><path d="M4 9l4 4 6-7"/></svg>
+        </div>
+        <div class="right-name">Your Content</div>
+        <div class="right-desc">Everything you create with our tools remains your intellectual property. We claim nothing.</div>
+      </div>
+      <div class="right-item" style="transition-delay:160ms">
+        <div class="right-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="7"/><path d="M9 6v3M9 12h.01"/></svg>
+        </div>
+        <div class="right-name">No Warranty</div>
+        <div class="right-desc">Software is provided as-is. We work hard to keep it reliable but cannot guarantee perfection.</div>
+      </div>
+      <div class="right-item" style="transition-delay:240ms">
+        <div class="right-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2L2 7v9h5v-5h4v5h5V7z"/></svg>
+        </div>
+        <div class="right-name">Mumbai Courts</div>
+        <div class="right-desc">Disputes governed by Indian law. Courts of Mumbai, Maharashtra have exclusive jurisdiction.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal" aria-label="Licensing questions">
+  <h2 class="cta-title">Questions about<br>licensing?</h2>
+  <p class="cta-sub">Our legal team responds to all inquiries within 5 business days.</p>
+  <a href="mailto:legal@folner.com" class="cta-link">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="10" rx="2"/><path d="M2 5l6 4 6-4"/></svg>
+    legal@folner.com
+  </a>
+</section>
+
+<div class="prism" aria-hidden="true"></div>
+</main>
+
+<script>
+(function(){
+  'use strict';
+  var header=document.getElementById('siteHeader'),burger=document.getElementById('burgerBtn'),menuOv=document.getElementById('menuOverlay'),announce=document.getElementById('announceBar'),announceClose=document.getElementById('announceClose');
+  if(header){function onScroll(){var heroEl=document.querySelector('.hero'),threshold=heroEl?heroEl.offsetHeight*0.85:window.innerHeight*0.85,pastHero=window.scrollY>threshold;header.classList.toggle('header--hidden',pastHero);if(announce&&!announce.classList.contains('hidden')){announce.classList.toggle('announce--hero-only',pastHero);}}window.addEventListener('scroll',onScroll,{passive:true});onScroll();}
+  if(burger&&menuOv){burger.addEventListener('click',function(){var open=menuOv.classList.toggle('open');burger.setAttribute('aria-expanded',open?'true':'false');menuOv.setAttribute('aria-hidden',open?'false':'true');document.body.style.overflow=open?'hidden':'';});menuOv.querySelectorAll('.menu-link').forEach(function(l){l.addEventListener('click',function(){menuOv.classList.remove('open');burger.setAttribute('aria-expanded','false');menuOv.setAttribute('aria-hidden','true');document.body.style.overflow='';});});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menuOv.classList.contains('open')){menuOv.classList.remove('open');burger.setAttribute('aria-expanded','false');menuOv.setAttribute('aria-hidden','true');document.body.style.overflow='';}});}
+  if(announceClose&&announce){announceClose.addEventListener('click',function(){announce.classList.add('hidden');announce.style.display='none';});}
+})();
+(function(){
+  const canvas=document.getElementById('nc'),ctx=canvas.getContext('2d');let W,H,nodes,raf;
+  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;const count=Math.floor((W*H)/9000);nodes=Array.from({length:Math.min(count,90)},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,r:Math.random()*2.2+0.8,p:Math.random()*Math.PI*2,ps:Math.random()*0.015+0.008}));}
+  function draw(t){ctx.clearRect(0,0,W,H);const grd=ctx.createRadialGradient(W/2,H*0.45,0,W/2,H*0.45,W*0.55);grd.addColorStop(0,'rgba(198,121,196,0.10)');grd.addColorStop(0.4,'rgba(123,51,125,0.06)');grd.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=grd;ctx.fillRect(0,0,W,H);nodes.forEach(n=>{n.x+=n.vx;n.y+=n.vy;n.p+=n.ps;if(n.x<0||n.x>W)n.vx*=-1;if(n.y<0||n.y>H)n.vy*=-1;});for(let i=0;i<nodes.length;i++){for(let j=i+1;j<nodes.length;j++){const ex=nodes[i].x-nodes[j].x,ey=nodes[i].y-nodes[j].y,dist=Math.sqrt(ex*ex+ey*ey),maxD=160;if(dist<maxD){const strength=1-dist/maxD,cP=0.5+0.25*(Math.sin(nodes[i].p)+Math.sin(nodes[j].p)),eA=strength*cP*0.38,eg=ctx.createLinearGradient(nodes[i].x,nodes[i].y,nodes[j].x,nodes[j].y);eg.addColorStop(0,`rgba(198,121,196,${eA.toFixed(3)})`);eg.addColorStop(0.5,`rgba(255,180,255,${(eA*1.3).toFixed(3)})`);eg.addColorStop(1,`rgba(198,121,196,${eA.toFixed(3)})`);ctx.lineWidth=0.5+strength*0.8;ctx.strokeStyle=eg;ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();}}}
+  nodes.forEach(n=>{const pulse=0.5+0.5*Math.sin(n.p),alpha=0.35+0.45*pulse,radius=n.r*(1+0.3*pulse),halo=ctx.createRadialGradient(n.x,n.y,0,n.x,n.y,radius*5);halo.addColorStop(0,`rgba(198,121,196,${(alpha*0.30).toFixed(3)})`);halo.addColorStop(1,'rgba(198,121,196,0)');ctx.beginPath();ctx.arc(n.x,n.y,radius*5,0,Math.PI*2);ctx.fillStyle=halo;ctx.fill();ctx.beginPath();ctx.arc(n.x,n.y,radius,0,Math.PI*2);ctx.fillStyle=`rgba(220,160,220,${alpha.toFixed(3)})`;ctx.fill();});
+  const orbs=[{x:W*0.20,y:H*0.30,c:'198,121,196',s:200},{x:W*0.80,y:H*0.60,c:'123,51,125',s:260},{x:W*0.50,y:H*0.75,c:'198,121,196',s:180}];orbs.forEach((o,i)=>{const ox=o.x+Math.sin(t/5000+i*1.8)*70,oy=o.y+Math.cos(t/6500+i*1.4)*50,breathe=0.14+0.08*Math.sin(t/3000+i),og=ctx.createRadialGradient(ox,oy,0,ox,oy,o.s);og.addColorStop(0,`rgba(${o.c},${breathe.toFixed(3)})`);og.addColorStop(0.5,`rgba(${o.c},${(breathe*0.4).toFixed(3)})`);og.addColorStop(1,'rgba(0,0,0,0)');ctx.beginPath();ctx.arc(ox,oy,o.s,0,Math.PI*2);ctx.fillStyle=og;ctx.fill();});
+  raf=requestAnimationFrame(draw);}
+  window.addEventListener('resize',resize);resize();raf=requestAnimationFrame(draw);
+})();
+(function(){const canvas=document.getElementById('flowCanvas');if(!canvas)return;const ctx=canvas.getContext('2d');let W,H,t=0;function resize(){const rect=canvas.parentElement.getBoundingClientRect();W=canvas.width=rect.width||460;H=canvas.height=rect.height||380;}const particles=Array.from({length:22},()=>({x:Math.random()*-200,y:60+Math.random()*260,speed:0.8+Math.random()*1.2,alpha:0.4+Math.random()*0.5,r:2+Math.random()*2}));function draw(){ctx.clearRect(0,0,W,H);t++;ctx.strokeStyle='rgba(198,121,196,0.04)';ctx.lineWidth=0.8;const step=40;for(let x=0;x<W;x+=step){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}for(let y=0;y<H;y+=step){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}particles.forEach(p=>{p.x+=p.speed;if(p.x>W+20)p.x=-20;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);const fade=Math.min(1,Math.min(p.x/40,(W-p.x)/40));ctx.fillStyle=`rgba(198,121,196,${(p.alpha*fade).toFixed(3)})`;ctx.fill();});requestAnimationFrame(draw);}window.addEventListener('resize',resize);resize();draw();})();
+(function(){const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.12,rootMargin:'0px 0px -60px 0px'});document.querySelectorAll('.stat-item,.principle-row,.right-item,.reveal').forEach(el=>obs.observe(el));})();
+(function(){var dot=document.getElementById('cDot'),ring=document.getElementById('cRing');if(!dot||!ring)return;var cx=window.innerWidth/2,cy=window.innerHeight/2,rx=cx,ry=cy;window.addEventListener('mousemove',function(e){cx=e.clientX;cy=e.clientY;dot.style.transform='translate('+(cx-3)+'px,'+(cy-3)+'px)';ring.style.opacity='1';dot.style.opacity='1';},{passive:true});(function ringLoop(){rx+=(cx-rx)*0.18;ry+=(cy-ry)*0.18;var hw=document.body.classList.contains('c-hover')?26:17;ring.style.transform='translate('+(rx-hw)+'px,'+(ry-hw)+'px)';requestAnimationFrame(ringLoop);})();document.addEventListener('mouseleave',function(e){if(!e.relatedTarget&&!e.toElement){ring.style.opacity='0';dot.style.opacity='0';}});document.addEventListener('mouseenter',function(){ring.style.opacity='1';dot.style.opacity='1';});document.querySelectorAll('a,button,input,textarea,select,label,[role="button"]').forEach(function(el){el.addEventListener('mouseenter',function(){document.body.classList.add('c-hover');});el.addEventListener('mouseleave',function(){document.body.classList.remove('c-hover');});});document.body.addEventListener('animationend',function(e){if(e.animationName==='pgIn'){document.body.classList.remove('pg-enter');}},{once:true});})();
+</script>
+<script src="assets/js/components.js" defer></script>
+</body>
+</html>
