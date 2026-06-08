@@ -1464,6 +1464,8 @@ document.getElementById('sbShare').addEventListener('click',()=>{
 });
 
 /* ── cursor ── */
+// Remove pg-enter from body after animation so position:fixed works correctly
+document.body.addEventListener('animationend',function(e){if(e.animationName==='pgIn'||e.animationName==='titleIn'){document.body.classList.remove('pg-enter');}},{once:true});
 const cDot=document.getElementById('cursorDot');
 const cRing=document.getElementById('cursorRing');
 let cx=0,cy=0,rx=0,ry=0;

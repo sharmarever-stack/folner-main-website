@@ -569,6 +569,10 @@ body.announce-visible .site-header{top:40px;}
 var dot=document.getElementById('cDot'),ring=document.getElementById('cRing');
 var cx=window.innerWidth/2,cy=window.innerHeight/2,rx=cx,ry=cy;
 var dw=3,rw=17; // half-widths for centering
+// Remove pg-enter from body after animation so position:fixed works correctly
+document.body.addEventListener('animationend',function(e){
+  if(e.animationName==='pgIn'){document.body.classList.remove('pg-enter');}
+},{once:true});
 window.addEventListener('mousemove',function(e){cx=e.clientX;cy=e.clientY;dot.style.transform='translate('+(cx-dw)+'px,'+(cy-dw)+'px)';},{ passive:true });
 (function ringLoop(){rx+=(cx-rx)*0.18;ry+=(cy-ry)*0.18;var hw=document.body.classList.contains('c-hover')?26:17;ring.style.transform='translate('+(rx-hw)+'px,'+(ry-hw)+'px)';requestAnimationFrame(ringLoop);})();
 window.addEventListener('mousemove',function(){ring.style.opacity='1';dot.style.opacity='1';},{passive:true});

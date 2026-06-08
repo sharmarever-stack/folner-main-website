@@ -1057,6 +1057,10 @@ body.c-hover #cRing{width:52px;height:52px;opacity:.90;}
 /* ── Custom cursor ── */
 (function(){
   var dot=document.getElementById('cDot'),ring=document.getElementById('cRing');
+  // Remove pg-enter from body after animation so position:fixed works correctly
+  document.body.addEventListener('animationend',function(e){
+    if(e.animationName==='pgIn'){document.body.classList.remove('pg-enter');}
+  },{once:true});
   if(!dot||!ring)return;
   var cx=window.innerWidth/2,cy=window.innerHeight/2,rx=cx,ry=cy;
   var dw=3,rw=17;
