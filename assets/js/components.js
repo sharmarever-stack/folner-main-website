@@ -475,38 +475,13 @@ body.announce-visible .folner-site-header {
 
   /* ─────────────────────────────────────────────────────────────────
      INJECT HTML
+     Note: Header and announce bar are in the HTML directly on all pages.
+     components.js only injects the FOOTER (if missing) and wires interactions.
   ───────────────────────────────────────────────────────────────── */
   function injectComponents() {
     var body = document.body;
 
-    // ── Announce Bar ──
-    // Only inject if not already present on the page
-    if (!document.getElementById('announceBar')) {
-      var announceWrapper = document.createElement('div');
-      announceWrapper.innerHTML = ANNOUNCE_BAR_HTML.trim();
-      body.insertBefore(announceWrapper.firstElementChild, body.firstChild);
-    }
-
-    // ── Header + Menu Overlay ──
-    // Only inject if not already present
-    if (!document.getElementById('siteHeader')) {
-      var headerWrapper = document.createElement('div');
-      headerWrapper.innerHTML = HEADER_HTML.trim();
-      var announceEl = document.getElementById('announceBar');
-      var refNode = announceEl ? announceEl.nextSibling : body.firstChild;
-      while (headerWrapper.firstChild) {
-        body.insertBefore(headerWrapper.firstChild, refNode);
-      }
-    }
-
-    // ── Footer ──
-    // Only inject footer if not already present
-    var oldMenu = document.getElementById('menuOverlay');
-    if (oldMenu && !document.getElementById('siteHeader')) oldMenu.remove();
-    var oldAnnounce = document.getElementById('announceBar');
-    if (oldAnnounce && !document.getElementById('siteHeader')) oldAnnounce.remove();
-
-    // Inject footer at end of body only if not already present
+    // ── Footer only — inject if not already present ──
     if (!document.getElementById('siteFooter')) {
       var footerWrapper = document.createElement('div');
       footerWrapper.innerHTML = FOOTER_HTML.trim();
