@@ -332,7 +332,40 @@ body.announce-visible .site-header{top:40px;}
 <canvas id="bgN" aria-hidden="true"></canvas>
 
   <!-- Header -->
-<main id="main-content">
+  <!-- ─── Announcement Bar ─────────────────────────────────────────────── -->
+  <div class="announce-bar" id="announceBar" role="complementary" aria-label="Announcement">
+    <span class="announce-dot" aria-hidden="true"></span>
+    <span class="announce-text">Folner is now hiring — we are building something remarkable — <a href="folner-careers-2.html" class="announce-link">See open roles →</a></span>
+    <button class="announce-close" id="announceClose" aria-label="Dismiss announcement">✕</button>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <a class="header-icon" href="index.html" aria-label="Folner home">
+      <img src="assets/images/Folner_Icon_Dark_Logo-final.png" alt="Folner icon" fetchpriority="high" decoding="async">
+    </a>
+    <a class="header-wordmark" href="index.html" aria-label="Folner">
+      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" fetchpriority="high" decoding="async">
+    </a>
+    <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Burger Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <nav class="menu-nav" aria-label="Site navigation">
+      <a href="index.html" class="menu-link">Home</a>
+      <a href="folner-about-us.html" class="menu-link">About</a>
+      <a href="platforms-protocols.html" class="menu-link">Platforms</a>
+      <a href="folner-careers-2.html" class="menu-link">Careers</a>
+      <a href="folner-contact.html" class="menu-link">Contact</a>
+    </nav>
+  </div>
+
+  <main id="main-content">
 
 <!-- HERO -->
 <section class="hero">
@@ -538,8 +571,8 @@ var cx=window.innerWidth/2,cy=window.innerHeight/2,rx=cx,ry=cy;
 var dw=3,rw=17; // half-widths for centering
 window.addEventListener('mousemove',function(e){cx=e.clientX;cy=e.clientY;dot.style.transform='translate('+(cx-dw)+'px,'+(cy-dw)+'px)';},{ passive:true });
 (function ringLoop(){rx+=(cx-rx)*0.18;ry+=(cy-ry)*0.18;var hw=document.body.classList.contains('c-hover')?26:17;ring.style.transform='translate('+(rx-hw)+'px,'+(ry-hw)+'px)';requestAnimationFrame(ringLoop);})();
-window.addEventListener('mousemove',function(){if(ring.style.opacity!=='1'){ring.style.opacity='1';}if(dot.style.opacity!=='1'){dot.style.opacity='1';}},{passive:true});
-document.addEventListener('mouseleave',function(){ring.style.opacity='0';dot.style.opacity='0';});
+window.addEventListener('mousemove',function(){ring.style.opacity='1';dot.style.opacity='1';},{passive:true});
+document.addEventListener('mouseleave',function(e){if(!e.relatedTarget&&!e.toElement){ring.style.opacity='0';dot.style.opacity='0';}});
 document.addEventListener('mouseenter',function(){ring.style.opacity='1';dot.style.opacity='1';});
 document.querySelectorAll('a,button,input,textarea,select,label,[role="button"]').forEach(function(el){
   el.addEventListener('mouseenter',function(){document.body.classList.add('c-hover');});
@@ -568,7 +601,7 @@ if(header){
 }
 if(announceClose&&announce){
   announceClose.addEventListener('click',function(){
-    announce.classList.add('hidden');announce.style.display='none';
+    announce.classList.add('hidden');
   });
 }
 

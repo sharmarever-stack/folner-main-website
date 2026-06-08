@@ -2419,7 +2419,7 @@ function frame(now) {
     var body    = document.getElementById('ie2Body');
     if (!tracker || !spine || !body) return;
 
-    var targetY = 0, currentY = 0, velocity = 0;
+    var targetY = 0, currentY = 0;
 
     function getTarget() {
       var bodyRect = body.getBoundingClientRect();
@@ -2431,10 +2431,8 @@ function frame(now) {
     }
 
     function animate() {
-      var diff = targetY - currentY;
-      velocity += (diff - velocity) * 0.08;
-      currentY += velocity * 0.28;
-      if (Math.abs(diff) < 0.5) currentY = targetY;
+      currentY += (targetY - currentY) * 0.10;
+      if (Math.abs(targetY - currentY) < 0.1) currentY = targetY;
       tracker.style.transform = 'translate(-50%, ' + currentY + 'px)';
       requestAnimationFrame(animate);
     }
