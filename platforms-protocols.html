@@ -199,7 +199,7 @@ body.announce-visible .site-header{top:40px;}
 /* ─────────────────────────────────────────────
    SITE HEADER
 ───────────────────────────────────────────── */
-.site-header{position:fixed;top:0;left:0;right:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 28px;transition:top 300ms cubic-bezier(0.22,1,0.36,1),opacity 400ms ease,transform 400ms cubic-bezier(0.22,1,0.36,1);will-change:transform,opacity;}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:20;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:20px 28px;background:transparent;transition:top 300ms cubic-bezier(0.22,1,0.36,1),background 400ms ease,opacity 400ms ease,transform 400ms cubic-bezier(0.22,1,0.36,1);will-change:transform,opacity;}
 .site-header.scrolled{background:rgba(0,0,0,0.88);backdrop-filter:blur(24px) saturate(1.6);-webkit-backdrop-filter:blur(24px) saturate(1.6);}
 .site-header.header--hidden{opacity:0;transform:translateY(-8px);pointer-events:none;}
 .header-icon{justify-self:start;text-decoration:none;display:inline-flex;}
@@ -1716,7 +1716,7 @@ section { position: relative; z-index: 2; }
   // Header scrolled state
   if (header) {
     window.addEventListener('scroll', function(){
-      header.classList.toggle('scrolled', window.scrollY > 20);
+      header.classList.toggle('scrolled', window.scrollY > 80);
       var pastHero = window.scrollY > window.innerHeight * 0.85;
       if(announce && !announce.classList.contains('hidden')){
         announce.classList.toggle('announce--hero-only', pastHero);
