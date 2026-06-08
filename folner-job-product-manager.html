@@ -1473,7 +1473,7 @@ success.forEach((s,i)=>{
 const drOv=document.getElementById('drOv');
 const openDrawer=()=>{drOv.classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>document.getElementById('fName').focus(),200);};
 const closeDrawer=()=>{drOv.classList.remove('open');document.body.style.overflow='';};
-document.getElementById('hdrApply').addEventListener('click',openDrawer);
+document.getElementById('hdrApply')?.addEventListener('click',openDrawer);
 document.getElementById('sbApply').addEventListener('click',openDrawer);
 document.getElementById('sabBtn').addEventListener('click',openDrawer);
 document.getElementById('drClose').addEventListener('click',closeDrawer);
@@ -1510,7 +1510,7 @@ document.addEventListener('mousemove',e=>{
   cDot.style.opacity='1';
   cRing.style.opacity='1';
   heroNeural.attract(cx,cy,window.innerWidth,window.innerHeight,0.012);
-  bgNeural.attract(cx,cy,window.innerWidth,window.innerHeight,0.005);
+  if(typeof bgNeural!=='undefined')bgNeural.attract(cx,cy,window.innerWidth,window.innerHeight,0.005);
 });
 (function ringLoop(){
   rx+=(cx-rx)*0.18; ry+=(cy-ry)*0.18;
@@ -1620,7 +1620,7 @@ if(sbProg&&sbNodes){
 /* ── scroll reveal ── */
 const rvIO=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
-},{threshold:.08});
+},{threshold:.08, rootMargin:'0px 0px 200px 0px'});
 document.querySelectorAll('.rv').forEach(el=>rvIO.observe(el));
 
 })();
