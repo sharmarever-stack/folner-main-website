@@ -76,7 +76,7 @@ body{cursor:none;}
   left:0;top:0;
   transition:width 220ms cubic-bezier(0.34,1.56,0.64,1),height 220ms cubic-bezier(0.34,1.56,0.64,1),opacity 180ms ease;
   opacity:0;
-  border:1.5px solid var(--dept);
+  border:1.5px solid rgba(255,255,255,0.85);
 }
 body.c-hover #cursorRing{width:54px;height:54px;}
 
@@ -801,6 +801,7 @@ body.pg-exit{opacity:0;transform:translateY(-8px);transition:opacity 280ms ease,
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#fff;color:#000;padding:8px 16px;z-index:10000;font-size:14px;transition:top 200ms;">Skip to content</a>
+
 
 <div id="sp"></div>
 <div id="cursorDot" aria-hidden="true"></div>
