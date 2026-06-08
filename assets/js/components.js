@@ -822,6 +822,9 @@ body.announce-visible .folner-site-header {
     // Remove old inline footer styles if present (they used .site-footer not .folner-site-footer)
     var oldFooter = document.querySelector('.site-footer:not(.folner-site-footer)');
     if (oldFooter) { oldFooter.remove(); }
+    // Also remove any footer with id="siteFooter" that is NOT the component footer
+    var oldById = document.getElementById('siteFooter');
+    if (oldById && !oldById.classList.contains('folner-site-footer')) { oldById.remove(); }
 
     // Inject footer if not already present
     if (!document.getElementById('siteFooter')) {
