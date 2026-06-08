@@ -474,10 +474,21 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
 .footer-copy{font-size:13px;color:rgba(255,255,255,0.50);}
 @media(max-width:768px){.footer-inner{padding:56px 32px 40px;}.footer-bottom{flex-direction:column;align-items:flex-start;gap:16px;}}
 
+
+/* ── Custom cursor: white ring + prism dot ── */
+body{cursor:none;}
+a,button,input,textarea,select,label,[role="button"]{cursor:none;}
+#cDot{position:fixed;z-index:9999;pointer-events:none;width:6px;height:6px;border-radius:50%;background:conic-gradient(#C679C4,#56C2FF,#59D499,#FFB005,#C679C4);animation:cDotSpin 4s linear infinite;top:0;left:0;transition:opacity 120ms;will-change:transform;}
+@keyframes cDotSpin{to{filter:hue-rotate(360deg);}}
+#cRing{position:fixed;pointer-events:none;z-index:9998;width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.85);top:0;left:0;transition:width 220ms cubic-bezier(0.34,1.56,0.64,1),height 220ms cubic-bezier(0.34,1.56,0.64,1),opacity 180ms ease;opacity:0;will-change:transform;}
+body.c-hover #cRing{width:52px;height:52px;opacity:.90;}
 </style>
 </head>
 <body>
 <a href="#main-content" class="skip-link" style="position:absolute;top:-40px;left:0;background:#fff;color:#000;padding:8px 16px;z-index:10000;font-size:14px;transition:top 200ms;">Skip to content</a>
+<div id="cDot" aria-hidden="true"></div>
+<div id="cRing" aria-hidden="true"></div>
+
 
   <!-- Header -->
   <!-- ─── Announcement Bar ─────────────────────────────────────────────── -->
@@ -1196,5 +1207,33 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
 </script>
 
 <script src="assets/js/components.js" defer></script>
+<script>
+/* ── Custom cursor ── */
+(function(){
+  var dot=document.getElementById('cDot'),ring=document.getElementById('cRing');
+  if(!dot||!ring)return;
+  var cx=window.innerWidth/2,cy=window.innerHeight/2,rx=cx,ry=cy;
+  var dw=3,rw=17;
+  window.addEventListener('mousemove',function(e){
+    cx=e.clientX;cy=e.clientY;
+    dot.style.transform='translate('+(cx-dw)+'px,'+(cy-dw)+'px)';
+    ring.style.opacity='1';dot.style.opacity='1';
+  },{passive:true});
+  (function ringLoop(){
+    rx+=(cx-rx)*0.18;ry+=(cy-ry)*0.18;
+    var hw=document.body.classList.contains('c-hover')?26:17;
+    ring.style.transform='translate('+(rx-hw)+'px,'+(ry-hw)+'px)';
+    requestAnimationFrame(ringLoop);
+  })();
+  document.addEventListener('mouseleave',function(e){
+    if(!e.relatedTarget&&!e.toElement){ring.style.opacity='0';dot.style.opacity='0';}
+  });
+  document.addEventListener('mouseenter',function(){ring.style.opacity='1';dot.style.opacity='1';});
+  document.querySelectorAll('a,button,input,textarea,select,label,[role="button"]').forEach(function(el){
+    el.addEventListener('mouseenter',function(){document.body.classList.add('c-hover');});
+    el.addEventListener('mouseleave',function(){document.body.classList.remove('c-hover');});
+  });
+})();
+</script>
 </body>
 </html>
