@@ -260,9 +260,9 @@ body { background: #000; color: #fff; font-family: var(--font); overflow-x: hidd
 /* ── Custom cursor: white ring + prism dot ── */
 body{cursor:none;}
 a,button,input,textarea,select,label,[role="button"]{cursor:none;}
-#cDot{position:fixed;z-index:9999;pointer-events:none;width:6px;height:6px;border-radius:50%;background:conic-gradient(#C679C4,#56C2FF,#59D499,#FFB005,#C679C4);animation:cDotSpin 4s linear infinite;top:0;left:0;transition:opacity 120ms;will-change:transform;}
+#cDot{position:fixed;z-index:99999;pointer-events:none;width:6px;height:6px;border-radius:50%;background:conic-gradient(#C679C4,#56C2FF,#59D499,#FFB005,#C679C4);animation:cDotSpin 4s linear infinite;top:0;left:0;transition:opacity 120ms;will-change:transform;}
 @keyframes cDotSpin{to{filter:hue-rotate(360deg);}}
-#cRing{position:fixed;pointer-events:none;z-index:9998;width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.85);top:0;left:0;transition:width 220ms cubic-bezier(0.34,1.56,0.64,1),height 220ms cubic-bezier(0.34,1.56,0.64,1),opacity 180ms ease;opacity:0;will-change:transform;}
+#cRing{position:fixed;pointer-events:none;z-index:99998;width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.85);top:0;left:0;transition:width 220ms cubic-bezier(0.34,1.56,0.64,1),height 220ms cubic-bezier(0.34,1.56,0.64,1),opacity 180ms ease;opacity:0;will-change:transform;}
 body.c-hover #cRing{width:52px;height:52px;opacity:.90;}
 </style>
 <style>
