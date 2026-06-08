@@ -850,7 +850,7 @@ body.pg-exit{opacity:0;transform:translateY(-8px);transition:opacity 280ms ease,
     const lineObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) ctLine && ctLine.classList.add('drawn'); }); }, {threshold: 0.1});
     if (ctLine) lineObs.observe(ctLine);
     let rafPending = false;
-    let dotTarget = 0, dotCurrent = 0, dotVel = 0;
+    let dotTarget = 0, dotCurrent = 0;
     function updateCulture() {
       const mid = window.innerHeight / 2;
       let best = Infinity, bestI = 0;
@@ -871,10 +871,8 @@ body.pg-exit{opacity:0;transform:translateY(-8px);transition:opacity 280ms ease,
     }
     // Smooth dot animation loop
     function animateDot() {
-      var diff = dotTarget - dotCurrent;
-      dotVel += (diff - dotVel) * 0.06;
-      dotCurrent += dotVel * 0.32;
-      if (Math.abs(diff) < 0.3) dotCurrent = dotTarget;
+      dotCurrent += (dotTarget - dotCurrent) * 0.10;
+      if (Math.abs(dotTarget - dotCurrent) < 0.1) dotCurrent = dotTarget;
       if (ctDot) ctDot.style.transform = 'translate(-50%, ' + dotCurrent + 'px)';
       requestAnimationFrame(animateDot);
     }
