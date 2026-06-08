@@ -817,6 +817,38 @@ body.pg-exit{opacity:0;transform:translateY(-8px);transition:opacity 280ms ease,
 </div>
 
 <canvas id="bgN" aria-hidden="true"></canvas>
+    <!-- ─── Announcement Bar ─────────────────────────────────────────────── -->
+  <div class="announce-bar" id="announceBar" role="complementary" aria-label="Announcement">
+    <span class="announce-dot" aria-hidden="true"></span>
+    <span class="announce-text">Folner is now hiring — we are building something remarkable — <a href="folner-careers-2.html" class="announce-link">See open roles →</a></span>
+    <button class="announce-close" id="announceClose" aria-label="Dismiss announcement">✕</button>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <a class="header-icon" href="index.html" aria-label="Folner home">
+      <img src="assets/images/Folner_Icon_Dark_Logo-final.png" alt="Folner icon" fetchpriority="high" decoding="async">
+    </a>
+    <a class="header-wordmark" href="index.html" aria-label="Folner">
+      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" fetchpriority="high" decoding="async">
+    </a>
+    <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Burger Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <nav class="menu-nav" aria-label="Site navigation">
+      <a href="index.html" class="menu-link">Home</a>
+      <a href="folner-about-us.html" class="menu-link">About</a>
+      <a href="platforms-protocols.html" class="menu-link">Platforms</a>
+      <a href="folner-careers-2.html" class="menu-link">Careers</a>
+      <a href="folner-contact.html" class="menu-link">Contact</a>
+    </nav>
+  </div>
 <section class="hero">
   <canvas id="hN" aria-hidden="true"></canvas>
   <canvas id="heroConstellation" aria-hidden="true"></canvas>
@@ -884,39 +916,6 @@ body.pg-exit{opacity:0;transform:translateY(-8px);transition:opacity 280ms ease,
       <div id="sbOtherRoles"></div>
     </div>
   </aside>
-
-    <!-- ─── Announcement Bar ─────────────────────────────────────────────── -->
-  <div class="announce-bar" id="announceBar" role="complementary" aria-label="Announcement">
-    <span class="announce-dot" aria-hidden="true"></span>
-    <span class="announce-text">Folner is now hiring — we are building something remarkable — <a href="folner-careers-2.html" class="announce-link">See open roles →</a></span>
-    <button class="announce-close" id="announceClose" aria-label="Dismiss announcement">✕</button>
-  </div>
-
-  <!-- Header -->
-  <header class="site-header" id="siteHeader">
-    <a class="header-icon" href="index.html" aria-label="Folner home">
-      <img src="assets/images/Folner_Icon_Dark_Logo-final.png" alt="Folner icon" fetchpriority="high" decoding="async">
-    </a>
-    <a class="header-wordmark" href="index.html" aria-label="Folner">
-      <img src="assets/images/Folner_Wordmark_Dark_Logo-final.png" alt="Folner" fetchpriority="high" decoding="async">
-    </a>
-    <button class="burger-btn" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </header>
-
-  <!-- Burger Menu Overlay -->
-  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
-    <nav class="menu-nav" aria-label="Site navigation">
-      <a href="index.html" class="menu-link">Home</a>
-      <a href="folner-about-us.html" class="menu-link">About</a>
-      <a href="platforms-protocols.html" class="menu-link">Platforms</a>
-      <a href="folner-careers-2.html" class="menu-link">Careers</a>
-      <a href="folner-contact.html" class="menu-link">Contact</a>
-    </nav>
-  </div>
 
   <main id="main-content" class="content" aria-label="Role detail">
 
