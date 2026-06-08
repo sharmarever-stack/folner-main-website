@@ -64,8 +64,8 @@ a,button,input,textarea,select,label,[role="button"]{cursor:none;}
 /* Cursor */
 #cDot{position:fixed;z-index:9999;pointer-events:none;width:6px;height:6px;border-radius:50%;background:conic-gradient(#C679C4,#56C2FF,#59D499,#FFB005,#C679C4);animation:dotSpin 4s linear infinite;top:0;left:0;transform:translate(0,0);transition:opacity 120ms;will-change:transform;}
 @keyframes dotSpin{to{filter:hue-rotate(360deg);}}
-#cRing{position:fixed;pointer-events:none;z-index:9998;width:34px;height:34px;border-radius:50%;border:1.5px solid #C679C4;top:0;left:0;transform:translate(0,0);transition:width 220ms var(--spring),height 220ms var(--spring),opacity 180ms ease;opacity:0;will-change:transform;}
-body.c-hover #cRing{width:52px;height:52px;opacity:.85;}
+#cRing{position:fixed;pointer-events:none;z-index:9998;width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.85);top:0;left:0;transform:translate(0,0);transition:width 220ms var(--spring),height 220ms var(--spring),opacity 180ms ease;opacity:0;will-change:transform;}
+body.c-hover #cRing{width:52px;height:52px;opacity:.90;}
 
 
 /* Scroll progress */
@@ -572,8 +572,22 @@ var dw=3,rw=17; // half-widths for centering
 window.addEventListener('mousemove',function(e){cx=e.clientX;cy=e.clientY;dot.style.transform='translate('+(cx-dw)+'px,'+(cy-dw)+'px)';},{ passive:true });
 (function ringLoop(){rx+=(cx-rx)*0.18;ry+=(cy-ry)*0.18;var hw=document.body.classList.contains('c-hover')?26:17;ring.style.transform='translate('+(rx-hw)+'px,'+(ry-hw)+'px)';requestAnimationFrame(ringLoop);})();
 window.addEventListener('mousemove',function(){ring.style.opacity='1';dot.style.opacity='1';},{passive:true});
-document.addEventListener('mouseleave',function(e){if(!e.relatedTarget&&!e.toElement){ring.style.opacity='0';dot.style.opacity='0';}});
+document.addEventListener('mouseleave',function(e){
+  // Only hide cursor when truly leaving the browser window, not during scroll
+  if(e.clientY<=0||e.clientX<=0||(e.clientX>=window.innerWidth)||(e.clientY>=window.innerHeight)){
+    ring.style.opacity='0';dot.style.opacity='0';
+  }
+});
 document.addEventListener('mouseenter',function(){ring.style.opacity='1';dot.style.opacity='1';});
+// Restore cursor visibility after scroll (in case mouseleave fired during trackpad scroll)
+var _scrollRestoreTimer;
+window.addEventListener('scroll',function(){
+  clearTimeout(_scrollRestoreTimer);
+  _scrollRestoreTimer=setTimeout(function(){
+    if(dot.style.opacity!=='1'){dot.style.opacity='1';}
+    if(ring.style.opacity!=='1'&&ring.style.opacity!=='0.85'&&ring.style.opacity!=='0.9'){ring.style.opacity='1';}
+  },50);
+},{passive:true});
 document.querySelectorAll('a,button,input,textarea,select,label,[role="button"]').forEach(function(el){
   el.addEventListener('mouseenter',function(){document.body.classList.add('c-hover');});
   el.addEventListener('mouseleave',function(){document.body.classList.remove('c-hover');});
