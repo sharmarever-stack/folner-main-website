@@ -1529,7 +1529,8 @@ window.addEventListener('scroll',()=>{
   if(typeof heroNeural!=='undefined')heroNeural.setSpeed(1+Math.min(scrollVel*3,2.5));
   clearTimeout(window._velReset);
   window._velReset=setTimeout(()=>{if(typeof heroNeural!=='undefined')heroNeural.setSpeed(1);},300);
-  sab.classList.toggle('on',window.scrollY>window.innerHeight*0.5);
+  var atBottom=(window.scrollY+window.innerHeight)>=(document.body.scrollHeight-200);
+  sab.classList.toggle('on',window.scrollY>window.innerHeight*0.5&&!atBottom);
   const heroH=document.querySelector('.hero')?.offsetHeight||window.innerHeight;
   if(window.scrollY>heroH){
     hdr.classList.toggle('hidden',window.scrollY>prevScrollY);

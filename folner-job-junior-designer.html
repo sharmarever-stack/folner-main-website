@@ -1561,7 +1561,8 @@ window.addEventListener('scroll',()=>{
   scrollVel=dy/dt;lastScrollY=window.scrollY;lastScrollT=now;
   clearTimeout(window._velReset);
   window._velReset=setTimeout(()=>{},300);
-  sab.classList.toggle('on',window.scrollY>window.innerHeight*0.5);
+  var atBottom=(window.scrollY+window.innerHeight)>=(document.body.scrollHeight-200);
+  sab.classList.toggle('on',window.scrollY>window.innerHeight*0.5&&!atBottom);
   const heroH=document.querySelector('.hero')?.offsetHeight||window.innerHeight;
   if(window.scrollY>heroH){
     hdr&&hdr.classList.toggle('hidden',window.scrollY>prevScrollY);
