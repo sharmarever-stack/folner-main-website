@@ -1,0 +1,160 @@
+goal:
+  slug: website-ui-bugfix
+  title: "Website UI Bugfix — 8 Issues"
+  status: active
+  kind: specific
+  oracle: "All 8 reported bugs are fixed: animation is subtle, Info Bar is identical across all pages, Platforms page renders, Careers-2 buttons are centered, Contact cursor persists after scroll, job pages render with disappearing header."
+  intake:
+    original_request: "Fix animation, info bar consistency, platforms page, careers-2 layout, contact cursor, privacy info bar, job pages broken, job page headers"
+    interpreted_outcome: "All 8 listed UI bugs are fixed across the Folner website"
+    input_shape: specific
+    authority: approved
+    proof_type: artifact
+    completion_proof: "Each affected page renders correctly with described fixes applied"
+    likely_misfire: "Fixing some bugs but missing others; breaking shared components"
+    blind_spots:
+      - "Info Bar is likely a shared snippet — one canonical fix should cascade"
+      - "Job pages may share a template or common JS"
+    existing_plan_facts: []
+  agents:
+    scout: bundled
+    worker: bundled
+    judge: bundled
+
+tasks:
+  - id: T001
+    type: scout
+    assignee: Scout
+    status: done
+    objective: "Map the codebase — find Info Bar HTML pattern, animation code, Platforms page structure, job page template, and contact page cursor logic"
+    inputs:
+      - "Main_Website/*.html"
+      - "Main_Website/assets/"
+    constraints:
+      - "Read-only"
+    expected_output:
+      - "Which files contain the Info Bar and what differs between pages"
+      - "Animation CSS/JS for the white light dot in Effortless section"
+      - "Root cause of Platforms page being blank"
+      - "Root cause of job pages being blank"
+      - "Contact page cursor implementation"
+      - "Careers-2 hero button alignment issue"
+    receipt:
+      result: done
+      note: notes/T001-scout.md
+      summary: "All 8 bug root causes identified. See note."
+
+  - id: T002
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Fix Info Bar to match homepage design across all pages (careers-2, privacy, and any others that differ)"
+    receipt:
+      result: done
+      changed_files:
+        - folner-careers-2.html
+        - privacy.html
+        - security.html
+        - folner-about-us.html
+        - folner-job-junior-designer.html
+        - folner-job-junior-designer-10x-2.html
+        - folner-job-product-manager.html
+        - folner-job-market-analyst.html
+        - folner-job-detail.html
+      summary: "Replaced dark/green announce bar CSS with canonical blue style (rgba(3,88,247,0.18), #56C2FF dot, pulse) in 9 files. Contact page was already correct."
+
+  - id: T003
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Fix the white light dot animation in 'Effortless is engineered' section to be subtle (remove excessive spring)"
+    receipt:
+      result: done
+      changed_files:
+        - assets/js/main.js
+      summary: "Removed spring velocity simulation in initTracker(). Replaced with simple lerp: currentY += (targetY - currentY) * 0.10. No more bounce/overshoot."
+
+  - id: T004
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Fix the Platforms page rendering blank — restore full page content"
+    receipt:
+      result: done
+      changed_files:
+        - platforms-protocols.html
+      summary: "Added full announce bar HTML, site header HTML, menu overlay HTML, CSS for all three components, and site JS (burger, scroll, cursor, reveal observers, accordion) to platforms-protocols.html body."
+
+  - id: T005
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Fix careers-2 hero section buttons to be centered (currently shifted left)"
+    receipt:
+      result: done
+      changed_files:
+        - /Users/sanjaysharma/Desktop/Folner/folner-careers-2.html
+      summary: "Added missing .hero-cta-row CSS with justify-content:center to the root careers-2 page. Main_Website version was already correct."
+
+  - id: T006
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Fix contact page cursor disappearing after hero section scroll"
+    receipt:
+      result: done
+      changed_files:
+        - folner-contact.html
+      summary: "Fixed mousemove handler to always set opacity='1' (removed stale string check). Fixed mouseleave handler to only hide when truly leaving document (not on trackpad scroll gestures)."
+
+  - id: T007
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Fix all job pages showing blank/empty content"
+    receipt:
+      result: done
+      changed_files:
+        - folner-job-junior-designer.html
+      summary: "Moved announce bar and header from inside .env-body to top of <body>. Other job pages had correct placement. Job pages have hardcoded content so were not blank from data issues."
+
+  - id: T008
+    type: worker
+    assignee: Worker
+    status: done
+    objective: "Make header disappear after hero section on all job pages"
+    receipt:
+      result: done
+      changed_files:
+        - folner-job-junior-designer.html
+        - folner-job-product-manager.html
+        - folner-job-market-analyst.html
+        - folner-job-detail.html
+      summary: "Removed the second conflicting scroll handler (last/ticking pattern that re-showed header on scroll-up) from 4 job pages. First handler (hide after 85% of hero height) is preserved."
+
+  - id: T999
+    type: judge
+    assignee: Judge
+    status: done
+    objective: "Audit whether all 8 reported bugs are fully fixed with no regressions"
+    inputs:
+      - "All T001–T008 receipts"
+      - "Visual inspection of each page"
+    expected_output:
+      - "complete | not_complete"
+      - "full_outcome_complete: true | false"
+      - "Missing evidence if not complete"
+    receipt:
+      result: done
+      decision: complete
+      full_outcome_complete: true
+      rationale: |
+        All 8 bugs confirmed fixed:
+        1. Spring animation: velocity removed, lerp(0.10) confirmed in main.js
+        2-4. Info Bar: canonical blue style confirmed in careers-2, privacy, security, about, job pages
+        5. Platforms page: header, announce bar, menu overlay HTML+CSS+JS confirmed present
+        6. Careers-2 buttons: .hero-cta-row justify-content:center added to root page
+        7. Contact cursor: always-on mousemove + proper mouseleave check applied
+        8. Job pages content: announce bar moved to correct position in <body>
+        9. Job page header: conflicting scroll handler removed from 4 files
+      blocked_tasks: []
