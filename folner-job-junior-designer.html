@@ -1554,15 +1554,21 @@ updateMilestones();
 
 /* ── SAB visibility ── */
 const sab=document.getElementById('sab');
-const hdr=document.querySelector(',300);
+const hdr=document.querySelector('.hdr');
+let lastScrollY=0,lastScrollT=Date.now(),scrollVel=0,prevScrollY=0;
+window.addEventListener('scroll',()=>{
+  const now=Date.now(),dy=Math.abs(window.scrollY-lastScrollY),dt=Math.max(now-lastScrollT,1);
+  scrollVel=dy/dt;lastScrollY=window.scrollY;lastScrollT=now;
+  clearTimeout(window._velReset);
+  window._velReset=setTimeout(()=>{},300);
   sab.classList.toggle('on',window.scrollY>window.innerHeight*0.5);
   const heroH=document.querySelector('.hero')?.offsetHeight||window.innerHeight;
   if(window.scrollY>heroH){
-    hdr.classList.toggle('hidden',window.scrollY>prevScrollY);
-    hdr.classList.add('s');
+    hdr&&hdr.classList.toggle('hidden',window.scrollY>prevScrollY);
+    hdr&&hdr.classList.add('s');
   } else {
-    hdr.classList.remove('hidden');
-    hdr.classList.toggle('s',window.scrollY>40);
+    hdr&&hdr.classList.remove('hidden');
+    hdr&&hdr.classList.toggle('s',window.scrollY>40);
   }
   prevScrollY=window.scrollY;
   const depF=document.getElementById('depthFar'),depM=document.getElementById('depthMid');
